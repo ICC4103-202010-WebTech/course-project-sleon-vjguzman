@@ -1,2 +1,2 @@
-class Notificacion < ApplicationRecord
+class Notification < ApplicationRecord
 end
