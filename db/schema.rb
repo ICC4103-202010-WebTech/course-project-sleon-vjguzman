@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_160136) do
+ActiveRecord::Schema.define(version: 2020_04_20_161056) do
 
   create_table "choice_of_dates", force: :cascade do |t|
     t.text "description"
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_160136) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.boolean "admin"
     t.index ["user_id"], name: "index_system_admins_on_user_id"
   end
 
