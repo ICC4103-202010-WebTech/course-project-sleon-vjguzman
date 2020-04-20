@@ -1,0 +1,2 @@
+class ChoiceOfDate < ApplicationRecord
+end

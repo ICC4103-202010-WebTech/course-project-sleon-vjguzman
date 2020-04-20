@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  location: MyString
+  final_date: 2020-04-20 10:31:12
+  creation_date: 2020-04-20 10:31:12
+
+two:
+  description: MyText
+  location: MyString
+  final_date: 2020-04-20 10:31:12
+  creation_date: 2020-04-20 10:31:12
