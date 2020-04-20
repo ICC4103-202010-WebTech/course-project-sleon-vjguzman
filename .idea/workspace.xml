@@ -3,26 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="3a43eef0-92be-4fd7-9554-89eb472603c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/choice_of_date.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/choice_of_date.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/comment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/comment.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/event.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/event_creator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event_creator.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/event_date.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event_date.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/guest_list.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/guest_list.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/mail_box.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/mail_box.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/members_list.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/members_list.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/multimedium.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/multimedium.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/notificacion.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/notification.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/organization.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/organization.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/privacy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/privacy.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/report.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/report.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/notification.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/notification.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/sent_message.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/sent_message.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/system_admin.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/system_admin.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user_administration.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user_administration.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user_invitation.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user_invitation.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/vote.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/vote.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +59,7 @@
       <workItem from="1587395598596" duration="912000" />
       <workItem from="1587397111497" duration="3668000" />
       <workItem from="1587400953193" duration="590000" />
-      <workItem from="1587401847624" duration="1611000" />
+      <workItem from="1587401847624" duration="2865000" />
     </task>
     <servers />
   </component>

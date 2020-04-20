@@ -9,5 +9,9 @@ class Event < ApplicationRecord
   has_one :Event_Creator
   has_one :Organization
   has_many :Notifications
+  validates :choice_of_date, presence:true
+  validates :privacy_type, presence:true
+  validates :organization_id, presence:true
+
 
 end
