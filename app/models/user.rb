@@ -10,16 +10,16 @@ end
 class User < ApplicationRecord
   has_many :Notifications
   has_one :User_Administration
-  has_many :Event_Creator
+  has_many :Event_Creators
   has_and_belongs_to_many :Events
   has_many :Reports
-  has_many :Members_List
-  has_many :Organizations, :through => :Members_List
-  has_many :Mail_Box
-  has_many :Sent_Message
+  has_many :Members_Lists
+  has_many :Organizations, :through => :Members_Lists
+  has_many :Mail_Boxes
+  has_many :Sent_Messages
   has_many :User_Invitations
-  has_many :Comment
-  has_many :Guest_List
+  has_many :Comments
+  has_many :Guest_Lists
   has_one :System_Admin
   validates :email, presence: true, uniqueness: true, email: true
   validates :username, presence: true, uniqueness: true
