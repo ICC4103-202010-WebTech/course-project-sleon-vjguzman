@@ -1,0 +1,19 @@
+current directory: /Users/javiguzman/Desktop/course-project-sleon-vjguzman/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.1/ext/byebug
+/Users/javiguzman/.rvm/rubies/ruby-2.7.1/bin/ruby -I /Users/javiguzman/.rvm/rubies/ruby-2.7.1/lib/ruby/site_ruby/2.7.0 -r ./siteconf20200507-72707-2svmcz.rb extconf.rb
+creating Makefile
+
+current directory: /Users/javiguzman/Desktop/course-project-sleon-vjguzman/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/javiguzman/Desktop/course-project-sleon-vjguzman/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/javiguzman/Desktop/course-project-sleon-vjguzman/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 byebug.bundle ./.gem.20200507-72707-fgelto/byebug

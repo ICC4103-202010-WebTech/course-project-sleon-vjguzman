@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a43eef0-92be-4fd7-9554-89eb472603c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/course-project-sleon-vjguzman.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/course-project-sleon-vjguzman.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +19,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1aoBaRDA0MgF1HJfxdQV1rtxmnX" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -37,6 +39,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
   </component>
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="SvnConfiguration">
@@ -61,13 +64,18 @@
       <workItem from="1587435937503" duration="3623000" />
       <workItem from="1588861604768" duration="84000" />
       <workItem from="1588861915762" duration="3467000" />
+      <workItem from="1588876100621" duration="1082000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="378" y="155" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588877068494">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="378" y="155" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1588877068494" />
     <state x="308" y="371" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587392179823">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
@@ -88,5 +96,9 @@
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state width="881" height="318" key="GridCell.Tab.0.right/67.27.1853.1173@67.27.1853.1173" timestamp="1587403449925" />
+    <state x="298" y="50" key="SettingsEditor" timestamp="1588876378515">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="298" y="50" key="SettingsEditor/0.23.1280.777@0.23.1280.777" timestamp="1588876378515" />
   </component>
 </project>
