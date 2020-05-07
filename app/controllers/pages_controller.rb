@@ -3,3 +3,4 @@ class PagesController < ApplicationController
     @upcoming_events = Event.all
   end
 end
+  
