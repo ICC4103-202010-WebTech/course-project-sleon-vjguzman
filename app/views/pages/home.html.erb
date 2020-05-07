@@ -1,1 +1,44 @@
-<h4>Club Penguin</h4>
+<h2>Upcoming Events...</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Description</th>
+    <th>Location</th>
+    <th>Final date</th>
+    <th>Type of choice of date</th>
+    <th>Privacy</th>
+    <th>Organization</th>
+  </tr>
+  </thead>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+
+  <tbody>
+  <% @upcoming_events.each do |event| %>
+    <tr>
+      <td><%= event.description %></td>
+      <td><%= event.location %></td>
+      <td><%= event.final_date %>
+      <td><%= event.choice_of_date_id %></td>
+      <td><%= event.privacy_id %></td>
+      <td><%= event.organization_id %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
