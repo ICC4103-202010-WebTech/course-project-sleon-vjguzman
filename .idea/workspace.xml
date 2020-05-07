@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a43eef0-92be-4fd7-9554-89eb472603c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/course-project-sleon-vjguzman.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/course-project-sleon-vjguzman.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
       <workItem from="1587435937503" duration="3623000" />
       <workItem from="1588861604768" duration="84000" />
       <workItem from="1588861915762" duration="3467000" />
-      <workItem from="1588876100621" duration="1082000" />
+      <workItem from="1588876100621" duration="2747000" />
     </task>
     <servers />
   </component>

@@ -6,10 +6,26 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+  <nav>
+    <ul>
+      <li>
+        <%= link_to 'Event', events_path%>
+      </li>
+      <li>
+        <%= link_to 'Profile', users_path %>
+      </li>
+      <li>
+        <%= link_to 'Organization', organizations_path %>
+      </li>
+      <li>
+        <%= link_to 'Admin', system_admins_path %>
+      </li>
+    </ul>
+  </nav>
 
   <body>
     <%= yield %>
