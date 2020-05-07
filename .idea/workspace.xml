@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a43eef0-92be-4fd7-9554-89eb472603c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/choice_of_date.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/choice_of_date.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/comment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/comment.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/event.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/event_creator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/event_creator.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/guest_list.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/guest_list.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/members_list.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/members_list.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/organization.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/organization.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/privacy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/privacy.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user_invitation.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user_invitation.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/tasks/model_queries.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/model_queries.rake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +36,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="SvnConfiguration">
@@ -68,6 +59,8 @@
       <workItem from="1587427911224" duration="3674000" />
       <workItem from="1587433380314" duration="1846000" />
       <workItem from="1587435937503" duration="3623000" />
+      <workItem from="1588861604768" duration="84000" />
+      <workItem from="1588861915762" duration="3467000" />
     </task>
     <servers />
   </component>
