@@ -5,11 +5,17 @@ class SystemAdminsController < ApplicationController
   # GET /system_admins.json
   def index
     @system_admins = SystemAdmin.all
+    @system_admin = SystemAdmin.select(:user_id).where(admin: TRUE)
+    @admins = User.where(id: @system_admin)
+
   end
 
   # GET /system_admins/1
   # GET /system_admins/1.json
   def show
+    @system_admin = SystemAdmin.select(:user_id).where(admin: TRUE)
+    @admins = User.where(id: @system_admin)
+
   end
 
   # GET /system_admins/new

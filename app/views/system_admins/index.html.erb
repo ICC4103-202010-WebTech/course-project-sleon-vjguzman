@@ -1,25 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<h1>System Admins</h1>
 
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+</style>
+<h3>Users with admin permissions</h3>
 <table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <tr>
+    <th>Username</th>
+    <th>Name</th>
+    <th>Mail</th>
 
+
+
+  </tr>
   <tbody>
-    <% @system_admins.each do |system_admin| %>
-      <tr>
-        <td><%= link_to 'Show', system_admin %></td>
-        <td><%= link_to 'Edit', edit_system_admin_path(system_admin) %></td>
-        <td><%= link_to 'Destroy', system_admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @admins.each do |x| %>
+    <tr>
+
+      <td><%= x.username %></td>
+      <td><%= x.full_name %></td>
+      <td><%= x.email %></td>
+      <td><%= link_to 'Show more', events_path(x) %></td>
+
+
+
+
+
+    </tr>
+  <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New System Admin', new_system_admin_path %>
+<%= link_to 'Edit', edit_system_admin_path(@system_admin) %> |
+<%= link_to 'Back', system_admins_path %>
