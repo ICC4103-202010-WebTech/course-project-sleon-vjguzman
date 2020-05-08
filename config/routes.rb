@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
   end
   resources :events, defaults: { format: :html }
+  resources :comments, defaults: { format: :html }
   resources :organizations, defaults: { format: :html }
   resources :system_admins, defaults: { format: :html }
   resources :users, defaults: { format: :html }

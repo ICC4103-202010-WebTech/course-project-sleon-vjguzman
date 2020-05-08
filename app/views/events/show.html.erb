@@ -35,15 +35,10 @@
       <td><%= x.description %></td>
       <td><%= x.location %></td>
       <td><%= link_to 'Show more', events_path(x) %></td>
-
-
-
-
-
+      <td><%= link_to 'Edit', edit_event_path(x) %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
-<%= link_to 'Back', events_path %>
-<%= link_to 'Edit', edit_event_path(@event) %> |
+
 <%= link_to 'Back', events_path %>

@@ -35,16 +35,13 @@
       <td><%= x.description %></td>
       <td><%= x.location %></td>
       <td><%= x.final_date %></td>
-      <td><%= link_to 'Show more', x %></td>
-
-
-
-
-
+      <td><%= link_to 'More Information', x %></td>
+      <td><%= link_to 'Edit', edit_event_path(x) %></td>
+      <td><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'See Comments', comment_path(x) %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
-<%= link_to 'Back', events_path %>
-<%= link_to 'Edit', edit_event_path(@event) %> |
+
 <%= link_to 'Back', events_path %>

@@ -1,5 +1,29 @@
 <h1>New Event</h1>
+<%= render 'form', event: @event %>
+<table>
+  <thead>
+  <tr>
+    <th> Description</th>
+    <th> Location</th>
+    <th> Choice of Date</th>
+    <th> Privacy </th>
+    <th> Organization </th>
+  </tr>
+  </thead>
 
+  <tbody>
+  <tr>
+    <td> New Description: </td>
+    <td> New Location: </td>
+    <td> Type of Choice of Date (id=> 1 is System automatically picks the date and 2 is Event Creator picks the date):</td>
+    <td> Type of Privacy (id=> 1 is Public and 2 is Private):</td>
+    <td> Id of the Organization you're part of:</td>
+    <td><%= link_to 'Save', root_path %></td>
+  </tr>
+  </tbody>
+</table>
+
+<br>
 <%= render 'form', event: @event %>
 
 <%= link_to 'Back', events_path %>
