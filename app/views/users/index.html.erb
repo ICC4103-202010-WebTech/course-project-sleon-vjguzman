@@ -42,6 +42,42 @@
   </tbody>
 </table>
 
-<br>
+<h2> You were invited to: </h2>
 
-<%= link_to 'New User', new_user_path %>
+<table>
+  <thead>
+  <tr>
+    <th> Description </th>
+    <th> Final Date </th>
+    <th> Location </th>
+    <th>  </th>
+  </tr>
+  </thead>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+  <tbody>
+  <% @invitations.each do |x| %>
+    <tr>
+      <td><%= x.description %></td>
+      <td><%= x.final_date %>
+      <td><%= x.location %></td>
+      <td><%= link_to 'View', x %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
