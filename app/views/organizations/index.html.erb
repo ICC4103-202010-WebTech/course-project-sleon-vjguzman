@@ -1,22 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Organizations</h1>
+<h1>My Organization</h1>
 
 <table>
   <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th> Name </th>
+    <th> Description </th>
+  </tr>
   </thead>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
 
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
   <tbody>
-    <% @organizations.each do |organization| %>
-      <tr>
-        <td><%= link_to 'Show', organization %></td>
-        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <tr>
+    <% @organization_user.each do |e| %>
+    <td><%= e.name %></td>
+    <td><%= e.description %></td>
     <% end %>
+  </tr>
   </tbody>
 </table>
 

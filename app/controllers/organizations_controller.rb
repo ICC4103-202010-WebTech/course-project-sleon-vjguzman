@@ -5,11 +5,15 @@ class OrganizationsController < ApplicationController
   # GET /organizations.json
   def index
     @organizations = Organization.all
+    @member = MembersList.select(:organization_id).where(user_id: 1)
+    @organization_user = Organization.where(id: @member)
   end
 
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+    @member = MembersList.select(:organization_id).where(user_id: 1)
+    @organization_user = Organization.where(id: @member)
   end
 
   # GET /organizations/new

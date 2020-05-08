@@ -1,22 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>My Profile</h1>
 
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th> Username </th>
+      <th> Full name </th>
+      <th> Short Bio </th>
+      <th> Location </th>
+      <th> Email </th>
+      <th> Password </th>
     </tr>
   </thead>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
 
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
   <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <tr>
+    <td><%= User.first.username %></td>
+    <td><%= User.first.full_name %></td>
+    <td><%= User.first.short_bio %></td>
+    <td><%= User.first.location %></td>
+    <td><%= User.first.email %></td>
+    <td><%= User.first.password %></td>
+  </tr>
   </tbody>
 </table>
 
