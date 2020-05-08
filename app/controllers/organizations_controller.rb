@@ -7,6 +7,8 @@ class OrganizationsController < ApplicationController
     @organizations = Organization.all
     @member = MembersList.select(:organization_id).where(user_id: 1)
     @organization_user = Organization.where(id: @member)
+    @id_org = Organization.where(id: @member).select(:id)
+    @eventos_org = Event.where(organization_id: @id_org)
   end
 
   # GET /organizations/1
@@ -14,6 +16,8 @@ class OrganizationsController < ApplicationController
   def show
     @member = MembersList.select(:organization_id).where(user_id: 1)
     @organization_user = Organization.where(id: @member)
+    @id_org = Organization.where(id: @member).select(:id)
+    @eventos_org = Event.where(organization_id: @id_org)
   end
 
   # GET /organizations/new

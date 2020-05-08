@@ -1,14 +1,13 @@
 <h2>Upcoming Events...</h2>
 
+
 <table>
   <thead>
   <tr>
     <th>Description</th>
-    <th>Location</th>
     <th>Final date</th>
-    <th>Type of choice of date</th>
-    <th>Privacy</th>
-    <th>Organization</th>
+    <th>Location</th>
+    <th>Show </th>
   </tr>
   </thead>
   <style>
@@ -30,14 +29,12 @@
   </style>
 
   <tbody>
-  <% @upcoming_events.each do |event| %>
+  <% @upcoming_events.each do |x| %>
     <tr>
-      <td><%= event.description %></td>
-      <td><%= event.location %></td>
-      <td><%= event.final_date %>
-      <td><%= event.choice_of_date_id %></td>
-      <td><%= event.privacy_id %></td>
-      <td><%= event.organization_id %></td>
+      <td><%= x.description %></td>
+      <td><%= x.final_date %></td>
+      <td><%= x.location %>
+      <td><%= link_to 'View', x %></td>
     </tr>
   <% end %>
   </tbody>

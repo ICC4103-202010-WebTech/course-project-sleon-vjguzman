@@ -5,12 +5,17 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @first_user = User.find(1)
+    @guest = GuestList.where(user_id: 1).select(:event_id)
+    @invitations = Event.where(id: @guest)
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
     @first_user = User.find(1)
+    @guest = GuestList.where(user_id: 1).select(:event_id)
+    @invitations = Event.where(id: @guest)
   end
 
   # GET /users/new

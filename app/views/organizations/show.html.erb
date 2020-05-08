@@ -1,4 +1,77 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+<h1>My Organization</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th> Name </th>
+    <th> Description </th>
+  </tr>
+  </thead>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+  <tbody>
+    <% @organization_user.each do |e| %>
+    <tr>
+      <td><%= e.name %></td>
+      <td><%= e.description %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h2> Events </h2>
+
+<table>
+  <thead>
+  <tr>
+    <th> Description </th>
+    <th> Location </th>
+    <th> Final Date </th>
+  </tr>
+  </thead>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+  <tbody>
+    <% @eventos_org.each do |x| %>
+    <tr>
+      <td><%= x.description %></td>
+      <td><%= x.location %></td>
+      <td><%= x.final_date %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
