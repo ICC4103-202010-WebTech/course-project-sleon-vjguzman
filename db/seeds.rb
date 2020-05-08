@@ -23,9 +23,6 @@ u3.save!
 #User #4
 u4 = User.new(username: 'thomasmayer', full_name: 'Thomas Mayenberger', short_bio: 'Hi, my name is Thomas and I like to drink beer', location: 'Las Condes', email: 'tgmayer@miuandes.cl', password: 'bier123')
 u4.save!
-#User #5
-u5 = User.new(username: 'Elzapati', full_name: 'Elsa Patito', short_bio: 'Hi, my name is Elsa', location: 'Las Condes', email: 'elzacena@miuandes.cl', password: '092391792')
-u5.save!
 
 #Organization #1
 o1 = Organization.new(name: 'UANDES', description: 'only for students of UAndes')
@@ -48,17 +45,23 @@ m2.save!
 #Organization 2
 o2 = Organization.new(name: 'Party Planners', description: 'only for people who like to party!')
 o2.save!
-#Member_List 1
+#Member_List 3
 m3 = MembersList.new(user_role: 'member')
 u3 = User.third
 o2 = Organization.second
 m3.user_id = u3.id
-m3.organization_id = o3.id
+m3.organization_id = o2.id
+m3.save!
+#Member_List 4
+m3 = MembersList.new(user_role: 'member')
+u4 = User.fourth
+o2 = Organization.second
+m3.user_id = u4.id
+m3.organization_id = o2.id
 m3.save!
 
-
 #Event #1
-e1 = Event.new(description: 'Tournament of Lol 2020', location: 'Uandes', final_date: 20200821170000, creation_date: 2020042018000)
+e1 = Event.new(description: 'Tournament of Lol 2020', location: 'Uandes', final_date: '13/12/2020 - 17:00', creation_date: '11/01/2020 - 13:00')
 o1 = Organization.first
 e1.organization_id = o1.id
 c1 = ChoiceOfDate.first
@@ -117,7 +120,7 @@ g1.event_id = e1.id
 g2.save!
 
 #Event #2
-e2 = Event.new(description: 'party',  location: 'Los Andes', final_date: 20200821170000, creation_date: 2020042018000)
+e2 = Event.new(description: 'party',  location: 'Los Andes', final_date: '13/12/2020 - 17:00', creation_date: '11/10/2020 - 13:00')
 o1 = Organization.first
 c2 = ChoiceOfDate.second
 p2 = Privacy.second
@@ -155,7 +158,7 @@ g3.event_id = e2.id
 g3.save!
 
 #Event #3
-e3 = Event.new(description: 'beer tasting',  location: 'Card Belarmino 1212', final_date: 20200821170000, creation_date: 2020042018000)
+e3 = Event.new(description: 'beer tasting',  location: 'Card Belarmino 1212', final_date: '01/08/2020 - 18:00', creation_date: '04/05/2020 - 13:00')
 o1 = Organization.first
 c2 = ChoiceOfDate.second
 p2 = Privacy.second
@@ -171,6 +174,48 @@ u1 = User.first
 c3.user_id = u1.id
 c3.event_id = e3.id
 c3.save!
+
+#Event #4
+e4 = Event.new(description: 'pool party',  location: 'casa vero', final_date: '11/01/2021 - 17:00', creation_date: '01/07/2019 - 18:00')
+o1 = Organization.first
+c1 = ChoiceOfDate.first
+p1 = Privacy.first
+e4.organization_id = o1.id
+e4.choice_of_date_id = c1.id
+e4.privacy_id = p1.id
+e4.save!
+#Event_Creator #4
+c4 = EventCreator.new()
+e4 = Event.fourth
+u1 = User.first
+c4.user_id = u1.id
+c4.event_id = e4.id
+c4.save!
+
+#Event #5
+e5 = Event.new(description: 'Cumpleaños Luna',  location: 'Casa Santi', final_date: '12/01/2020 - 17:00', creation_date: '11/10/2019 - 13:00')
+o1 = Organization.first
+c1 = ChoiceOfDate.first
+p1 = Privacy.first
+e5.organization_id = o1.id
+e5.choice_of_date_id = c1.id
+e5.privacy_id = p1.id
+e5.save!
+#Event_Creator #5
+c5 = EventCreator.new()
+e5 = Event.fifth
+u3 = User.third
+c5.user_id = u3.id
+c5.event_id = e5.id
+c5.save!
+
+#Guest_List 5
+g5 = GuestList.new()
+u1 = User.first
+e5 = Event.fifth
+g5.user_id = u1.id
+g5.event_id = e5.id
+g5.save!
 
 #System_Admin #1
 s1 = SystemAdmin.new(admin: true)
