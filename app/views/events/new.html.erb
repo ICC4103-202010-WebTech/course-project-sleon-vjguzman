@@ -1,23 +1,39 @@
 <h1>New Event</h1>
-<%= render 'form', event: @event %>
+<h2><%= render 'form', event: @event %></h2>
 <table>
   <thead>
   <tr>
     <th> Description</th>
     <th> Location</th>
-    <th> Choice of Date</th>
-    <th> Privacy </th>
-    <th> Organization </th>
+    <th> Type of Choice of Date</th>
+    <th> Type of Privacy </th>
+    <th> Id Organization you're part of</th>
   </tr>
   </thead>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
 
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
   <tbody>
   <tr>
-    <td> New Description: </td>
-    <td> New Location: </td>
-    <td> Type of Choice of Date (id=> 1 is System automatically picks the date and 2 is Event Creator picks the date):</td>
-    <td> Type of Privacy (id=> 1 is Public and 2 is Private):</td>
-    <td> Id of the Organization you're part of:</td>
+    <td> New Description  <p><input type="text" name="Description"></p></td>
+    <td> New Location  <p><input type="text" name="Location"></p></td>
+    <td> Id (1 -> System, 2 -> Yourself) <p><input type="text" name="Choice of Date"></p></td>
+    <td> Id (1 -> Public, 2 -> Private) <p><input type="text" name="Privacy"></p></td>
+    <td> Organization <p><input type="text" name="Organization"></p></td>
     <td><%= link_to 'Save', root_path %></td>
   </tr>
   </tbody>

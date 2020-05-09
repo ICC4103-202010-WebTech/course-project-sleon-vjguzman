@@ -1,22 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<style>
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-</style>
 <table>
   <h3>Usuario: <%=@user.full_name%> </h3>
   <tr>
@@ -28,21 +11,37 @@
 
 
   </tr>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
   <tbody>
   <% @eventos.each do |x| %>
     <tr>
-
       <td><%= x.description %></td>
       <td><%= x.location %></td>
       <td><%= x.final_date %></td>
       <td><%= link_to 'More Information', x %></td>
-      <td><%= link_to 'See Comments', comment_path(x.id) %></td>
+      <td><%= link_to 'See Comments', comment_path(x) %></td>
       <td><%= link_to 'Edit', edit_event_path(x) %></td>
       <td><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
     </tr>
   <% end %>
   </tbody>
 </table>
+<h4><%= link_to 'New Event', new_event_path %></h4>
+<h4><%= link_to 'Back', events_path %></h4>
 
-<%= link_to 'Back', events_path %>
