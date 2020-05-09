@@ -23,8 +23,8 @@
 
     <th>Description</th>
     <th>Location</th>
+    <th> Final Date </th>
     <th>Show</th>
-
 
 
   </tr>
@@ -34,8 +34,12 @@
 
       <td><%= x.description %></td>
       <td><%= x.location %></td>
-      <td><%= link_to 'Show more', events_path(x) %></td>
+      <td><%= x.final_date %></td>
+      <td><%= link_to 'More Information', x %></td>
+      <td><%= link_to 'See Comments', comment_path(x.id) %></td>
       <td><%= link_to 'Edit', edit_event_path(x) %></td>
+      <td><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
     </tr>
   <% end %>
   </tbody>
