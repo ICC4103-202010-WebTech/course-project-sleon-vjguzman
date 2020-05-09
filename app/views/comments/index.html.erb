@@ -14,7 +14,7 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.message %></td>
-        <td><%= comment.user.fullname %></td>
+        <td><%= comment.user_id %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -24,4 +24,5 @@
 
 <br>
 
-<%= link_to 'New Comment', new_comment_path %>
+<h3><%= link_to 'New Comment', new_comment_path %></h3>
+<h3><%= link_to 'Back', event_path %></h3>

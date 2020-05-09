@@ -29,12 +29,12 @@
   <% @comments.each do |comment| %>
     <tr>
       <td><%= comment.message %></td>
-      <td><%= comment.user.full_name %></td>
+      <td><%= comment.user_id %></td>
       <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
       <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
-
-<%= link_to 'Back', comments_path %>
+<%= link_to 'New Comment', new_comment_path %>
+<%= link_to 'Back', events_path %>

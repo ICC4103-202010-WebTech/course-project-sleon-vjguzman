@@ -4,13 +4,15 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.where(event_id: params[:event_id])
+    @get_id = Event.where(id: params[:id]).select(:id)
+    @comments = Comment.where(event_id: @get_id)
   end
 
   # GET /comments/1
   # GET /comments/1.json
   def show
-    @comments = Comment.where(event_id: params[:event_id])
+    @get_id = Event.where(id: params[:id]).select(:id)
+    @comments = Comment.where(event_id: @get_id)
   end
 
   # GET /comments/new
