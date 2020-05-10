@@ -11,7 +11,7 @@ As above, we have the Events directly associated with Organization through a FK 
 <br/>
 
 //Assignment 2// <br/>
-> Summary of implemented features.<br/>
+* Summary of implemented features.<br/>
     We implemented features for the important sections of the site, like Events, Organizations, User, Comment, System_Admin,       for that we do the following things<br/>
     1. We make the appropriate routes and nested routes for all of the sections just like we did in the lab assignment 7 also        we put a root route of the application point to pages#home.<br/>
     2. We make the controller for all of the sections and one for the home page named PagesController that just have the home        action.<br/>
@@ -22,6 +22,6 @@ As above, we have the Events directly associated with Organization through a FK 
     7. We ensure that the HTML and CSS views complies with web standards, so we use validations services provided by W3C.<br/>
     8. Finally we investigate about the Bootstrap in order to implement a layout for the web application.<br/>
     
-> Summary of features required in the assignment but pending.
+* Summary of features required in the assignment but pending.
 
-> API Tests, which should include links to your Postman collection containing tests for your APIs. 
+* API Tests, which should include links to your Postman collection containing tests for your APIs. 
