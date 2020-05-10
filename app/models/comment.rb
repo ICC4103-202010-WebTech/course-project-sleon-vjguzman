@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
-  has_many :Users
-  has_many :Events
+  has_one :User
+  has_one :Event
   validates :event_id, presence:true
   validates :user_id, presence:true
 
