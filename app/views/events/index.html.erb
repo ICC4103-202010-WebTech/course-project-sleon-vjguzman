@@ -1,15 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-
+<h3>User: <%=@user.full_name%> </h3>
+<br/>
 <table>
-  <h3>Usuario: <%=@user.full_name%> </h3>
   <tr>
-
     <th>Description</th>
     <th>Location</th>
     <th> Final Date </th>
-    <th>Show</th>
-
 
   </tr>
   <style>
@@ -36,7 +33,7 @@
       <td><%= x.description %></td>
       <td><%= x.location %></td>
       <td><%= x.final_date %></td>
-      <td><%= link_to 'More Information', x %></td>
+      <td><%= link_to 'See Event Page',event_path(x) %></td>
       <td><%= link_to 'See Comments', comment_path(x) %></td>
       <td><%= link_to 'Edit', edit_event_path(x) %></td>
       <td><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -44,5 +41,8 @@
   <% end %>
   </tbody>
 </table>
-<h4><%= link_to 'New Event', new_event_path %></h4>
-<h4><%= link_to 'Back', events_path %></h4>
+
+<br/>
+<h6 align="center"><%= link_to 'New Event', new_event_path %></h6>
+<h6 align="center"><%= link_to 'Back', events_path %></h6>
+

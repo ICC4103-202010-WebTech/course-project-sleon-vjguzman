@@ -1,16 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>My Profile</h1>
-
+<h2 align="left"><%= @first_user.full_name %></h2>
+<h5 align="right"> <%= link_to 'Edit Profile', edit_user_path(@first_user) %></h5>
+<h5 align="right"> <%= link_to 'See Details', user_path(@first_user) %></h5>
 <table>
   <thead>
     <tr>
       <th> Username </th>
-      <th> Full name </th>
       <th> Short Bio </th>
       <th> Location </th>
-      <th> Email </th>
-      <th> Password </th>
+      <th> Belongs to </th>
     </tr>
   </thead>
   <style>
@@ -32,17 +31,16 @@
   </style>
   <tbody>
   <tr>
-    <td><%= User.first.username %></td>
-    <td><%= User.first.full_name %></td>
-    <td><%= User.first.short_bio %></td>
-    <td><%= User.first.location %></td>
-    <td><%= User.first.email %></td>
-    <td><%= User.first.password %></td>
+    <td><%= @first_user.username %></td>
+    <td><%= @first_user.short_bio %></td>
+    <td><%= @first_user.location %></td>
+    <td><%= Organization.where(id: @user_member).select(:name).first.name %></td>
   </tr>
   </tbody>
 </table>
+<br/>
 
-<h2> You were invited to: </h2>
+<h3> You were invited to: </h3>
 
 <table>
   <thead>

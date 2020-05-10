@@ -1,15 +1,12 @@
 <p id="notice"><%= notice %></p>
+<h2 align="center"><%= @event_name.first.description%> </h2>
+<br/>
 
 <table>
-  <h3>Usuario: <%=@user.full_name%> </h3>
   <tr>
-
-    <th>Description</th>
+    <th>Final Date </th>
     <th>Location</th>
-    <th> Final Date </th>
-    <th>Show</th>
-
-
+    <th>Created by</th>
   </tr>
   <style>
     table {
@@ -29,19 +26,18 @@
     }
   </style>
   <tbody>
-  <% @eventos.each do |x| %>
     <tr>
-      <td><%= x.description %></td>
-      <td><%= x.location %></td>
-      <td><%= x.final_date %></td>
-      <td><%= link_to 'More Information', x %></td>
-      <td><%= link_to 'See Comments', comment_path(x) %></td>
-      <td><%= link_to 'Edit', edit_event_path(x) %></td>
-      <td><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= @event_date.first.final_date %></td>
+      <td><%= @event_location.first.location %></td>
+      <td><%= @user.full_name %></td>
     </tr>
-  <% end %>
   </tbody>
 </table>
-<h4><%= link_to 'New Event', new_event_path %></h4>
-<h4><%= link_to 'Back', events_path %></h4>
+<br/>
+<h5 align="center"><%= link_to 'See Comments', comments_path(@event) %></h5>
+<h5 align="center"><%= link_to 'View Videos', event_path %></h5>
+<h5 align="center"><%= link_to 'View File Attachment', event_path %></h5>
+<h5 align="center"><%= link_to 'View Photos', event_path %></h5>
+<br/>
+<h6 align="center"><%= link_to 'Back', events_path %></h6>
 

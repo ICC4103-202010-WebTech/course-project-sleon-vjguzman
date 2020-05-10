@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Comments</h1>
+<h3>Comments</h3>
+<br/>
 
 <table>
   <thead>
@@ -14,7 +15,7 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.message %></td>
-        <td><%= comment.user_id %></td>
+        <td><%= User.select(:username).where(id: comment.user_id).first.username%></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -25,4 +26,4 @@
 <br>
 
 <h3><%= link_to 'New Comment', new_comment_path %></h3>
-<h3><%= link_to 'Back', event_path %></h3>
+
