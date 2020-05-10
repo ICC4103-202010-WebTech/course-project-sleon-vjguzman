@@ -12,15 +12,15 @@ As above, we have the Events directly associated with Organization through a FK 
 
 //Assignment 2// <br/>
 1 > Summary of implemented features.
-    We implemented features for the important sections of the site, like Events, Organizations, User, Comment, System_Admin,       for that we do the following things
-    1. We make the appropriate routes and nested routes for all of the sections just like we did in the lab assignment 7 also        we put a root route of the application point to pages#home.
-    2. We make the controller for all of the sections and one for the home page named PagesController that just have the home        action.
-    3. We implement APIs to perform CRUD operations on Event and Comments, like destroy, create, read and update. For this we        had to work with the files edit, destroy, new in the views of Event and Comment.
-    4. We create a collection of request in Postman to test the API operations.
-    5. Then we make the HTML for all of the sections trying to follow the wireframes prototypes we made for the assignment            1.1. We make everything like tables because we think it’s more organized to see all the things in the db, also we make        a navigation bar to make it easier to access the other sections.
-    6. We also put more things in the bd (in the seeds.rb file), like Events, Organizations, Users, Comments on Events,               System_Admins, so we populated the database with more resources.
-    7. We ensure that the HTML and CSS views complies with web standards, so we use validations services provided by W3C.
-    8. Finally we investigate about the Bootstrap in order to implement a layout for the web application.
+    We implemented features for the important sections of the site, like Events, Organizations, User, Comment, System_Admin,       for that we do the following things<br/>
+    1. We make the appropriate routes and nested routes for all of the sections just like we did in the lab assignment 7 also        we put a root route of the application point to pages#home.<br/>
+    2. We make the controller for all of the sections and one for the home page named PagesController that just have the home        action.<br/>
+    3. We implement APIs to perform CRUD operations on Event and Comments, like destroy, create, read and update. For this we        had to work with the files edit, destroy, new in the views of Event and Comment.<br/>
+    4. We create a collection of request in Postman to test the API operations.<br/>
+    5. Then we make the HTML for all of the sections trying to follow the wireframes prototypes we made for the assignment            1.1. We make everything like tables because we think it’s more organized to see all the things in the db, also we make        a navigation bar to make it easier to access the other sections.<br/>
+    6. We also put more things in the bd (in the seeds.rb file), like Events, Organizations, Users, Comments on Events,               System_Admins, so we populated the database with more resources.<br/>
+    7. We ensure that the HTML and CSS views complies with web standards, so we use validations services provided by W3C.<br/>
+    8. Finally we investigate about the Bootstrap in order to implement a layout for the web application.<br/>
     
 2 > Summary of features required in the assignment but pending.
 
