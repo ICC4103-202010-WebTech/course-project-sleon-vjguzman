@@ -9,6 +9,8 @@ class OrganizationsController < ApplicationController
     @organization_user = Organization.where(id: @member)
     @id_org = Organization.where(id: @member).select(:id)
     @eventos_org = Event.where(organization_id: @id_org)
+    @id = Organization.where(id: @member).select(:id).first.id
+    @members_org = MembersList.where(organization_id: @id)
   end
 
   # GET /organizations/1
@@ -18,6 +20,8 @@ class OrganizationsController < ApplicationController
     @organization_user = Organization.where(id: @member)
     @id_org = Organization.where(id: @member).select(:id)
     @eventos_org = Event.where(organization_id: @id_org)
+    @id = Organization.where(id: @member).select(:id).first.id
+    @members_org = MembersList.where(organization_id: @id)
   end
 
   # GET /organizations/new

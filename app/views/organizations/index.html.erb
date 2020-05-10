@@ -1,44 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>My Organization</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th> Name </th>
-    <th> Description </th>
-  </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
-  <tbody>
-  <% @organization_user.each do |e| %>
-    <tr>
-      <td><%= e.name %></td>
-      <td><%= e.description %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
+<h2 align="left"><%= @organization_user.first.name %></h2>
+<h4 align="left"><%= @organization_user.first.description %></h4>
+<h5 align="right"> <%= link_to 'See Members', organization_path(@id) %></h5>
+<br>
 <br>
 
-<h2> Events of the Organization </h2>
+<h3> Events of the Organization </h3>
 
 <table>
   <thead>

@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
-
-<h1>My Organization</h1>
+<h2 align="left"><%= @organization_user.first.name %></h2>
+<h2 align="center"> Members </h2>
+<br/>
 
 <table>
   <thead>
   <tr>
-    <th> Name </th>
-    <th> Description </th>
+    <th> User </th>
+    <th> Role </th>
   </tr>
   </thead>
   <style>
@@ -27,51 +28,14 @@
     }
   </style>
   <tbody>
-    <% @organization_user.each do |e| %>
+  <% @members_org.each do |x| %>
     <tr>
-      <td><%= e.name %></td>
-      <td><%= e.description %></td>
+      <td><%= User.select(:username).where(id: x.user_id).first.username %></td>
+      <td><%= x.user_role %></td>
     </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
-<br>
-
-<h2> Events of the Organization </h2>
-
-<table>
-  <thead>
-  <tr>
-    <th> Description </th>
-    <th> Location </th>
-    <th> Final Date </th>
-  </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
-  <tbody>
-    <% @eventos_org.each do |x| %>
-    <tr>
-      <td><%= x.description %></td>
-      <td><%= x.location %></td>
-      <td><%= x.final_date %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<br/>
+<h6 align="center"><%= link_to 'Back', organizations_path %></h6>

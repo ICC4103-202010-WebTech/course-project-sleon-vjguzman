@@ -1,15 +1,12 @@
 <p id="notice"><%= notice %></p>
-<h1>My Profile</h1>
 
+<h3 align="left"> Details of the User: <%= @first_user.full_name %> </h3>
+<br/>
 <table>
   <thead>
   <tr>
-    <th> Username </th>
-    <th> Full name </th>
-    <th> Short Bio </th>
-    <th> Location </th>
     <th> Email </th>
-    <th> Password </th>
+    <th> Password</th>
   </tr>
   </thead>
   <style>
@@ -31,53 +28,11 @@
   </style>
   <tbody>
   <tr>
-    <td><%= User.first.username %></td>
-    <td><%= User.first.full_name %></td>
-    <td><%= User.first.short_bio %></td>
-    <td><%= User.first.location %></td>
-    <td><%= User.first.email %></td>
-    <td><%= User.first.password %></td>
+    <td><%= @first_user.email %></td>
+    <td><%= @first_user.password %></td>
+    <td><%= link_to 'Edit', edit_user_path(@first_user) %></td>
   </tr>
   </tbody>
 </table>
-
-<br>
-
-<h2> You were invited to: </h2>
-
-<table>
-  <thead>
-  <tr>
-    <th> Description </th>
-    <th> Final Date </th>
-    <th> Location </th>
-  </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
-  <tbody>
-  <% @invitations.each do |x| %>
-  <tr>
-    <td><%= x.description %></td>
-    <td><%= x.final_date %>
-    <td><%= x.location %></td>
-    <td><%= link_to 'View', x %></td>
-  </tr>
-  <% end %>
-  </tbody>
-</table>
+<br/>
+<h6 align="center"><%= link_to 'Back', users_path %></h6>

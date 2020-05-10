@@ -7,7 +7,11 @@ class EventsController < ApplicationController
     @user = User.first
     @user_events = EventCreator.where(user_id: @user)
     @eventos = Event.where(id: @user_events)
-
+    @get_id = Event.where(id: params[:id]).select(:id)
+    @event_name = Event.where(id: @get_id).select(:description)
+    @event_date = Event.where(id: @get_id).select(:final_date)
+    @event_location = Event.where(id: @get_id).select(:location)
+    @event_id = Event.where(id: @get_id)
   end
 
   # GET /events/1
@@ -16,6 +20,11 @@ class EventsController < ApplicationController
     @user = User.first
     @user_events = EventCreator.where(user_id: @user)
     @eventos = Event.where(id: @user_events)
+    @get_id = Event.where(id: params[:id]).select(:id)
+    @event_name = Event.where(id: @get_id).select(:description)
+    @event_date = Event.where(id: @get_id).select(:final_date)
+    @event_location = Event.where(id: @get_id).select(:location)
+    @event = Event.where(id: @get_id)
   end
 
   # GET /events/new

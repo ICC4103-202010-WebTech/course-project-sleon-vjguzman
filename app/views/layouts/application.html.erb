@@ -27,8 +27,9 @@
       }
     </style>
     <title>Supreme Events</title>
-    <h1><%= link_to 'Supreme Events', root_path %></h1>
-
+    <h1 align="center"><%= link_to 'Supreme Events', root_path %></h1>
+    <h5 align="right"> <%=User.first.full_name%> </h5>
+    <h5 align="right"> Log out </h5>
     <%= csrf_meta_tags %>
 
     <%= csp_meta_tag %>
@@ -48,10 +49,10 @@
         <%= link_to 'Organization', organizations_path %>
       </li>
       <li>
-        <%= link_to 'Mail Box', system_admins_path %> #No funcional todavia
+        <%= link_to 'Mail Box', root_path %> #
       </li>
       <li>
-        <%= link_to 'Configurations', system_admins_path %> #No funcional todavia
+        <%= link_to 'Configurations', root_path %> #
       </li>
       <li>
         <%= link_to 'Admin', system_admins_path %>
