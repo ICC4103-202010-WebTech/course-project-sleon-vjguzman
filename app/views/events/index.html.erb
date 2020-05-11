@@ -9,10 +9,10 @@
       <h4><%= x.description %></h4>
       <h4><%= x.location %></h4>
       <h4><%= x.final_date %></h4>
-      <button class="btn success"><%= link_to 'See Event Page',event_path(x) %></button>
-      <button class="btn info"><%= link_to 'See Comments', comment_path(x) %></button>
-      <button class="btn warning"><%= link_to 'Edit', edit_event_path(x) %></button>
-      <button class="btn danger"><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        <button class="btn success"><%= link_to 'See Event Page',event_path(x) %></button>
+        <button class="btn info"><%= link_to 'See Comments', comment_path(x) %></button>
+        <button class="btn warning"><%= link_to 'Edit', edit_event_path(x) %></button>
+        <button class="btn danger"><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
     </div>
   <% end %>
 

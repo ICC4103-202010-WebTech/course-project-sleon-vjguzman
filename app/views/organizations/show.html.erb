@@ -8,8 +8,8 @@
 <h2 class="membersh2-1"> Members </h2>
   <% @members_org.each do |x| %>
   <div class="membersdiv">
-    <h4 class="membersh4-1"> Username:<%= User.select(:username).where(id: x.user_id).first.username %></h4>
-    <h4 class="membersh4-1"> Role:<%= x.user_role %></h4>
+    <h4 class="membersh4-1"> Username: <%= User.select(:username).where(id: x.user_id).first.username %></h4>
+    <h4 class="membersh4-1"> Role: <%= x.user_role %></h4>
   </div>
   <% end %>
 

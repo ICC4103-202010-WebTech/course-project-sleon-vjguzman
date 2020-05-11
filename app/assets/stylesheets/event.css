@@ -1,5 +1,9 @@
 h3{
+    margin-top: 1cm;
     text-align: center;
+}
+h4 {
+    margin-left: 12cm;
 }
 .btn {
     border: 1px solid black;
@@ -9,6 +13,7 @@ h3{
     cursor: pointer;
     display: inline-block;
     width: 17%;
+    margin-left: 1cm;
 }
 
 /* Green */
