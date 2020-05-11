@@ -1,4 +1,4 @@
-button {
+.botondivprofile {
     background-color: white;
     border: none;
     color: black;
@@ -8,7 +8,7 @@ button {
     margin-right: 1cm;
     margin-left: 22cm;
 }
-div {
+.divprofile {
     background-color: lightgrey;
     background-size: 900px;
     width: 1000px;
@@ -25,12 +25,12 @@ div {
     margin-left: 12cm;
     margin-right: 3cm;
 }
-h4 {
+.h4profile {
     color: black;
     margin-left: 12cm;
     margin-right: 1.5cm;
 }
-aside {
+.asideprofile {
     width: 30%;
     padding: 10px 24px;
     margin-right: 1.5cm;
@@ -40,14 +40,14 @@ aside {
     background-color: white;
 }
 
-h3 {
+.h3profile {
     color: black;
     width: 200px;
     margin: 15px;
     margin-left: 4cm;
     margin-right: 3cm;
 }
-.asideboton {
+.botonasideprofile {
     background-color: white;
     border: none;
     color: black;
@@ -56,4 +56,14 @@ h3 {
     font-size: 16px;
     margin-right: 1cm;
     margin-left: 1cm;
+}
+.botondivprofile {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 1cm;
+    margin-left: 22cm;
 }
