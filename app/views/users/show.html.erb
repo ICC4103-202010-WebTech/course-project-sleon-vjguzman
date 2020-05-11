@@ -1,10 +1,17 @@
 <p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'seedetails-profile'%>
-<h3 align="center"> <%= @first_user.full_name %> </h3>
-  <div>
-    <h4> Email: <%= @first_user.email %></h4>
-    <h4> Password: <%= @first_user.password %></h4>
-    <button><%= link_to 'Edit', edit_user_path(@first_user) %></button>
-  </div>
+
+<h2 class="h2details"> <%= @first_user.full_name %> </h2>
+
+    <h4 class="h4details"><%= @first_user.username %></h4>
+    <h4 class="h4details"><%= @first_user.short_bio %></h4>
+    <h4 class="h4details"><%= @first_user.location %></h4>
+    <h4 class="h4details"><%= Organization.where(id: @user_member).select(:name).first.name %></h4>
 <br/>
+    <h4 class="h4details2"> Email: <%= @first_user.email %></h4>
+    <h4 class="h4details2"> Password: <%= @first_user.password %></h4>
+    <button class="buttondetails"><%= link_to 'Edit', edit_user_path(@first_user) %></button>
+
+<br/>
+
 <button class="back"><%= link_to 'Back', users_path %></button>

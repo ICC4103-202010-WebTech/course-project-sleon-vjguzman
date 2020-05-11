@@ -1,6 +1,6 @@
 .botondivprofile {
     background-color: white;
-    border: none;
+    border: 0.5px solid black;
     color: black;
     padding: 12px 28px;
     text-align: center;
@@ -12,10 +12,11 @@
     background-color: lightgrey;
     background-size: 900px;
     width: 1000px;
-    padding: 15px;
+    padding: 16px;
     margin: 15px;
     margin-left: 4cm;
     margin-right: 3cm;
+
 }
 .h2profile {
     background-color: darkred;
@@ -24,6 +25,7 @@
     margin: 15px;
     margin-left: 12cm;
     margin-right: 3cm;
+    text-align: center;
 }
 .h4profile {
     color: black;
@@ -40,30 +42,20 @@
     background-color: white;
 }
 
-.h3profile {
+.h2profile2 {
     color: black;
-    width: 200px;
     margin: 15px;
     margin-left: 4cm;
     margin-right: 3cm;
 }
 .botonasideprofile {
     background-color: white;
-    border: none;
+    border: 0.5px solid black;
     color: black;
     padding: 12px 28px;
     text-align: center;
     font-size: 16px;
     margin-right: 1cm;
+    margin-top: 1cm;
     margin-left: 1cm;
-}
-.botondivprofile {
-    background-color: white;
-    border: none;
-    color: black;
-    padding: 12px 28px;
-    text-align: center;
-    font-size: 16px;
-    margin-right: 1cm;
-    margin-left: 22cm;
 }

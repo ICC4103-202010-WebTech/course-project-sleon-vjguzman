@@ -1,4 +1,4 @@
-div {
+.divorganization {
     background-color: lightgrey;
     background-size: 900px;
     width: 1000px;
@@ -8,12 +8,18 @@ div {
     margin-right: 3cm;
 }
 .organizationh2{
-    color: black;
-    margin-left: 4cm;
+    background-color: darkred;
+    color: white;
+    width: 200px;
+    margin: 15px;
+    margin-left: 12cm;
+    margin-right: 3cm;
+    text-align: center;
+    margin-top: 1cm;
 }
 .botonorganizacion {
     background-color: white;
-    border: none;
+    border: 0.5px solid black;
     color: black;
     padding: 12px 28px;
     text-align: center;
@@ -22,11 +28,37 @@ div {
     margin-left: 22cm;
 }
 
-.organizationh4h4{
+.organizationh4{
     color: black;
+    margin-left: 12cm;
+}
+.organizationh4-1 {
+    color: black;
+    margin-left: 12cm;
+}
+.organizationh2-1 {
+    color: black;
+    text-align: left;
+    margin-top: 1cm;
     margin-left: 4cm;
 }
-.organizationh3 {
+.botonorganizacion {
+    background-color: white;
+    border: 0.5px solid black;
     color: black;
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 1cm;
+    margin-left: 22cm;
+}
+.organizationh3-2 {
+    background-color: darkred;
+    color: white;
+    width: 200px;
+    margin: 15px;
     margin-left: 4cm;
+    margin-right: 3cm;
+    text-align: center;
+    margin-top: 1cm;
 }

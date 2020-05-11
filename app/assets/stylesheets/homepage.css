@@ -1,13 +1,15 @@
 .homeh2 {
     margin-top: 1cm;
     color: black;
-    text-align: center;
+    text-align: left;
+    margin-left: 4cm;
 }
 
 .homeh4{
     color: black;
-    margin-left: 1cm;
     size: 10px;
+    margin-left: 12cm;
+    margin-right: 1.5cm;
 }
 
 .buttonhome {
@@ -22,7 +24,7 @@
 }
 .homeh5{
     color: black;
-    margin-left: 1cm;
+    margin-left: 12cm;
     margin-right: 1.5cm;
 }
 

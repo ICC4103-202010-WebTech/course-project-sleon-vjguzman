@@ -1,20 +1,15 @@
-h3 {
-    color: black;
+.h2details {
+    background-color: darkred;
+    color: white;
     width: 200px;
     margin: 15px;
-    margin-left: 4cm;
+    margin-left: 12cm;
     margin-right: 3cm;
+    text-align: center;
+    margin-top: 1cm;
 }
-div {
-    background-color: lightgrey;
-    background-size: 900px;
-    width: 1000px;
-    padding: 15px;
-    margin: 15px;
-    margin-left: 4cm;
-    margin-right: 3cm;
-}
-button {
+
+.buttondetails {
     background-color: white;
     border: 0.5px solid black;
     color: black;
@@ -24,13 +19,23 @@ button {
     margin-right: 1cm;
     margin-left: 24cm;
     display: block;
-    margin-bottom: 4px;
 }
-h4 {
+.h4details {
     color: black;
-    margin-left: 1cm;
+    margin-left: 12cm;
     margin-right: 1.5cm;
 }
 .back {
-    margin-left: 17cm;
+    background-color: white;
+    border: 0.5px solid black;
+    color: black;
+    padding: 10px 24px;
+    text-align: center;
+    font-size: 16px;
+    margin-left: 24cm;
+}
+.h4details2{
+    color: black;
+    margin-left: 4cm;
+    margin-right: 1.5cm;
 }

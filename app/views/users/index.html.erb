@@ -2,7 +2,7 @@
 <%= stylesheet_link_tag 'profile'%>
 <br/>
 
-<h2 class="h2profile",align="center"><%= @first_user.full_name %></h2>
+<h2 class="h2profile"><%= @first_user.full_name %></h2>
 <aside class="asideprofile">
   <button class="botonasideprofile"> <%= link_to 'Edit Profile', edit_user_path(@first_user) %></button>
   <button class="botonasideprofile"> <%= link_to 'See Details', user_path(@first_user) %></button>
@@ -13,7 +13,7 @@
   <h4 class="h4profile"><%= Organization.where(id: @user_member).select(:name).first.name %></h4>
 <br/>
 
-<h3 class="h3profile"> You were invited to: </h3>
+<h2 class="h2profile2"> You were invited to: </h2>
 
   <% @invitations.each do |x| %>
     <div class="divprofile">

@@ -1,41 +1,17 @@
 <p id="notice"><%= notice %></p>
-<h2 align="left"> Organization: <%= @organization_user.first.name %></h2>
-<h2 align="center"> Members </h2>
-<br/>
+<%= stylesheet_link_tag 'members'%>
+<h2 class="membersh2" align="left"><%= @organization_user.first.name %></h2>
+<h4 class="membersh4",align="left"><%= @organization_user.first.description %></h4>
+<h3 class="membersh3"> ADMIN: <%= User.where(id: @admin.first.user_id).select(:username).first.username %></h3>
+<br>
 
-<table>
-  <thead>
-  <tr>
-    <th> User </th>
-    <th> Role </th>
-  </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
-  <tbody>
+<h2 class="membersh2-1"> Members </h2>
   <% @members_org.each do |x| %>
-    <tr>
-      <td><%= User.select(:username).where(id: x.user_id).first.username %></td>
-      <td><%= x.user_role %></td>
-    </tr>
+  <div class="membersdiv">
+    <h4 class="membersh4-1"> Username:<%= User.select(:username).where(id: x.user_id).first.username %></h4>
+    <h4 class="membersh4-1"> Role:<%= x.user_role %></h4>
+  </div>
   <% end %>
-  </tbody>
-</table>
 
 <br/>
-<h6 align="center"><%= link_to 'Back', organizations_path %></h6>
+<button class="botonmembers"><%= link_to 'Back', organizations_path %></button>

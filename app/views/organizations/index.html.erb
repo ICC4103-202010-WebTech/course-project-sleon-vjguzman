@@ -2,16 +2,17 @@
 <%= stylesheet_link_tag 'organization'%>
 <h2 class="organizationh2" align="left"><%= @organization_user.first.name %></h2>
 <h4 class="organizationh4",align="left"><%= @organization_user.first.description %></h4>
+<h3 class="organizationh3-2"> ADMIN: <%= User.where(id: @admin.first.user_id).select(:username).first.username %></h3>
 <button class="botonorganizacion"> <%= link_to 'See Members', organization_path(@id) %></button>
 <br>
 
-
-<h3 class="organizationh3"> Events of the Organization </h3>
+<h2 class="organizationh2-1"> Events of the Organization </h2>
 
   <% @eventos_org.each do |x| %>
-    <div>
-      <h3 class="organizationh3"><%= x.description %></h3>
-      <h3 class="organizationh3"><%= x.location %></h3>
-      <h3 class="organizationh3"><%= x.final_date %></h3>
+    <div class="divorganization">
+      <h4 class="organizationh4-1"><%= x.description %></h4>
+      <h4 class="organizationh4-1"><%= x.location %></h4>
+      <h4 class="organizationh4-1"><%= x.final_date %></h4>
+      <button class="botonorganizacion"><%= link_to 'View', event_path(x) %></button>
     </div>
   <% end %>

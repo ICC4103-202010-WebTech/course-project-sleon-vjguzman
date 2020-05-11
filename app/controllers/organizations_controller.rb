@@ -11,6 +11,7 @@ class OrganizationsController < ApplicationController
     @eventos_org = Event.where(organization_id: @id_org)
     @id = Organization.where(id: @member).select(:id).first.id
     @members_org = MembersList.where(organization_id: @id)
+    @admin = MembersList.where(organization_id: @id).where(user_role: "admin")
   end
 
   # GET /organizations/1
@@ -22,6 +23,7 @@ class OrganizationsController < ApplicationController
     @eventos_org = Event.where(organization_id: @id_org)
     @id = Organization.where(id: @member).select(:id).first.id
     @members_org = MembersList.where(organization_id: @id)
+    @admin = MembersList.where(organization_id: @id).where(user_role: "admin")
   end
 
   # GET /organizations/new
