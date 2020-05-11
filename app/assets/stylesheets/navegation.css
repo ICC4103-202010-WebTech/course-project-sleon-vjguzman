@@ -1,0 +1,32 @@
+ul {
+    list-style-type: none;
+    margin-left: 4cm;
+    margin-right: 1.5cm;
+    padding: 0.3cm 0.3cm;
+    overflow: hidden;
+    background-color: darkred;
+}
+
+li {
+    float: left;
+    background-color: white;
+    background-size: 0.5cm 0.5cm;
+    text-align: center;
+    background-position: center;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li {
+    border-right: 10px solid darkred;
+}
+
+li:last-child {
+    border-right: none;
+}

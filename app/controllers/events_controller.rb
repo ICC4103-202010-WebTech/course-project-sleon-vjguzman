@@ -11,7 +11,7 @@ class EventsController < ApplicationController
     @event_name = Event.where(id: @get_id).select(:description)
     @event_date = Event.where(id: @get_id).select(:final_date)
     @event_location = Event.where(id: @get_id).select(:location)
-    @event_id = Event.where(id: @get_id)
+    @id = Event.where(id: @get_id).select(:id)
   end
 
   # GET /events/1
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
     @event_name = Event.where(id: @get_id).select(:description)
     @event_date = Event.where(id: @get_id).select(:final_date)
     @event_location = Event.where(id: @get_id).select(:location)
-    @event = Event.where(id: @get_id)
+    @id = Event.where(id: @get_id).select(:id)
   end
 
   # GET /events/new

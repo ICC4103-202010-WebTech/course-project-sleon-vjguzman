@@ -1,41 +1,11 @@
 <h2>Upcoming Events...</h2>
+<%= stylesheet_link_tag 'homepage', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% @upcoming_events.each do |x| %>
+<div>
+  <h4><%= x.description %></h4>
+  <h5 align="left"><%= x.final_date %></h5>
+  <h5 align="left"><%= x.location %></h5>
+  <button><%= link_to 'View', events_path %></button>
+</div>
 
-
-<table>
-  <thead>
-  <tr>
-    <th>Description</th>
-    <th>Final date</th>
-    <th>Location</th>
-    <th>Show </th>
-  </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
-
-  <tbody>
-  <% @upcoming_events.each do |x| %>
-    <tr>
-      <td><%= x.description %></td>
-      <td><%= x.final_date %></td>
-      <td><%= x.location %>
-      <td><%= link_to 'View', events_path %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%end %>

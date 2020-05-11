@@ -1,43 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333333;
-      }
-
-      li {
-        float: left;
-      }
-
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 16px;
-        text-decoration: none;
-      }
-
-      li a:hover {
-        background-color: #111111;
-      }
-    </style>
     <title>Supreme Events</title>
-    <h1 align="center"><%= link_to 'Supreme Events', root_path %></h1>
+    <h1><%= link_to 'Supreme Events', root_path %></h1>
     <h5 align="right"> <%=User.first.full_name%> </h5>
     <h5 align="right"> Log out </h5>
     <%= csrf_meta_tags %>
-
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <nav>
+    <%= stylesheet_link_tag 'navegation', media: 'all', 'data-turbolinks-track': 'reload' %>
     <ul>
       <li>
         <%= link_to 'Profile', users_path%>
@@ -47,12 +22,6 @@
       </li>
       <li>
         <%= link_to 'Organization', organizations_path %>
-      </li>
-      <li>
-        <%= link_to 'Mail Box', root_path %> #
-      </li>
-      <li>
-        <%= link_to 'Configurations', root_path %> #
       </li>
       <li>
         <%= link_to 'Admin', system_admins_path %>
