@@ -1,0 +1,33 @@
+.edith2 {
+    text-align: left;
+    margin-left: 4cm;
+}
+
+.edith3 {
+    text-align: left;
+    margin-left: 2cm;
+}
+.div-edit {
+    background-color: lightgrey;
+    background-size: 900px;
+    width: 1000px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+}
+.buttonedit {
+    background-color: white;
+    border: 0.5px solid black;
+    color: black;
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 1cm;
+    margin-left: 2cm;
+}
+p{
+    text-align: right;
+    margin-right: 1.5cm;
+
+}

@@ -1,0 +1,40 @@
+.adminh3{
+    text-align: left;
+    margin-left: 4cm;
+}
+.adminh4 {
+    color: black;
+    size: 10px;
+    margin-left: 10cm;
+    margin-right: 1.5cm;
+}
+.divadmin{
+    background-color: lightgray;
+    background-size: 900px;
+    width: 1000px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+}
+.adminboton {
+    background-color: white;
+    border: 0.5px solid black;
+    color: black;
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 1cm;
+    margin-left: 22cm;
+}
+.adminboton1 {
+    background-color: white;
+    border: 0.5px solid black;
+    color: black;
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 1cm;
+    margin-left: 15cm;
+    margin-top: 1cm;
+}

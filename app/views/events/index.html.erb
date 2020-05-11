@@ -1,11 +1,10 @@
 <p id="notice"><%= notice %></p>
-<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'event'%>
 <h3>User: <%=@user.full_name%> </h3>
 <br/>
-
+<h2>Created Events</h2>
   <% @eventos.each do |x| %>
     <div>
-
       <h4><%= x.description %></h4>
       <h4><%= x.location %></h4>
       <h4><%= x.final_date %></h4>
@@ -17,7 +16,7 @@
   <% end %>
 
 <br/>
-<button class="btn success" align="center"><%= link_to 'New Event', new_event_path %></button>
-<button class="btn info" align="center"><%= link_to 'Back', events_path %></button>
+<button class="btn success-1" align="center"><%= link_to 'New Event', new_event_path %></button>
+<button class="btn info-1" align="center"><%= link_to 'Back', events_path %></button>
 
 

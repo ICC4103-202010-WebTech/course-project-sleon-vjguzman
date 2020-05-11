@@ -1,50 +1,14 @@
 <p id="notice"><%= notice %></p>
-
-
-<style>
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-</style>
-<h3>Users with admin permissions</h3>
-<table>
-  <tr>
-    <th>Username</th>
-    <th>Name</th>
-    <th>Mail</th>
-
-
-
-  </tr>
-  <tbody>
+<%= stylesheet_link_tag 'system-admin'%>
+<h3 class="adminh3">Users with admin permissions</h3>
   <% @admins.each do |x| %>
-    <tr>
-
-      <td><%= x.username %></td>
-      <td><%= x.full_name %></td>
-      <td><%= x.email %></td>
-      <td><%= link_to 'Show more', events_path(x) %></td>
-
-
-
-
-
-    </tr>
+    <div class="divadmin">
+      <h4 class="adminh4"><%= x.username %></h4>
+      <h4 class="adminh4"><%= x.full_name %></h4>
+      <h4 class="adminh4"><%= x.email %></h4>
+      <button class="adminboton"><%= link_to 'View', user_path(x) %></button>
+    </div>
   <% end %>
-  </tbody>
-</table>
 
-<%= link_to 'Edit', edit_system_admin_path(@system_admin) %> |
-<%= link_to 'Back', system_admins_path %>
+<button class="adminboton1"><%= link_to 'Edit', edit_system_admin_path(@system_admin) %> </button>
+<button class="adminboton1"><%= link_to 'Back', system_admins_path %></button>
