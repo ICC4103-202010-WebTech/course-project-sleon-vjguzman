@@ -1,0 +1,38 @@
+
+h2 {
+    color: black;
+    text-align: center;
+}
+
+h4{
+    color: black;
+    text-align: left;
+    margin-left: 1cm;
+    size: 10px;
+}
+
+button {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 1cm;
+    margin-left: 1cm;
+}
+h5{
+    color: black;
+    margin-left: 1cm;
+    margin-right: 1.5cm;
+}
+
+div {
+    background-color: lightgrey;
+    background-size: 900px;
+    width: 1000px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+}
