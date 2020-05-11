@@ -72,6 +72,6 @@ class API::V1:: CommentsController < APIController
 
   # Only allow a list of trusted parameters through.
   def comment_params
-    params.fetch(:comment, {})
+    params.fetch(:comment, {}).permit(:message, :user_id, :event_id)
   end
 end
