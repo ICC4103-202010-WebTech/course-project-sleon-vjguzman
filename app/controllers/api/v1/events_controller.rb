@@ -4,18 +4,12 @@ class API::V1:: EventsController < APIController
   # GET /events
   # GET /events.json
   def index
-    @user = User.first
-    @user_events = EventCreator.where(user_id: @user)
-    @eventos = Event.where(id: @user_events)
-
+    @events = Event.all
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
-    @user = User.first
-    @user_events = EventCreator.where(user_id: @user)
-    @eventos = Event.where(id: @user_events)
   end
 
   # GET /events/new
@@ -31,15 +25,13 @@ class API::V1:: EventsController < APIController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    @event.choice_of_date_id = ChoiceOfDate.find(params[:choice_of_date_id])
+    @event.privacy_id = Privacy.find(params[:privacy_id])
+    @event.organization_id = Organization.find(params[:organization_id])
+    if @event.save
+      render :show, status: :created, location: @event
+    else
+      render json: @event.errors, status: :unprocessable_entity
     end
   end
 
@@ -75,6 +67,6 @@ class API::V1:: EventsController < APIController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.fetch(:event, {})
+    params.fetch(:event, {}).permit(:id, :description, :location, :final_date, :creation_date, :choice_of_date_id, :privacy_id, :organization_id)
   end
 end

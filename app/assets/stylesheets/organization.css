@@ -10,7 +10,6 @@ div {
 .organizationh2{
     color: black;
     margin-left: 4cm;
-    size: 10px;
 }
 .botonorganizacion {
     background-color: white;
@@ -26,5 +25,8 @@ div {
 .organizationh4h4{
     color: black;
     margin-left: 4cm;
-    size: 20px;
+}
+.organizationh3 {
+    color: black;
+    margin-left: 4cm;
 }
