@@ -1,0 +1,54 @@
+h3{
+    text-align: center;
+}
+.btn {
+    border: 1px solid black;
+    background-color: ghostwhite;
+    padding: 14px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    width: 17%;
+}
+
+/* Green */
+.success {
+    color: green;
+}
+
+.success:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Blue */
+.info {
+    color: dodgerblue;
+}
+
+.info:hover {
+    background: #2196F3;
+    color: white;
+}
+
+/* Orange */
+.warning {
+    color: orange;
+}
+
+.warning:hover {
+    background: #ff9800;
+    color: white;
+}
+
+/* Red */
+.danger {
+    color: red;
+}
+
+.danger:hover {
+    background: #f44336;
+    color: white;
+}
+
+
