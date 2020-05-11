@@ -1,0 +1,36 @@
+h3 {
+    color: black;
+    width: 200px;
+    margin: 15px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+}
+div {
+    background-color: lightgrey;
+    background-size: 900px;
+    width: 1000px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+}
+button {
+    background-color: white;
+    border: 0.5px solid black;
+    color: black;
+    padding: 10px 24px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 1cm;
+    margin-left: 24cm;
+    display: block;
+    margin-bottom: 4px;
+}
+h4 {
+    color: black;
+    margin-left: 1cm;
+    margin-right: 1.5cm;
+}
+.back {
+    margin-left: 17cm;
+}

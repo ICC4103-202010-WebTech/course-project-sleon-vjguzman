@@ -1,38 +1,10 @@
 <p id="notice"><%= notice %></p>
-
-<h3 align="left"> Details of the User: <%= @first_user.full_name %> </h3>
+<%= stylesheet_link_tag 'seedetails-profile'%>
+<h3 align="center"> <%= @first_user.full_name %> </h3>
+  <div>
+    <h4> Email: <%= @first_user.email %></h4>
+    <h4> Password: <%= @first_user.password %></h4>
+    <button><%= link_to 'Edit', edit_user_path(@first_user) %></button>
+  </div>
 <br/>
-<table>
-  <thead>
-  <tr>
-    <th> Email </th>
-    <th> Password</th>
-  </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
-  <tbody>
-  <tr>
-    <td><%= @first_user.email %></td>
-    <td><%= @first_user.password %></td>
-    <td><%= link_to 'Edit', edit_user_path(@first_user) %></td>
-  </tr>
-  </tbody>
-</table>
-<br/>
-<h6 align="center"><%= link_to 'Back', users_path %></h6>
+<button class="back"><%= link_to 'Back', users_path %></button>
