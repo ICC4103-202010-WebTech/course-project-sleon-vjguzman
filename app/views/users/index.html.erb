@@ -3,24 +3,24 @@
 <br/>
 
 <h2 class="h2profile",align="center"><%= @first_user.full_name %></h2>
-<aside>
-  <button class="asideboton"> <%= link_to 'Edit Profile', edit_user_path(@first_user) %></button>
-  <button class="asideboton"> <%= link_to 'See Details', user_path(@first_user) %></button>
+<aside class="asideprofile">
+  <button class="botonasideprofile"> <%= link_to 'Edit Profile', edit_user_path(@first_user) %></button>
+  <button class="botonasideprofile"> <%= link_to 'See Details', user_path(@first_user) %></button>
 </aside>
-  <h4 align="left"><%= @first_user.username %></h4>
-  <h4 align="left"><%= @first_user.short_bio %></h4>
-  <h4 align="left"><%= @first_user.location %></h4>
-  <h4 align="left"><%= Organization.where(id: @user_member).select(:name).first.name %></h4>
+  <h4 class="h4profile"><%= @first_user.username %></h4>
+  <h4 class="h4profile"><%= @first_user.short_bio %></h4>
+  <h4 class="h4profile"><%= @first_user.location %></h4>
+  <h4 class="h4profile"><%= Organization.where(id: @user_member).select(:name).first.name %></h4>
 <br/>
 
-<h3> You were invited to: </h3>
+<h3 class="h3profile"> You were invited to: </h3>
 
   <% @invitations.each do |x| %>
-    <div>
-      <h4><%= x.description %></h4>
-      <h4><%= x.final_date %></h4>
-      <h4><%= x.location %></h4>
-      <button><%= link_to 'View', x %></button>
+    <div class="divprofile">
+      <h4 class="h4profile"><%= x.description %></h4>
+      <h4 class="h4profile"><%= x.final_date %></h4>
+      <h4 class="h4profile"><%= x.location %></h4>
+      <button class="botondivprofile"><%= link_to 'View', x %></button>
     </div>
   <% end %>
 

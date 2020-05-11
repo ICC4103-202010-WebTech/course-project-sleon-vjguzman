@@ -1,15 +1,16 @@
-
-h2 {
+.homeh2 {
+    margin-top: 1cm;
     color: black;
+    text-align: center;
 }
 
-h4{
+.homeh4{
     color: black;
     margin-left: 1cm;
     size: 10px;
 }
 
-button {
+.buttonhome {
     background-color: white;
     border: none;
     color: black;
@@ -17,16 +18,16 @@ button {
     text-align: center;
     font-size: 16px;
     margin-right: 1cm;
-    margin-left: 1cm;
+    margin-left: 23cm;
 }
-h5{
+.homeh5{
     color: black;
     margin-left: 1cm;
     margin-right: 1.5cm;
 }
 
 div {
-    background-color: lightgrey;
+    background-color: lightgray;
     background-size: 900px;
     width: 1000px;
     padding: 15px;

@@ -1,11 +1,11 @@
-<h2 align="center">Upcoming Events...</h2>
+<h2 class="homeh2">Upcoming Events...</h2>
 <%= stylesheet_link_tag 'homepage'%>
 <% @upcoming_events.each do |x| %>
-<div>
-  <h4 align="left"><%= x.description %></h4>
-  <h5 align="left"><%= x.final_date %></h5>
-  <h5 align="left"><%= x.location %></h5>
-  <button><%= link_to 'View', events_path %></button>
+<div class="">
+  <h4 class="homeh4"><%= x.description %></h4>
+  <h5 class="homeh5"><%= x.final_date %></h5>
+  <h5 class="homeh5"><%= x.location %></h5>
+  <button class="buttonhome"><%= link_to 'View', events_path %></button>
 </div>
 
 <%end %>

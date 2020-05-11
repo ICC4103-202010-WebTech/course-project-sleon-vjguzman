@@ -17,9 +17,21 @@ body {
     background-color: white;
 }
 
-h1 {
-    color: red;
+.apph1 {
+    color: white;
+    background-color: darkred;
+    padding: 10px 14px;
+    margin-left: 13cm;
+    margin-right: 10cm;
     text-align: center;
+    text-decoration-style: solid;
+    font-family: Copperplate;
+
+}
+.apph5 {
+    text-align: right;
+    color: black;
+    margin-right: 1.5cm ;
 }
 
 
