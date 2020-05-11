@@ -1,9 +1,15 @@
 <h2 class="edith2">Editing an Event</h2>
 <%= stylesheet_link_tag 'edit-event'%>
-<h2><%= render 'form', event: @event %></h2>
+<h2 class="h2-2"><%= render 'form', event: @event %></h2>
   <div class="div-edit">
-    <h3 class="h3edit"> New Description  <p><input type="text" name="Description"></p></h3>
-    <h3 class="h3edit"> New Location  <p><input type="text" name="Location"></p></h3>
+    <h3 class="h3edit"> New Description</h3>
+    <p><input type="text" name="Description"></p>
+  </div>
+  <div class="div-edit">
+    <h3 class="h3edit"> New Location </h3>
+    <p><input type="text" name="Location"></p>
+  </div>
+<div class="div-edit">
     <h3 class="h3edit"> (1 -> System, 2 -> Yourself) <p><input type="text" name="Choice of Date"></p></h3>
     <h3 class="h3edit"> (1 -> Public, 2 -> Private) <p><input type="text" name="Privacy"></p></h3>
     <h3 class="h3edit"> Organization <p><input type="text" name="Organization"></p></h3>
