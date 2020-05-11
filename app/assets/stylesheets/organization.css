@@ -1,0 +1,32 @@
+div {
+    background-color: lightgrey;
+    background-size: 900px;
+    width: 1000px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+}
+.organizationh2{
+    color: black;
+    margin-left: 4cm;
+}
+.botonorganizacion {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 1cm;
+    margin-left: 22cm;
+}
+
+.organizationh4h4{
+    color: black;
+    margin-left: 4cm;
+}
+.organizationh3 {
+    color: black;
+    margin-left: 4cm;
+}

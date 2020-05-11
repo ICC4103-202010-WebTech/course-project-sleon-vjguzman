@@ -1,45 +1,17 @@
 <p id="notice"><%= notice %></p>
-
-<h2 align="left"><%= @organization_user.first.name %></h2>
-<h4 align="left"><%= @organization_user.first.description %></h4>
-<h5 align="right"> <%= link_to 'See Members', organization_path(@id) %></h5>
+<%= stylesheet_link_tag 'organization'%>
+<h2 class="organizationh2" align="left"><%= @organization_user.first.name %></h2>
+<h4 class="organizationh4",align="left"><%= @organization_user.first.description %></h4>
+<button class="botonorganizacion"> <%= link_to 'See Members', organization_path(@id) %></button>
 <br>
-<br>
 
-<h3> Events of the Organization </h3>
 
-<table>
-  <thead>
-  <tr>
-    <th> Description </th>
-    <th> Location </th>
-    <th> Final Date </th>
-  </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
+<h3 class="organizationh3"> Events of the Organization </h3>
 
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
-  <tbody>
   <% @eventos_org.each do |x| %>
-    <tr>
-      <td><%= x.description %></td>
-      <td><%= x.location %></td>
-      <td><%= x.final_date %></td>
-    </tr>
+    <div>
+      <h3 class="organizationh3"><%= x.description %></h3>
+      <h3 class="organizationh3"><%= x.location %></h3>
+      <h3 class="organizationh3"><%= x.final_date %></h3>
+    </div>
   <% end %>
-  </tbody>
-</table>

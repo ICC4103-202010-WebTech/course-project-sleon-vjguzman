@@ -1,81 +1,26 @@
 <p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag 'profile'%>
+<br/>
 
-<h2 align="left"><%= @first_user.full_name %></h2>
-<h5 align="right"> <%= link_to 'Edit Profile', edit_user_path(@first_user) %></h5>
-<h5 align="right"> <%= link_to 'See Details', user_path(@first_user) %></h5>
-<table>
-  <thead>
-    <tr>
-      <th> Username </th>
-      <th> Short Bio </th>
-      <th> Location </th>
-      <th> Belongs to </th>
-    </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
-  <tbody>
-  <tr>
-    <td><%= @first_user.username %></td>
-    <td><%= @first_user.short_bio %></td>
-    <td><%= @first_user.location %></td>
-    <td><%= Organization.where(id: @user_member).select(:name).first.name %></td>
-  </tr>
-  </tbody>
-</table>
+<h2 class="h2profile",align="center"><%= @first_user.full_name %></h2>
+<aside>
+  <button class="asideboton"> <%= link_to 'Edit Profile', edit_user_path(@first_user) %></button>
+  <button class="asideboton"> <%= link_to 'See Details', user_path(@first_user) %></button>
+</aside>
+  <h4 align="left"><%= @first_user.username %></h4>
+  <h4 align="left"><%= @first_user.short_bio %></h4>
+  <h4 align="left"><%= @first_user.location %></h4>
+  <h4 align="left"><%= Organization.where(id: @user_member).select(:name).first.name %></h4>
 <br/>
 
 <h3> You were invited to: </h3>
 
-<table>
-  <thead>
-  <tr>
-    <th> Description </th>
-    <th> Final Date </th>
-    <th> Location </th>
-    <th>  </th>
-  </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
-  <tbody>
   <% @invitations.each do |x| %>
-    <tr>
-      <td><%= x.description %></td>
-      <td><%= x.final_date %>
-      <td><%= x.location %></td>
-      <td><%= link_to 'View', x %></td>
-    </tr>
+    <div>
+      <h4><%= x.description %></h4>
+      <h4><%= x.final_date %></h4>
+      <h4><%= x.location %></h4>
+      <button><%= link_to 'View', x %></button>
+    </div>
   <% end %>
-  </tbody>
-</table>
+
