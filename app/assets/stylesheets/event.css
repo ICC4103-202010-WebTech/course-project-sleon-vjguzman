@@ -72,3 +72,12 @@ h2 {
     text-align: left;
     margin-left: 4cm;
 }
+.success-1 {
+    color: green;
+    margin-left: 4cm;
+}
+
+.success-1:hover {
+    background-color: #4CAF50;
+    color: white;
+}

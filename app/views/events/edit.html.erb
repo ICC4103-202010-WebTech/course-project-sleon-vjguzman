@@ -1,44 +1,16 @@
-<h1>Editing an Event</h1>
+<h2 class="edith2">Editing an Event</h2>
+<%= stylesheet_link_tag 'edit-event'%>
 <h2><%= render 'form', event: @event %></h2>
-<table>
-  <thead>
-  <tr>
-    <th> Description</th>
-    <th> Location</th>
-    <th> Type of Choice of Date</th>
-    <th> Type of Privacy </th>
-    <th> Id Organization you're part of</th>
-  </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
+  <div class="div-edit">
+    <h3 class="h3edit"> New Description  <p><input type="text" name="Description"></p></h3>
+    <h3 class="h3edit"> New Location  <p><input type="text" name="Location"></p></h3>
+    <h3 class="h3edit"> (1 -> System, 2 -> Yourself) <p><input type="text" name="Choice of Date"></p></h3>
+    <h3 class="h3edit"> (1 -> Public, 2 -> Private) <p><input type="text" name="Privacy"></p></h3>
+    <h3 class="h3edit"> Organization <p><input type="text" name="Organization"></p></h3>
+  </div>
 
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
-  <tbody>
-  <tr>
-    <td> New Description  <p><input type="text" name="Description"></p></td>
-    <td> New Location  <p><input type="text" name="Location"></p></td>
-    <td> (1 -> System, 2 -> Yourself) <p><input type="text" name="Choice of Date"></p></td>
-    <td> (1 -> Public, 2 -> Private) <p><input type="text" name="Privacy"></p></td>
-    <td> Organization <p><input type="text" name="Organization"></p></td>
-  </tr>
-  </tbody>
-</table>
 <br>
 
-<h3><%= link_to 'New Comment', new_comment_path %></h3>
-<h3><%= link_to 'Back', event_path %></h3>
+<button class="buttonedit"><%= link_to 'New Comment', new_comment_path %></button>
+<button class="buttonedit"><%= link_to 'Back', event_path %></button>
 
