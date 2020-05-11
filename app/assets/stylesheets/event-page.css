@@ -1,0 +1,56 @@
+.eventpageh1 {
+    color: black;
+    width: 500px;
+    margin: 15px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+    text-align: left;
+    margin-top: 1cm;
+}
+.eventpageh4{
+    color: black;
+    margin-left: 12cm;
+}
+.button1{
+    border: 1px solid black;
+    background-color: ghostwhite;
+    padding: 10px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.1cm;
+    width: 17%;
+    margin-left: 4cm;
+}
+.button1-1{
+    border: 1px solid black;
+    background-color: white;
+    padding: 10px 24px;
+    font-size: 16px;
+    margin-left: 15cm;
+    width: 17%;
+    margin-bottom: 1cm;
+}
+
+.eventpagediv{
+    background-color: lightgrey;
+    background-size: 900px;
+    width: 1000px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+}
+
+.button2{
+    background-color: white;
+    border: 0.5px solid black;
+    color: black;
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 1cm;
+    width: 17%;
+    margin-left: 15cm;
+    margin-top: 1cm;
+}

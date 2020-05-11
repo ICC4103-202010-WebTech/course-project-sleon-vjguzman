@@ -55,5 +55,20 @@ h4 {
     background: #f44336;
     color: white;
 }
-
-
+div {
+    background-color: lightgrey;
+    background-size: 900px;
+    width: 1000px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+}
+h3 {
+    text-align: right;
+    margin-right: 2cm;
+}
+h2 {
+    text-align: left;
+    margin-left: 4cm;
+}
