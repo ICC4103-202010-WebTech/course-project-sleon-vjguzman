@@ -4,15 +4,14 @@ class API::V1:: CommentsController < APIController
   # GET /comments
   # GET /comments.json
   def index
-    @get_id = Event.where(id: params[:id]).select(:id)
-    @comments = Comment.where(event_id: @get_id)
+    @comments = Comment.all
+
   end
 
   # GET /comments/1
   # GET /comments/1.json
   def show
-    @get_id = Event.where(id: params[:id]).select(:id)
-    @comments = Comment.where(event_id: @get_id)
+
   end
 
   # GET /comments/new
@@ -28,29 +27,24 @@ class API::V1:: CommentsController < APIController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-
-    respond_to do |format|
+    @comment.user = User.find(params[:user_id])
+    @comment.event = Event.find(params[:event_id])
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
+        render :show, status: :created, location: @comment
       else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        render json: @comment.errors, status: :unprocessable_entity
       end
     end
-  end
+
+
 
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
-      else
-        format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
+    if @comment.update(comment_params)
+      render :show, status: :ok, location: api_v1_events_path(@comment)
+    else
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
@@ -58,12 +52,8 @@ class API::V1:: CommentsController < APIController
   # DELETE /comments/1.json
   def destroy
     @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    head :no_content
   end
-
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_comment
@@ -72,6 +62,6 @@ class API::V1:: CommentsController < APIController
 
   # Only allow a list of trusted parameters through.
   def comment_params
-    params.fetch(:comment, {}).permit(:message, :user_id, :event_id)
+    params.fetch(:comment, {}).permit(:id,:message, :user_id, :event_id)
   end
 end
