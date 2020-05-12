@@ -1,43 +1,18 @@
 <p id="notice"><%= notice %></p>
-
-<h3>Comments of the Event</h3>
-
-<table>
-  <thead>
-  <tr>
-    <th>Message</th>
-    <th>User</th>
-  </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
+<%= stylesheet_link_tag 'event-comments'%>
+<h2><%= Event.select(:description).where(id: @comments.first.event_id).first.description%> comments:</h2>
   <tbody>
   <% @comments.each do |comment| %>
-    <tr>
-      <td><%= comment.message %></td>
-      <td><%= User.select(:username).where(id: comment.user_id).first.username%></td>
-      <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-      <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+    <div>
+      <h4 class="User"><%= User.select(:username).where(id: comment.user_id).first.username%>:</h4>
+      <h4><%= comment.message %></h4>
+      <button class="btn warning"><%= link_to 'Edit', edit_comment_path(comment) %></button>
+      <button class="btn danger"><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    </div>
   <% end %>
-  </tbody>
+  </tbody>|
 </table>
 
 <br/>
-<h6 align="center"><%= link_to 'New Comment', new_comment_path %></h6>
-<h6 align="center"><%= link_to 'Back', events_path %></h6>
+<button class="btn success-1" align="center"><%= link_to 'New Comment', new_comment_path %></button>
+<button class="btn info-1" align="center"><%= link_to 'Back', events_path %></button>

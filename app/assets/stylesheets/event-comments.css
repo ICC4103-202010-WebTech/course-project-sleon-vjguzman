@@ -1,9 +1,6 @@
-h3{
-    margin-top: 1cm;
-    text-align: center;
-}
-h4 {
-    margin-left: 12cm;
+
+.User {
+    margin-left: 3cm;
 }
 .btn {
     border: 1px solid black;
@@ -67,11 +64,14 @@ div {
     margin-left: 4cm;
     margin-right: 3cm;
 }
-h3 {
-    text-align: right;
-    margin-right: 2cm;
+h4 {
+    margin-top: 1cm;
+    text-align: left;
+    margin-left: 1cm;
 }
+
 h2 {
+    margin-top: 1cm;
     text-align: left;
     margin-left: 4cm;
 }
