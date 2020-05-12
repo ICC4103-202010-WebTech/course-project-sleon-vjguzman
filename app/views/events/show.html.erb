@@ -17,3 +17,9 @@
 <br/>
 <button class="button2"><%= link_to 'Back', events_path %></button>
 
+<h3 class="h3-pageevent"> Guests of the Event</h3>
+<% @guest.each do |x| %>
+  <div class="eventpagediv1">
+    <h4 class="eventpageh41"><%= User.select(:username).where(id: x.user_id).first.username %></h4>
+  </div>
+<% end %>
