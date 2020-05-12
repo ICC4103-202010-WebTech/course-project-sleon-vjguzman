@@ -1,22 +1,27 @@
 <h2 class="edith2">Editing an Event</h2>
 <%= stylesheet_link_tag 'edit-event'%>
-<h2 class="h2-2"><%= render 'form', event: @event %></h2>
+<button><%= render 'form', event: @event %></button>
   <div class="div-edit">
     <h3 class="h3edit"> New Description</h3>
-    <p><input type="text" name="Description"></p>
+    <h3 class="h3edit">Description: <input type="text" name="Description"></h3>
   </div>
   <div class="div-edit">
     <h3 class="h3edit"> New Location </h3>
-    <p><input type="text" name="Location"></p>
+    <h3 class="h3edit">Location: <input type="text" name="Location"></h3>
   </div>
-<div class="div-edit">
-    <h3 class="h3edit"> (1 -> System, 2 -> Yourself) <p><input type="text" name="Choice of Date"></p></h3>
-    <h3 class="h3edit"> (1 -> Public, 2 -> Private) <p><input type="text" name="Privacy"></p></h3>
-    <h3 class="h3edit"> Organization <p><input type="text" name="Organization"></p></h3>
+  <div class="div-edit">
+    <h3 class="h3edit"> (1 -> System, 2 -> Yourself)</h3>
+    <h3 class="h3edit">Type Choice of Date: <input type="text" name="Choice of Date"></h3>
+  </div>
+  <div class="div-edit">
+    <h3 class="h3edit"> (1 -> Public, 2 -> Private)</h3>
+    <h3 class="h3edit">Privacy Type: <input type="text" name="Privacy"></h3>
+  </div>
+  <div class="div-edit">
+    <h3 class="h3edit"> Organization</h3>
+    <h3 class="h3edit">Organization Id: <input type="text" name="Organization"></h3>
   </div>
 
 <br>
-
-<button class="buttonedit"><%= link_to 'New Comment', new_comment_path %></button>
 <button class="buttonedit"><%= link_to 'Back', event_path %></button>
 

@@ -20,7 +20,7 @@
     display: inline-block;
     margin-right: 0.1cm;
     width: 17%;
-    margin-left: 4cm;
+    margin-left: 8cm;
 }
 .button1-1{
     border: 1px solid black;
@@ -28,8 +28,11 @@
     padding: 10px 24px;
     font-size: 16px;
     margin-left: 15cm;
-    width: 17%;
     margin-bottom: 1cm;
+    display: inline-block;
+    margin-right: 0.1cm;
+    width: 17%;
+    margin-left: 8cm;
 }
 
 .eventpagediv{

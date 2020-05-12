@@ -11,6 +11,7 @@ h4 {
     padding: 14px 24px;
     font-size: 16px;
     cursor: pointer;
+    text-align: center;
     display: inline-block;
     width: 17%;
     margin-left: 1cm;
@@ -39,11 +40,13 @@ h4 {
 /* Orange */
 .warning {
     color: orange;
+    text-align: center;
 }
 
 .warning:hover {
     background: #ff9800;
     color: white;
+    text-align: center;
 }
 
 /* Red */
@@ -80,4 +83,8 @@ h2 {
 .success-1:hover {
     background-color: #4CAF50;
     color: white;
+}
+.btn a {
+    color: black;
+    text-decoration: none;
 }

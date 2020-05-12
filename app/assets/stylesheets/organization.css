@@ -42,16 +42,7 @@
     margin-top: 1cm;
     margin-left: 4cm;
 }
-.botonorganizacion {
-    background-color: white;
-    border: 0.5px solid black;
-    color: black;
-    padding: 12px 28px;
-    text-align: center;
-    font-size: 16px;
-    margin-right: 1cm;
-    margin-left: 22cm;
-}
+
 .organizationh3-2 {
     background-color: darkred;
     color: white;
@@ -61,4 +52,9 @@
     margin-right: 3cm;
     text-align: center;
     margin-top: 1cm;
+}
+.botonorganizacion a {
+    float: left;
+    text-decoration: none;
+    color: black;
 }

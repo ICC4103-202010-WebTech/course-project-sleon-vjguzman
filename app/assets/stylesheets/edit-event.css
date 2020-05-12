@@ -3,17 +3,18 @@
     margin-left: 4cm;
 }
 
-.edith3 {
+.h3edit {
     text-align: left;
     margin-left: 2cm;
 }
+
 .div-edit {
     background-color: lightgrey;
     background-size: 900px;
-    width: 1000px;
+    width: 500px;
     padding: 15px;
     margin: 15px;
-    margin-left: 4cm;
+    margin-left: 5cm;
     margin-right: 3cm;
 }
 .buttonedit {
@@ -24,10 +25,8 @@
     text-align: center;
     font-size: 16px;
     margin-right: 1cm;
-    margin-left: 2cm;
+    margin-left: 10cm;
 }
-p{
-    text-align: right;
-    margin-right: 1.5cm;
-
+button {
+    padding: 10px 24px;
 }
