@@ -26,3 +26,6 @@ As above, we have the Events directly associated with Organization through a FK 
 
 * API Tests, which should include links to your Postman collection containing tests for your APIs.<br/>
     https://www.getpostman.com/collections/d9675644004b161cbc0f
+
+* Commentaries:
+    This webpage was designed in a screen with a resolution of 1920 x 1080 (in case some designes looks a bit disproportional), and         there are some blacked spaces that are designed to place the respetive images of the profile pictures and events.
