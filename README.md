@@ -22,6 +22,7 @@ As above, we have the Events directly associated with Organization through a FK 
     7. We ensure that the HTML and CSS views complies with web standards, so we use validations services provided by W3C.<br/>
     8. Finally we investigate about the Bootstrap in order to implement a layout for the web application.<br/>
     
-* Summary of features required in the assignment but pending.
+* Summary of features required in the assignment but pending.<br/>
 
-* API Tests, which should include links to your Postman collection containing tests for your APIs. 
+* API Tests, which should include links to your Postman collection containing tests for your APIs.<br/>
+    https://www.getpostman.com/collections/d9675644004b161cbc0f
