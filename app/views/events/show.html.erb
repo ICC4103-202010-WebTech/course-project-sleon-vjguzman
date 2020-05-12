@@ -15,11 +15,5 @@
 <button class="button1"><%= link_to 'View File Attachment', event_path %></button>
 <button class="button1"><%= link_to 'View Photos', event_path %></button>
 <br/>
-<button class="btn info-1" align="center"><%= link_to 'Back', events_path %></button>
+<button class="btn2 info-1" align="center"><%= link_to 'Back', events_path %></button>
 
-<h3 class="h3-pageevent"> Guests of the Event</h3>
-<% @guest.each do |x| %>
-  <div class="eventpagediv1">
-    <h4 class="eventpageh41"><%= User.select(:username).where(id: x.user_id).first.username %></h4>
-  </div>
-<% end %>
