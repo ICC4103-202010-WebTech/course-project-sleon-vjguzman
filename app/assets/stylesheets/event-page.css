@@ -57,3 +57,23 @@
     margin-left: 15cm;
     margin-top: 1cm;
 }
+.h3-pageevent {
+    color: black;
+    margin: 15px;
+    margin-left: 4cm;
+    text-align: left;
+}
+.eventpageh41{
+    color: black;
+    text-align: left;
+    margin-left: 1cm;
+}
+.eventpagediv1{
+    background-color: lightgrey;
+    background-size: 900px;
+    width: 100px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 5cm;
+    margin-right: 3cm;
+}
