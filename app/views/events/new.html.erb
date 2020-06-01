@@ -1,45 +1,45 @@
-<h1>New Event</h1>
-<h2><%= render 'form', event: @event %></h2>
-<table>
-  <thead>
-  <tr>
-    <th> Description</th>
-    <th> Location</th>
-    <th> Type of Choice of Date</th>
-    <th> Type of Privacy </th>
-    <th> Id Organization you're part of</th>
-  </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
+<div class="row ml-0 mt-3">
+  <h2 class="edith2">New Event</h2>
+  <p class="p-edit">Please enter the required information to create an event:</p>
+</div>
 
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
+<div class="div-2">
+  <%= form_with model: @event, local: true do |form| %>
 
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
-  <tbody>
-  <tr>
-    <td> New Description  <p><input type="text" name="Description"></p></td>
-    <td> New Location  <p><input type="text" name="Location"></p></td>
-    <td> Id (1 -> System, 2 -> Yourself) <p><input type="text" name="Choice of Date"></p></td>
-    <td> Id (1 -> Public, 2 -> Private) <p><input type="text" name="Privacy"></p></td>
-    <td> Organization <p><input type="text" name="Organization"></p></td>
-    <td><%= link_to 'Save', root_path %></td>
-  </tr>
-  </tbody>
-</table>
+    <div class="div-edit">
+      <%= form.label :description %>
+      <br/>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :location %>
+      <br/>
+      <%= form.text_area :location, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :final_date %>
+      <br/>
+      <%= form.datetime_local_field :final_date %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :creation_date %>
+      <br/>
+      <%= form.datetime_local_field :creation_date %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :choice_of_date_id %>
+      <br/>
+      <%= form.collection_select(:choice_of_date_id, ChoiceOfDate.all.order(description: :asc), :id, :description, {}, { class: "form-control" }) %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :privacy_id %>
+      <br/>
+      <%= form.collection_select(:privacy_id, Privacy.all.order(name: :asc), :id, :name, {}, { class: "form-control" }) %>
+    </div>
+    <div class="div-edit">
+      <%= form.submit "Create", class: ["btn"] %>
+      <%= link_to "Back", :back, class: ["btn"] %>
+    </div>
+  <% end %>
+</div>
 
-<br>
-<%= render 'form', event: @event %>
-
-<%= link_to 'Back', events_path %>

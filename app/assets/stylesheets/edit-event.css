@@ -1,6 +1,6 @@
 .edith2 {
     text-align: left;
-    margin-left: 4cm;
+    margin-left: 1cm;
 }
 
 .h3edit {
@@ -9,9 +9,18 @@
 }
 
 .div-edit {
-    background-color: lightgrey;
+    background-color: gainsboro;
     background-size: 900px;
-    width: 500px;
+    width: 930px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 0.5cm;
+    margin-right: 0.5cm;
+}
+.div-1 {
+    background-color: lightgray;
+    background-size: 900px;
+    width: 900px;
     padding: 15px;
     margin: 15px;
     margin-left: 5cm;
@@ -23,9 +32,16 @@
     color: black;
     padding: 12px 28px;
     text-align: center;
+    width: 22%;
     font-size: 16px;
     margin-right: 1cm;
     margin-left: 10cm;
+    margin-top: 0.5cm;
+}
+.p-edit
+{
+    text-align: left;
+    margin-left: 1cm;
 }
 button {
     padding: 10px 24px;

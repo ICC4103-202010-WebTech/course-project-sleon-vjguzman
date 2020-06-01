@@ -1,6 +1,11 @@
-<h1 align="center">Editing User</h1>
+<div class="row ml-0 mt-3">
+  <h2 class="edith2">Edit my information</h2>
+  <p class="p-edit">Please enter the required information to edit your profile:</p>
+</div>
 
-<%= render 'form', user: @user %>
-
-<h3 align="center"><%= link_to 'Show', @user %> </h3>
-<h3 align="center"><%= link_to 'Back', users_path %></h3>
+<%= render partial: "form",
+           locals: {
+               user: @first_user,
+               ticket_type_section_title: "Edit event",
+               ticket_type_instruction_text: "You may edit existing ticket types for your event"
+           } %>

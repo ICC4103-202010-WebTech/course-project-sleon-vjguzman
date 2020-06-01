@@ -1,6 +1,7 @@
-h3{
+.h3-event{
     margin-top: 1cm;
-    text-align: center;
+    text-align: left;
+    margin-left: 4cm;
 }
 h4 {
     margin-left: 12cm;
@@ -67,14 +68,7 @@ div {
     margin-left: 4cm;
     margin-right: 3cm;
 }
-h3 {
-    text-align: right;
-    margin-right: 2cm;
-}
-h2 {
-    text-align: left;
-    margin-left: 4cm;
-}
+
 .success-1 {
     color: green;
     margin-left: 4cm;
@@ -95,3 +89,13 @@ h2 {
 .info-1:hover {
     background: #2196F3;
     color: white;}
+
+.asideprofile {
+    width: 30%;
+    padding: 10px 24px;
+    float: left;
+    display: block;
+    font-style: italic;
+    background-color: white;
+
+}
