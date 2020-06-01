@@ -10,7 +10,6 @@
     cursor: pointer;
     text-align: center;
     width: 17%;
-    margin-left: 12cm;
     display: inline;
 }
 
@@ -22,7 +21,6 @@
     cursor: pointer;
     text-align: center;
     width: 17%;
-    margin-left: 4cm;
     display: inline;
 }
 
@@ -61,6 +59,7 @@
 /* Red */
 .danger {
     color: red;
+    margin-left: 15cm;
 }
 
 .danger:hover {
@@ -115,4 +114,16 @@ h2 {
 .imageleft {
     text-align: left;
     margin-left: 1cm;
+}
+
+.aside-comment {
+    width: 100%;
+    padding: 10px 24px;
+    margin-right: 0.5cm;
+    margin-left: 3cm;
+    float: left;
+    display: block;
+    font-style: italic;
+    background-color: white;
+    margin-bottom: 1cm;
 }

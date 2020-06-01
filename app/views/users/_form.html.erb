@@ -1,17 +1,33 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="row ml-0 mt-3">
+  <h2 class="edith2">Edit my profile</h2>
+  <p class="p-edit">Please enter the required information to edit the profile:</p>
+</div>
 
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="div-2">
+  <%= form_with model: @user, local: true do |form| %>
+    <div class="div-edit">
+      <%= form.label :full_name %>
+      <br/>
+      <%= form.text_area :full_name, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :short_bio %>
+      <br/>
+      <%= form.text_area :short_bio, class: "form-control" %>
+    </div>
+      <div class="div-edit">
+        <%= form.label :location %>
+        <br/>
+        <%= form.text_area :location, class: "form-control" %>
+      </div>
+    <div class="div-edit">
+      <%= form.label :password %>
+      <br/>
+      <%= form.text_area :password, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.submit "Update", class: ["btn"] %>
+      <%= link_to "Back", :back, class: ["btn"] %>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -1,6 +1,7 @@
-<h1 align="center">Editing User</h1>
 
-<%= render 'form', user: @user %>
-
-<h3 align="center"><%= link_to 'Show', @user %> </h3>
-<h3 align="center"><%= link_to 'Back', users_path %></h3>
+<%= render partial: "form",
+           locals: {
+               user: @user,
+               ticket_type_section_title: "Edit event",
+               ticket_type_instruction_text: "You may edit existing ticket types for your event"
+           } %>

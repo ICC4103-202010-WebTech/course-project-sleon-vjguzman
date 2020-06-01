@@ -1,34 +1,34 @@
-
-<div class="row ml-0">
+<div class="div-2">
   <%= form_with model: event, local: true do |form| %>
 
-    <div class="form-group">
+    <div class="div-edit">
       <%= form.label :description %>
+      <br/>
       <%= form.text_area :description, class: "form-control" %>
     </div>
-    <div class="form-group">
+    <div class="div-edit">
       <%= form.label :location %>
+      <br/>
       <%= form.text_area :location, class: "form-control" %>
     </div>
-    <div class="form-group">
+    <div class="div-edit">
       <%= form.label :final_date %>
+      <br/>
       <%= form.datetime_local_field :final_date %>
     </div>
-    <div class="form-group">
-      <%= form.label :creation_date %>
-      <%= form.datetime_local_field :creation_date %>
-    </div>
-    <div class="form-group">
+    <div class="div-edit">
       <%= form.label :choice_of_date_id %>
+      <br/>
       <%= form.collection_select(:choice_of_date_id, ChoiceOfDate.all.order(description: :asc), :id, :description, {}, { class: "form-control" }) %>
     </div>
-    <div class="form-group">
+    <div class="div-edit">
       <%= form.label :privacy_id %>
+      <br/>
       <%= form.collection_select(:privacy_id, Privacy.all.order(name: :asc), :id, :name, {}, { class: "form-control" }) %>
     </div>
-    <div class="form-group mt-2">
-      <%= form.submit submit_btn_text, class: ["btn", "btn-primary"] %>
-      <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
+    <div class="div-edit">
+      <%= form.submit "Update", class: ["btn"] %>
+      <%= link_to "Back", :back, class: ["btn"] %>
     </div>
   <% end %>
 </div>
