@@ -10,6 +10,14 @@
 .eventpageh4{
     color: black;
     margin-left: 12cm;
+    margin-top: 1.5cm;
+
+}
+.eventpageh4p {
+    color: black;
+    margin-left: 12cm;
+    margin-top: 1.5cm;
+    margin-top: -5cm;
 }
 .button1{
     border: 1px solid black;
@@ -46,6 +54,7 @@
     color: black;
     text-align: left;
     margin-left: 1cm;
+
 }
 .eventpagediv1{
     background-color: lightgrey;
@@ -93,4 +102,9 @@ h4{
     width: 17%;
     margin-left: 13.5cm;
     margin-top: 1cm;
+}
+
+.imageleft {
+    text-align: left;
+    margin-left: 1cm;
 }

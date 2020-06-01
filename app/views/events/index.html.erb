@@ -5,7 +5,7 @@
 <h2>Created Events</h2>
   <% @eventos.each do |x| %>
     <div>
-      <h4 class="membersh4-1"><%= link_to image_tag("xd.jpeg") %></h4>
+      <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
       <h4><%= x.description %></h4>
       <h4><%= x.location %></h4>
       <h4><%= x.final_date %></h4>

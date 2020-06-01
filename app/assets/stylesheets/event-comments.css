@@ -111,3 +111,8 @@ h2 {
 .info-1:hover {
     background: #2196F3;
     color: white;}
+
+.imageleft {
+    text-align: left;
+    margin-left: 1cm;
+}

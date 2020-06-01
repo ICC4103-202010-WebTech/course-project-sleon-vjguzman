@@ -1,9 +1,9 @@
 .h2details {
     background-color: darkred;
     color: white;
-    width: 200px;
+    width: 350px;
     margin: 15px;
-    margin-left: 12cm;
+    margin-left: 5cm;
     margin-right: 3cm;
     text-align: center;
     margin-top: 1cm;
@@ -27,8 +27,14 @@
 }
 .h4details {
     color: black;
-    margin-left: 12cm;
+    margin-left: 15cm;
     margin-right: 1.5cm;
+}
+.h4detailsp {
+    color: black;
+    margin-left: 15cm;
+    margin-right: 1.5cm;
+    margin-top: -6cm;
 }
 .back {
     background-color: white;
@@ -46,7 +52,7 @@
 }
 .h4details2{
     color: black;
-    margin-left: 4cm;
+    margin-left: 15cm;
     margin-right: 1.5cm;
 }
 .back:hover {
@@ -58,4 +64,8 @@
     background: #ff9800;
     color: white;
     text-align: center;
+}
+.imageleft {
+    text-align: left;
+    margin-left: 1cm;
 }
