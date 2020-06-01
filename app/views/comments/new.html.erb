@@ -1,34 +1,18 @@
-<h1>New Comment</h1>
-<h2><%= render 'form', comment: @comment %></h2>
+<div class="row ml-0 mt-3">
+  <h2 class="edith2">New Comment</h2>
+  <p class="p-edit">Please enter the required information to create a Comment:</p>
+</div>
 
-<table>
-  <thead>
-  <tr>
-    <th> Message</th>
-  </tr>
-  </thead>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  </style>
-  <tbody>
-  <tr>
-    <td> New message: <p><input type="text" name="Message"></p></td>
-    <td><%= link_to 'Save', root_path %></td>
-  </tr>
-  </tbody>
-</table>
-<%= link_to 'Back', comment_path %>
+<div class="div-2">
+  <%= form_with model: @comment, local: true do |form| %>
+    <div class="div-edit">
+      <%= form.label :message %>
+      <br/>
+      <%= form.text_area :message, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.submit "Create", class: ["btn"] %>
+      <%= link_to "Back", :back, class: ["btn"] %>
+    </div>
+  <% end %>
+</div>

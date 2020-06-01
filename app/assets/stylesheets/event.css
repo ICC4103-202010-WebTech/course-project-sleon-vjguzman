@@ -90,13 +90,17 @@ div {
     background: #2196F3;
     color: white;}
 
-.asideprofile {
-    width: 30%;
+.aside-event {
+    width: 100%;
     padding: 10px 24px;
+    margin-right: 0.5cm;
+    margin-left: 14cm;
     float: left;
     display: block;
     font-style: italic;
-    background-color: white;}
+    background-color: white;
+    margin-bottom: 1cm;
+}
 
 .imageleft {
     text-align: left;

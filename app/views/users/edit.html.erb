@@ -1,11 +1,7 @@
-<div class="row ml-0 mt-3">
-  <h2 class="edith2">Edit my information</h2>
-  <p class="p-edit">Please enter the required information to edit your profile:</p>
-</div>
 
 <%= render partial: "form",
            locals: {
-               user: @first_user,
+               user: @user,
                ticket_type_section_title: "Edit event",
                ticket_type_instruction_text: "You may edit existing ticket types for your event"
            } %>
