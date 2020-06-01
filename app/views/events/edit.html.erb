@@ -1,27 +1,14 @@
-<h2 class="edith2">Editing an Event</h2>
-<%= stylesheet_link_tag 'edit-event'%>
-<button><%= render 'form', event: @event %></button>
-  <div class="div-edit">
-    <h3 class="h3edit"> New Description</h3>
-    <h3 class="h3edit">Description: <input type="text" name="Description"></h3>
-  </div>
-  <div class="div-edit">
-    <h3 class="h3edit"> New Location </h3>
-    <h3 class="h3edit">Location: <input type="text" name="Location"></h3>
-  </div>
-  <div class="div-edit">
-    <h3 class="h3edit"> (1 -> System, 2 -> Yourself)</h3>
-    <h3 class="h3edit">Type Choice of Date: <input type="text" name="Choice of Date"></h3>
-  </div>
-  <div class="div-edit">
-    <h3 class="h3edit"> (1 -> Public, 2 -> Private)</h3>
-    <h3 class="h3edit">Privacy Type: <input type="text" name="Privacy"></h3>
-  </div>
-  <div class="div-edit">
-    <h3 class="h3edit"> Organization</h3>
-    <h3 class="h3edit">Organization Id: <input type="text" name="Organization"></h3>
-  </div>
-
-<br>
-<button class="buttonedit"><%= link_to 'Back', event_path %></button>
+<div class="row ml-0 mt-3">
+  <h2 class="edith2">Edit "<%=@event.description%>" Event</h2>
+</div>
+<div class="row ml-0 mt-2">
+  <p>Please enter the required information to edit the "<%=@event.description%>" event:</p>
+</div>
+<%= render partial: "form",
+           locals: {
+               event: @event,
+               submit_btn_text: "Update",
+               ticket_type_section_title: "Edit event",
+               ticket_type_instruction_text: "You may edit existing ticket types for your event"
+           } %>
 

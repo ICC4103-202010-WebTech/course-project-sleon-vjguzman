@@ -3,13 +3,14 @@
 <h1 class="eventpageh1"><%= @event_name.first.description%> </h1>
 <br/>
     <div class="eventpagediv">
+      <h4 class="eventpageh4"><%= link_to image_tag("xd.jpeg") %></h4>
       <h4 class="eventpageh4">Date: <%= @event_date.first.final_date %></h4>
       <h4 class="eventpageh4">Location: <%= @event_location.first.location %></h4>
       <h4 class="eventpageh4">Create By: <%= @user.full_name %></h4>
     </div>
 
 <br/>
-<button class="button1"><%= link_to 'See Comments', events_path %></button>
+<button class="button1"><%= link_to 'See Comments', comment_path %></button>
 <button class="button1"><%= link_to 'View Videos', event_path %></button>
 </br>
 <button class="button1"><%= link_to 'View File Attachment', event_path %></button>

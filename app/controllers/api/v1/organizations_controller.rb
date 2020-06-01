@@ -10,6 +10,7 @@ class API::V1:: OrganizationsController < APIController
   # GET /events/1
   # GET /events/1.json
   def show
+    @organizations = Organization.all
   end
 
   # GET /events/new
@@ -24,7 +25,7 @@ class API::V1:: OrganizationsController < APIController
   # POST /events
   # POST /events.json
   def create
-    @organization = organization.new(organization_params)
+    @organization = Organization.new(organization_params)
     if @organization.save
       render :show, status: :created, location: @organization
     else
