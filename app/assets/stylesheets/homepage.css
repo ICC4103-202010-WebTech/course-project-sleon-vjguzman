@@ -10,6 +10,7 @@
     size: 10px;
     margin-left: 12cm;
     margin-right: 1.5cm;
+    margin-top: -5cm;
 }
 
 .buttonhome {
@@ -45,4 +46,12 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+}
+.imageleft {
+    text-align: left;
+    margin-left: 1cm;
+}
+.imageleft1 {
+    text-align: left;
+    margin-left: 5cm;
 }

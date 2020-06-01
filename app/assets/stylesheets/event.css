@@ -98,4 +98,7 @@ div {
     font-style: italic;
     background-color: white;
 
+.imageleft {
+    text-align: left;
+    margin-left: 1cm;
 }
