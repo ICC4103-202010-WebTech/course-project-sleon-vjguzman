@@ -1,18 +1,17 @@
 <p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'organization'%>
-<h4 class="eventpageh4"><%= link_to image_tag("xd.jpeg") %></h4>
+<span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
 <h2 class="organizationh2" align="left"><%= @organization_user.first.name %></h2>
 <h4 class="organizationh4",align="left"><%= @organization_user.first.description %></h4>
 <h3 class="organizationh3-2"> ADMIN: <%= User.where(id: @admin.first.user_id).select(:username).first.username %></h3>
-<button class="botonorganizacion"> <%= link_to 'See Members', organization_path(@id) %></button>
+<button class="botonorganizacion1"> <%= link_to 'See Members', organization_path(@id) %></button>
 <br>
 
 <h2 class="organizationh2-1"> Events of the Organization </h2>
-
   <% @eventos_org.each do |x| %>
     <div class="divorganization">
-      <h4 class="eventpageh4"><%= link_to image_tag("xd.jpeg") %></h4>
-      <h4 class="organizationh4-1"><%= x.description %></h4>
+      <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+      <h4 class="organizationh4-1p"><%= x.description %></h4>
       <h4 class="organizationh4-1"><%= x.location %></h4>
       <h4 class="organizationh4-1"><%= x.final_date %></h4>
       <button class="botonorganizacion"><%= link_to 'View', event_path(x) %></button>

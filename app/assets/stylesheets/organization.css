@@ -12,10 +12,10 @@
     color: white;
     width: 200px;
     margin: 15px;
-    margin-left: 12cm;
+    margin-left: 15cm;
     margin-right: 3cm;
     text-align: center;
-    margin-top: 1cm;
+    margin-top: -6cm;
 }
 .botonorganizacion {
     background-color: white;
@@ -26,15 +26,34 @@
     font-size: 16px;
     margin-right: 1cm;
     margin-left: 22cm;
+
+}
+
+.botonorganizacion1 {
+    background-color: white;
+    border: 0.5px solid black;
+    color: black;
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+
+    margin-left: 5cm;
 }
 
 .organizationh4{
     color: black;
-    margin-left: 12cm;
+    margin-left: 15cm;
+
 }
-.organizationh4-1 {
+.organizationh4-1p {
     color: black;
     margin-left: 12cm;
+    margin-top: -5cm;
+}
+.organizationh4-1{
+    color: black;
+    margin-left: 12cm;
+
 }
 .organizationh2-1 {
     color: black;
@@ -48,13 +67,21 @@
     color: white;
     width: 200px;
     margin: 15px;
-    margin-left: 4cm;
+    margin-left: 5cm;
     margin-right: 3cm;
     text-align: center;
-    margin-top: 1cm;
+    margin-top: 4cm;
 }
 .botonorganizacion a {
     float: left;
     text-decoration: none;
     color: black;
+}
+.imageleft {
+    text-align: left;
+    margin-left: 1cm;
+}
+.imageleft1 {
+    text-align: left;
+    margin-left: 5cm;
 }

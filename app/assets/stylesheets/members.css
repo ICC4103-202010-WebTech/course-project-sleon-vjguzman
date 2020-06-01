@@ -3,24 +3,24 @@
     color: white;
     width: 200px;
     margin: 15px;
-    margin-left: 12cm;
+    margin-left: 15cm;
     margin-right: 3cm;
     text-align: center;
-    margin-top: 1cm;
+    margin-top: -6cm;
 }
 .membersh4{
     color: black;
-    margin-left: 12cm;
+    margin-left: 15cm;
 }
 .membersh3 {
     background-color: darkred;
     color: white;
     width: 200px;
     margin: 15px;
-    margin-left: 4cm;
+    margin-left: 5cm;
     margin-right: 3cm;
     text-align: center;
-    margin-top: 1cm;
+    margin-top: 4cm;
 }
 .membersh2-1 {
     color: black;
@@ -30,11 +30,18 @@
 }
 .membersh4-1 {
     color: black;
-    margin-left: 8cm;
+    margin-left: 12cm;
+    margin-bottom: 3.5cm;
+}
+.membersh4-1p {
+    color: black;
+    margin-left: 12cm;
+    margin-top: -5cm;
 }
 .membersdiv {
     background-color: lightgrey;
-    width: 500px;
+    background-size: 900px;
+    width: 1000px;
     padding: 15px;
     margin: 15px;
     margin-left: 4cm;
@@ -49,4 +56,12 @@
     text-align: center;
     font-size: 16px;
     margin-left: 24cm;
+}
+.imageleft {
+    text-align: left;
+    margin-left: 1cm;
+}
+.imageleft1 {
+    text-align: left;
+    margin-left: 5cm;
 }
