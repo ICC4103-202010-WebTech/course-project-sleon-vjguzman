@@ -57,7 +57,7 @@ m3.user_id = u4.id
 m3.organization_id = o2.id
 m3.save!
 #Event #1
-e1 = Event.new(description: 'Tournament of Lol 2020', location: 'Uandes', final_date: '13/12/2020 - 17:00', creation_date: '11/01/2020 - 13:00')
+e1 = Event.new(description: 'Tournament of Lol 2020, the best of all wins incredible prizes!', location: 'Uandes', final_date: '13/12/2020 - 17:00', creation_date: '11/01/2020 - 13:00')
 o1 = Organization.first
 e1.organization_id = o1.id
 c1 = ChoiceOfDate.first

@@ -4,12 +4,13 @@ class MultimediaController < ApplicationController
   # GET /multimedia
   # GET /multimedia.json
   def index
-    @multimedia = Multimedium.all
+    @get_id = Event.where(id: params[:id]).select(:id)
   end
 
   # GET /multimedia/1
   # GET /multimedia/1.json
   def show
+    @get_id = Event.where(id: params[:id]).select(:id)
   end
 
   # GET /multimedia/new
