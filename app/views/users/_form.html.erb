@@ -1,6 +1,11 @@
 <br/>
 <h2 class="h2profile"><%= @user.full_name %></h2>
-<span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
+<% unless @first_user.profile_picture.attached? == true%>
+  <span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
+<% end %>
+<% unless @first_user.profile_picture.attached?  == false%>
+  <span class="imageleft1"><%= link_to image_tag(url_for(@first_user.profile_picture)) %></span>
+<% end %>
 <h4 class="h4profilep"><%= @user.username %></h4>
 <h4 class="h4profile"><%= @user.short_bio %></h4>
 <h4 class="h4profile"><%= @user.location %></h4>

@@ -2,11 +2,11 @@
 <%= stylesheet_link_tag 'seedetails-profile'%>
 
 <h2 class="h2details"> <%= @first_user.full_name %> </h2>
-<% unless @first_user.profile_picture.attached? == false%>
+<% unless @first_user.profile_picture.attached? == true%>
   <span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
 <% end %>
-<% unless @first_user.profile_picture.attached?  == true%>
-  <span class="imageleft1"><%= link_to image_tag(url_for(@first_user.profile_picture), url_for(@first_user)) %></span>
+<% unless @first_user.profile_picture.attached?  == false%>
+  <span class="imageleft1"><%= link_to image_tag(url_for(@first_user.profile_picture)) %></span>
 <% end %>
 
     <h4 class="h4detailsp"><%= @first_user.username %></h4>
