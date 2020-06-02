@@ -21,6 +21,7 @@ class EventsController < ApplicationController
     @user_events = EventCreator.where(user_id: @user)
     @eventos = Event.where(id: @user_events)
     @get_id = Event.where(id: params[:id]).select(:id)
+    @event_foto = Event.where(id: @get_id)
     @event_name = Event.where(id: @get_id).select(:description)
     @event_date = Event.where(id: @get_id).select(:final_date)
     @event_location = Event.where(id: @get_id).select(:location)
@@ -85,6 +86,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.fetch(:event, {}).permit(:id, :description, :location, :final_date, :creation_date, :choice_of_date_id, :privacy_id, :organization_id, :banner, :images, :files, :videos)
+      params.fetch(:event, {}).permit(:id, :description, :location, :final_date, :creation_date, :choice_of_date_id, :privacy_id, :organization_id, :banner_picture, :images, :files, :videos)
     end
 end

@@ -9,15 +9,15 @@
   <tbody>
   <% @comments.each do |comment| %>
     <div>
-      <% unless @first_user.profile_picture.attached? == true%>
+      <% unless User.select(:username).where(id: comment.user_id).first.profile_picture.attached? == true%>
         <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
       <% end %>
-      <% unless @first_user.profile_picture.attached?  == false%>
-        <span class="imageleft"><%= link_to image_tag(url_for(@first_user.profile_picture)) %></span>
+      <% unless User.select(:username).where(id: comment.user_id).first.profile_picture.attached?  == false%>
+        <span class="imageleft"><%= link_to image_tag(url_for(User.select(:username).where(id: comment.user_id).first.profile_picture)) %></span>
       <% end %>
       <h3 class="Userp"><%= User.select(:username).where(id: comment.user_id).first.username%>:</h3>
       <h4 class="User"><%= comment.message %></h4>
-      <button class="btn1-1 danger"><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+      <button class="btn1-1 danger"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
     </div>
   <% end %>
   </tbody>|

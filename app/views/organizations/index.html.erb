@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'organization'%>
 
-<% unless @organization_user.banner.attached? == true%>
+<% unless @organization_user.first.banner_org.attached? == true%>
   <span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
 <% end %>
-<% unless @organization_user.banner.attached?  == false%>
-  <span class="imageleft1"><%= link_to image_tag(url_for(@organization_user.banner)) %></span>
+<% unless @organization_user.first.banner_org.attached?  == false%>
+  <span class="imageleft1"><%= link_to image_tag(url_for(@organization_user.first.banner_org)) %></span>
 <% end %>
 
 <aside class="aside-organization">
@@ -21,7 +21,12 @@
 <h2 class="organizationh2-1"> Events of the Organization </h2>
   <% @eventos_org.each do |x| %>
     <div class="divorganization">
-      <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+      <% unless x.banner_picture.attached? == true%>
+        <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+      <% end %>
+      <% unless x.banner_picture.attached?  == false%>
+        <span class="imageleft"><%= link_to image_tag(url_for(x.banner_picture)) %></span>
+      <% end %>
       <h4 class="organizationh4-1p"><%= x.description %></h4>
       <h4 class="organizationh4-1"><%= x.location %></h4>
       <h4 class="organizationh4-1"><%= x.final_date %></h4>

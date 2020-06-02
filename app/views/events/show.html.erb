@@ -3,11 +3,11 @@
 <h1 class="eventpageh1"><%= @event_name.first.description%> </h1>
 <br/>
     <div class="eventpagediv">
-      <% unless @event_name.banner.attached? == false%>
+      <% unless @event_foto.first.banner_picture.attached? == true%>
         <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
       <% end %>
-      <% unless @event_name.banner.attached?  == true%>
-        <span class="imageleft"><%= link_to image_tag(url_for(@event_name.banner)) %></span>
+      <% unless @event_foto.first.banner_picture.attached?  == false%>
+        <span class="imageleft"><%= link_to image_tag(url_for(@event_foto.first.banner_picture)) %></span>
       <% end %>
 
       <h4 class="eventpageh4p">Date: <%= @event_date.first.final_date %></h4>

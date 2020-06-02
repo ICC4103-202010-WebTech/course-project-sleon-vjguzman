@@ -1,0 +1,124 @@
+
+.Userp {
+    margin-left: 12cm;
+    margin-top: -5cm;
+}
+.btn11g {
+    border: 1px solid black;
+    background-color: ghostwhite;
+    padding: 0.5cm 1cm;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    width: 30%;
+    display: inline-block;
+}
+
+.btn1-1 {
+    border: 1px solid black;
+    background-color: ghostwhite;
+    padding: 14px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    width: 17%;
+    display: inline;
+}
+
+/* Green */
+.success {
+    color: green;
+}
+
+.success:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Blue */
+.info {
+    color: dodgerblue;
+}
+
+.info:hover {
+    background: #2196F3;
+    color: white;
+}
+
+/* Orange */
+.warning {
+    color: orange;
+    text-align: center;
+}
+
+.warning:hover {
+    background: #ff9800;
+    color: white;
+    text-align: center;
+}
+
+/* Red */
+.danger {
+    color: red;
+    margin-left: 12cm;
+    margin-top: 1cm;
+}
+
+.danger2 {
+    color: red;
+    margin-left: 12cm;
+    margin-top: 3cm;
+    margin-bottom: 1cm;
+}
+
+.danger:hover {
+    background: #f44336;
+    color: white;
+}
+div {
+    background-color: lightgrey;
+    background-size: 900px;
+    width: 800px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+}
+h4 {
+    margin-top: 1cm;
+    text-align: left;
+    margin-left: 1cm;
+}
+
+h2 {
+    margin-top: 1cm;
+    text-align: left;
+    margin-left: 4cm;
+}
+.success-1 {
+    color: green;
+}
+
+.success-1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.btn1-1 a {
+    color: black;
+    text-decoration: none;
+}
+.btn11g a {
+    color: black;
+    text-decoration: none;
+}
+.info-1 {
+    color: dodgerblue;
+}
+.aside-guest {
+    width: 50%;
+    padding: 10px 24px;
+    float: right;
+    display: inline-block;
+    background-color: white;
+    margin-right: 1cm;
+}
