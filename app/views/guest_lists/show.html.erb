@@ -18,12 +18,7 @@
   <tbody>
   <% @guest_lists.each do |x| %>
     <div>
-      <% unless x.profile_picture.attached? == true%>
-        <span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
-      <% end %>
-      <% unless x.profile_picture.attached?  == false%>
-        <span class="imageleft1"><%= link_to image_tag(url_for(x.profile_picture)) %></span>
-      <% end %>
+        <h4 class="imageleft1"><%= link_to image_tag("xd.jpeg") %></h4>
       <h3 class="Userp"><%= User.where(id: x.user_id).select(:username).first.username %></h3>
       <button class="btn1-1 danger2"><%= link_to 'Remove', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
     </div>

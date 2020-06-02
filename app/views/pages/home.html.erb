@@ -2,10 +2,10 @@
 <%= stylesheet_link_tag 'homepage'%>
 <% @upcoming_events.each do |x| %>
 <div class="homediv">
-  <% unless x.banner.attached? == false%>
+  <% unless x.banner.attached? == true%>
     <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
   <% end %>
-  <% unless x.banner.attached?  == true%>
+  <% unless x.banner.attached?  == false%>
     <span class="imageleft"><%= link_to image_tag(url_for(x.banner)) %></span>
   <% end %>
   <h4 class="homeh4"><%= x.description %></h4>

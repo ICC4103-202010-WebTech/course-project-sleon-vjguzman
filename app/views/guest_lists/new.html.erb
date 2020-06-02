@@ -1,5 +1,20 @@
-<h1>New Guest List</h1>
+<div class="row ml-0 mt-3">
+  <h2 class="edith2">New Guests</h2>
+  <p class="p-edit">Please select the guests for your event:</p>
+</div>
+<div class="div-2">
+  <%= form_with model: @guest_list, local: true do |form| %>
 
-<%= render 'form', guest_list: @guest_list %>
+<label for="guest"> Choose the guests: </label>
+<select name="guest" id="guest" multiple>
+  <option value="hola"> hola </option>
+  <option value="hola"> hola </option>
+  <option value="hola"> hola </option>
+  <option value="hola"> hola </option>
+  <option value="hola"> hola </option>
+  <option value="hola"> hola </option>
+  <option value="hola"> hola </option>
 
-<%= link_to 'Back', guest_lists_path %>
+</select>
+  <% end %>
+</div>
