@@ -11,6 +11,11 @@
       <%= form.text_area :description, class: "form-control" %>
     </div>
     <div class="div-edit">
+      <%= form.label :banner %>
+      <br/>
+      <%= form.file_field :banner, class: "form-control" %>
+    </div>
+    <div class="div-edit">
       <%= form.submit "Update", class: ["btn"] %>
       <%= link_to "Back", :back, class: ["btn"] %>
     </div>
