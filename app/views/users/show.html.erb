@@ -8,8 +8,8 @@
     <h4 class="h4details"><%= @first_user.short_bio %></h4>
     <h4 class="h4details"><%= @first_user.location %></h4>
     <h4 class="h4details"><%= Organization.where(id: @user_member).select(:name).first.name %></h4>
-  <h4 class="h4details2"> Email: <%= @first_user.email %></h4>
-  <h4 class="h4details2"> Password: <%= @first_user.password %></h4>
+    <h4 class="h4details2"> Email: <%= @first_user.email %></h4>
+    <h4 class="h4details2"> Password: <%= @first_user.password %></h4>
 <br/>
 <aside class="botones">
   <button class="buttondetails"><%= link_to 'Edit', edit_user_path(@first_user) %></button>
