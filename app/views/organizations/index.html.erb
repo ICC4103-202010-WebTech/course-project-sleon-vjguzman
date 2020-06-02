@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'organization'%>
-<span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
+
+<% unless @organization_user.banner.attached? == true%>
+  <span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
+<% end %>
+<% unless @organization_user.banner.attached?  == false%>
+  <span class="imageleft1"><%= link_to image_tag(url_for(@organization_user.banner), url_for(@organization_user)) %></span>
+<% end %>
+
 <aside class="aside-organization">
   <button class="botonorganizacion1"> <%= link_to 'See Members', organization_path(@id) %></button>
   <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(@organization_user.first.id) %></button>
