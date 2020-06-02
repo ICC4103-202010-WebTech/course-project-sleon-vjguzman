@@ -17,10 +17,10 @@
 
 <br/>
 <button class="button1"><%= link_to 'See Comments', comment_path %></button>
-<button class="button1"><%= link_to 'View Videos', multimedium_path %></button>
+<button class="button1"><%= link_to 'View Videos', multimedium_path(@event_date) %></button>
 </br>
-<button class="button1"><%= link_to 'View File Attachment', multimedia_path %></button>
-<button class="button1"><%= link_to 'View Photos', multimedium_path %></button>
+<button class="button1"><%= link_to 'View File Attachment', multimedia_path(@event_date) %></button>
+<button class="button1"><%= link_to 'View Photos', multimedium_path(@event_date) %></button>
 <br/>
 <button class="btn2 info-1" align="center"><%= link_to 'Back', events_path %></button>
 

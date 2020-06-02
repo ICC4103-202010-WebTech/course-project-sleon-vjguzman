@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_020812) do
+ActiveRecord::Schema.define(version: 2020_06_02_205747) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_020812) do
     t.integer "choice_of_date_id"
     t.integer "privacy_id"
     t.integer "organization_id"
+    t.string "title"
     t.index ["choice_of_date_id"], name: "index_events_on_choice_of_date_id"
     t.index ["organization_id"], name: "index_events_on_organization_id"
     t.index ["privacy_id"], name: "index_events_on_privacy_id"
