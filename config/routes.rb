@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   resources :organizations, defaults: { format: :html }
   resources :system_admins, defaults: { format: :html }
   resources :users, defaults: { format: :html }
+  resources :guest_lists, defaults: { format: :html }
 end
 

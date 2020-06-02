@@ -9,8 +9,8 @@
   <tbody>
   <% @comments.each do |comment| %>
     <div>
-      <h4 class="membersh4-1"><%= link_to image_tag("xd.jpeg") %></h4>
-      <h4 class="User"><%= User.select(:username).where(id: comment.user_id).first.username%>:</h4>
+      <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+      <h3 class="Userp"><%= User.select(:username).where(id: comment.user_id).first.username%>:</h3>
       <h4 class="User"><%= comment.message %></h4>
       <button class="btn1-1 danger"><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
     </div>
