@@ -8,11 +8,11 @@
 </aside>
 <h2>Created Events</h2>
   <% @eventos.each do |x| %>
-    <div>
+    <div class="divorganization">
       <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
-      <h4><%= x.description %></h4>
-      <h4><%= x.location %></h4>
-      <h4><%= x.final_date %></h4>
+      <h4 class="organizationh4-1p"><%= x.description %></h4>
+      <h4 class="organizationh4-1"><%= x.location %></h4>
+      <h4 class="organizationh4-1"><%= x.final_date %></h4>
         <button class="btn success"><%= link_to 'See Event Page',event_path(x) %></button>
         <button class="btn info"><%= link_to 'View Guests', guest_list_path(x) %></button>
         <button class="btn warning"><%= link_to 'Edit', edit_event_path(x) %></button>

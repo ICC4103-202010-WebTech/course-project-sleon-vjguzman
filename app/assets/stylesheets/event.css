@@ -3,6 +3,24 @@
     text-align: left;
     margin-left: 4cm;
 }
+.divorganization {
+    background-color: lightgrey;
+    background-size: 900px;
+    width: 1000px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+}
+.organizationh4-1p {
+    color: black;
+    margin-left: 12cm;
+    margin-top: -5cm;
+}
+.organizationh4-1{
+    color: black;
+    margin-left: 12cm;
+}
 h4 {
     margin-left: 12cm;
 }
@@ -15,7 +33,7 @@ h4 {
     text-align: center;
     display: inline-block;
     width: 17%;
-    margin-left: 1cm;
+    margin-left: 1.5cm;
 }
 
 /* Green */
@@ -71,7 +89,7 @@ div {
 
 .success-1 {
     color: green;
-    margin-left: 4cm;
+    margin-left: 1cm;
 }
 
 .success-1:hover {
@@ -93,8 +111,8 @@ div {
 .aside-event {
     width: 100%;
     padding: 10px 24px;
-    margin-right: 0.5cm;
-    margin-left: 14cm;
+
+    margin-left: 5cm;
     float: left;
     display: block;
     font-style: italic;
