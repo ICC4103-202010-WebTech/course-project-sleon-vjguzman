@@ -7,7 +7,14 @@
   <button class="botonasideprofile"> <%= link_to 'Edit Profile', edit_user_path(@first_user) %></button>
   <button class="botonasideprofile"> <%= link_to 'See Details', user_path(@first_user) %></button>
 </aside>
+
+<% unless @first_user.profile_picture.attached? == true%>
   <span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
+<% end %>
+<% unless @first_user.profile_picture.attached?  == false%>
+  <span class="imageleft1"><%= link_to image_tag(url_for(@first_user.profile_picture), url_for(@first_user)) %></span>
+<% end %>
+
   <h4 class="h4profilep"><%= @first_user.username %></h4>
   <h4 class="h4profile"><%= @first_user.short_bio %></h4>
   <h4 class="h4profile"><%= @first_user.location %></h4>
