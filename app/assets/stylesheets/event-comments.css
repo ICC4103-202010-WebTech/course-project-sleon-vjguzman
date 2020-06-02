@@ -1,6 +1,10 @@
 
 .User {
-    margin-left: 5cm;
+    margin-left: 12cm;
+}
+.Userp {
+    margin-left: 12cm;
+    margin-top: -5cm;
 }
 .btn11 {
     border: 1px solid black;
@@ -59,7 +63,15 @@
 /* Red */
 .danger {
     color: red;
-    margin-left: 15cm;
+    margin-left: 12cm;
+    margin-top: 1cm;
+}
+
+.danger2 {
+    color: red;
+    margin-left: 12cm;
+    margin-top: 3cm;
+    margin-bottom: 1cm;
 }
 
 .danger:hover {

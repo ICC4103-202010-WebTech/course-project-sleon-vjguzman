@@ -4,12 +4,15 @@ class GuestListsController < ApplicationController
   # GET /guest_lists
   # GET /guest_lists.json
   def index
-    @guest_lists = GuestList.all
+    @get_id = Event.where(id: params[:id]).select(:id)
+    @guest_lists = GuestList.where(event_id: @get_id)
   end
 
   # GET /guest_lists/1
   # GET /guest_lists/1.json
   def show
+    @get_id = Event.where(id: params[:id]).select(:id)
+    @guest_lists = GuestList.where(event_id: @get_id)
   end
 
   # GET /guest_lists/new
@@ -69,6 +72,6 @@ class GuestListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guest_list_params
-      params.fetch(:guest_list, {})
+      params.fetch(:guest_list, {}).permit(:id , :user_id, :event_id)
     end
 end
