@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Choice Of Dates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @choice_of_dates.each do |choice_of_date| %>
+      <tr>
+        <td><%= link_to 'Show', choice_of_date %></td>
+        <td><%= link_to 'Edit', edit_choice_of_date_path(choice_of_date) %></td>
+        <td><%= link_to 'Destroy', choice_of_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Choice Of Date', new_choice_of_date_path %>
