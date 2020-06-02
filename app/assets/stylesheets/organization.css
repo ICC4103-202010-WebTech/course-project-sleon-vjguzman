@@ -33,11 +33,13 @@
     background-color: white;
     border: 0.5px solid black;
     color: black;
-    padding: 12px 28px;
+    padding: 10px 24px;
     text-align: center;
     font-size: 16px;
-
-    margin-left: 5cm;
+    margin-left: 1cm;
+    margin-top: 0.5cm;
+    display: inline-block;
+    width:40%;
 }
 
 .organizationh4{
@@ -72,6 +74,11 @@
     text-align: center;
     margin-top: 4cm;
 }
+.botonorganizacion1 a {
+    float: left;
+    text-decoration: none;
+    color: black;
+}
 .botonorganizacion a {
     float: left;
     text-decoration: none;
@@ -84,4 +91,15 @@
 .imageleft1 {
     text-align: left;
     margin-left: 5cm;
+}
+
+.aside-organization {
+    width: 30%;
+    padding: 10px 24px;
+    margin-right: 1cm;
+    margin-bottom: 1cm;
+    float: right;
+    display: inline;
+    font-style: italic;
+    background-color: white;
 }

@@ -1,6 +1,10 @@
-<h1>Editing Organization</h1>
+<div class="row ml-0 mt-3">
+  <h2 class="edith2">Edit "<%=@organization.name%>" Organization</h2>
+</div>
 
-<%= render 'form', organization: @organization %>
-
-<%= link_to 'Show', @organization %> |
-<%= link_to 'Back', organizations_path %>
+<%= render partial: "form",
+           locals: {
+               organization: @organization,
+               ticket_type_section_title: "Edit event",
+               ticket_type_instruction_text: "You may edit existing ticket types for your event"
+           } %>
