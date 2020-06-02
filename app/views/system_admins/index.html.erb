@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'system-admin'%>
-<h3 class="adminh3">Users with admin permissions</h3>
+<h2 class="adminh3">Users with admin permissions</h2>
+</br>
   <% @admins.each do |x| %>
     <div class="divadmin">
-      <h4 class="membersh4-1"><%= link_to image_tag("xd.jpeg") %></h4>
-      <h4 class="adminh4"><%= x.username %></h4>
+      <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+      <h4 class="adminh4p"><%= x.username %></h4>
       <h4 class="adminh4"><%= x.full_name %></h4>
       <h4 class="adminh4"><%= x.email %></h4>
       <button class="adminboton"><%= link_to 'View', user_path(x) %></button>
