@@ -15,4 +15,5 @@ class Event < ApplicationRecord
   has_one_attached :banner
   has_many_attached :images
   has_many_attached :files
+  has_many_attached :videos
 end

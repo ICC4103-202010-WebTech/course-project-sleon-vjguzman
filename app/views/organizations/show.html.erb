@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'members'%>
-<span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
+<% unless @organization_user.banner.attached? == true%>
+  <span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
+<% end %>
+<% unless @organization_user.banner.attached?  == false%>
+  <span class="imageleft1"><%= link_to image_tag(url_for(@organization_user.banner)) %></span>
+<% end %>
 <h2 class="membersh2" align="left"><%= @organization_user.first.name %></h2>
 <h4 class="membersh4",align="left"><%= @organization_user.first.description %></h4>
 <h3 class="membersh3"> ADMIN: <%= User.where(id: @admin.first.user_id).select(:username).first.username %></h3>
@@ -9,7 +14,12 @@
 <h2 class="membersh2-1"> Members </h2>
   <% @members_org.each do |x| %>
     <div class="membersdiv">
-      <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+      <% unless x.profile_picture.attached? == true%>
+        <span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
+      <% end %>
+      <% unless x.profile_picture.attached?  == false%>
+        <span class="imageleft1"><%= link_to image_tag(url_for(x.profile_picture)) %></span>
+      <% end %>
       <h4 class="membersh4-1p"> Username: <%= User.select(:username).where(id: x.user_id).first.username %></h4>
       <h4 class="membersh4-1"> Role: <%= x.user_role %></h4>
     </div>
