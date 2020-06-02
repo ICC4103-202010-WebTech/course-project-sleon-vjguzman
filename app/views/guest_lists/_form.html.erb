@@ -1,17 +1,21 @@
-<%= form_with(model: guest_list, local: true) do |form| %>
-  <% if guest_list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(guest_list.errors.count, "error") %> prohibited this guest_list from being saved:</h2>
-
-      <ul>
-        <% guest_list.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<%= render 'form', guest_list: @guest_list %>
+<div class="row ml-0 mt-3">
+  <%= stylesheet_link_tag 'add-guest'%>
+  <h2 class="edith2">New Guests</h2>
+  <p class="p-edit">Please select the guests for your event:</p>
+</div>
+<div class="div-2">
+  <%= form_with model: @guest_list, local: true do |form| %>
+    <div class="div-edit1">
+      <%= form.label :user_id %>
+      <br/>
+      <%= form.collection_select(:user_id, User.where.not(id: @first_user).order(name: :asc), :id, :username, {}, { class: "form-control" }) %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <div class="div-edit">
+      <%= form.submit "Update", class: ["btn"] %>
+      <%= link_to "Back", :back, class: ["btn"] %>
+    </div>
+  <%end%>
+  <br/>
+  <p class="p-edit"> Hold down the Ctrl (Windows) or Command (Mac) button to select multiple options</p>
+</div>

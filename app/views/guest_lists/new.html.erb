@@ -1,19 +1,1 @@
-<div class="row ml-0 mt-3">
-  <h2 class="edith2">New Guests</h2>
-  <p class="p-edit">Please select the guests for your event:</p>
-</div>
-<div class="div-2">
-  <%= form_with model: @guest_list, local: true do |form| %>
 
-<p class="p-edit">
-  <label for="guest"> Choose the guests: </label>
-</p>
-    <select name="guest" id="guest" multiple>
-  <%= (User.all).each do |user|%>
-        <option value="<%=user.id%>"> <%=user.username%> </option>
-      <%end%>
-    </select>
-  <%end%>
-  <input type="submit" value="Submit">
-  <p class="p-edit"> "Hold down the Ctrl (Windows) or Command (Mac) button to select multiple options"</p>
-</div>

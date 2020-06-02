@@ -28,7 +28,6 @@ class GuestListsController < ApplicationController
   # POST /guest_lists.json
   def create
     @guest_list = GuestList.new(guest_list_params)
-    @users_guest = User.all
     respond_to do |format|
       if @guest_list.save
         format.html { redirect_to @guest_list, notice: 'Guest list was successfully created.' }

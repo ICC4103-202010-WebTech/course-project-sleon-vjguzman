@@ -1,6 +1,9 @@
-<h1>Editing Guest List</h1>
+<div class="row ml-0 mt-3">
+  <h2 class="edith2">Editing Guest List</h2>
+</div>
 
-<%= render 'form', guest_list: @guest_list %>
+<%= render partial: "form",
+           locals: {
+               guest_list: @guest_list
+           } %>
 
-<%= link_to 'Show', @guest_list %> |
-<%= link_to 'Back', guest_lists_path %>

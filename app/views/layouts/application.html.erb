@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Supreme Events</title>
-    <h1 class="apph1"><%= link_to image_tag("asdfas real.jpg"), root_path %></h1>
-    <h5 class="apph5"> <%=User.first.full_name%> </h5>
-    <h5 class="apph5"> Log out </h5>
+<head>
+  <title>Supreme Events</title>
+  <h1 class="apph1"><%= link_to image_tag("asdfas real.jpg"), root_path %></h1>
+  <h5 class="apph5"> <%=User.first.full_name%> </h5>
+  <h5 class="apph5"> Log out </h5>
 
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application'%>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application'%>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <nav>
-    <%= stylesheet_link_tag 'navegation'%>
-    <ul>
-      <li>
-        <%= link_to 'Profile', users_path%>
-      </li>
-      <li>
-        <%= link_to 'My Events', events_path %>
-      </li>
-      <li>
-        <%= link_to 'Organization', organizations_path %>
-      </li>
-      <li>
-        <%= link_to 'Admin', system_admins_path %>
-      </li>
-    </ul>
-  </nav>
+<nav>
+  <%= stylesheet_link_tag 'navegation'%>
+  <ul>
+    <li>
+      <%= link_to 'Profile', users_path%>
+    </li>
+    <li>
+      <%= link_to 'My Events', events_path %>
+    </li>
+    <li>
+      <%= link_to 'Organization', organizations_path %>
+    </li>
+    <li>
+      <%= link_to 'Admin', system_admins_path %>
+    </li>
 
-  <body>
-    <%= yield %>
-  </body>
+    <form action="/action_page.php">
+      <input class="inputxd" placeholder="Search.." name="search">
+      <button class="buttonhomexd">Search</button>
+    </form>
+
+  </ul>
+</nav>
+
+<body>
+<%= yield %>
+</body>
 </html>
