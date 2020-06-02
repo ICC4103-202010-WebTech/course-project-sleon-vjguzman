@@ -18,7 +18,7 @@
         <span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
       <% end %>
       <% unless x.profile_picture.attached?  == false%>
-        <span class="imageleft1"><%= link_to image_tag(url_for(@first_user.profile_picture)) %></span>
+        <span class="imageleft1"><%= link_to image_tag(url_for(x.profile_picture)) %></span>
       <% end %>
       <h4 class="membersh4-1p"> Username: <%= User.select(:username).where(id: x.user_id).first.username %></h4>
       <h4 class="membersh4-1"> Role: <%= x.user_role %></h4>
