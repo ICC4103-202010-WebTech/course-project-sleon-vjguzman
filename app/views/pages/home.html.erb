@@ -9,6 +9,7 @@
     <span class="imageleft"><%= link_to image_tag(url_for(x.banner_picture)) %></span>
   <% end %>
   <h4 class="homeh4"><%= x.title %></h4>
+  <h5 class="homeh5"><%= x.description %></h5>
   <h5 class="homeh5"><%= x.final_date %></h5>
   <h5 class="homeh5"><%= x.location %></h5>
   <button class="buttonhome"><%= link_to 'View', event_path(x) %></button>
