@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :events do
         resources :comments
-        resources :multimedia
       end
       resources :comments
       resources :organizations do
@@ -19,7 +18,9 @@ Rails.application.routes.draw do
       resources :guest_lists do
         resources :events
       end
-      resources :multimedia
+      resources :multimedia do
+        resources :events
+      end
       resources :event_dates do
         resources :events
       end

@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @get_id = User.where(id: params[:id]).select(:id)
     @first_user = User.first
     @id_user = @first_user.id
     @guest = GuestList.where(user_id: @id_user).select(:event_id)
