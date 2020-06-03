@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'multimedia'%>
-<h1 class="multimediah1"> View Videos and Images of the event </h1>
+<h1 class="multimediah1"> View Videos and Images of the event: <%= Event.select(:title).where(id: @multimedia_event.first.event_id).first.title %> </h1>
+
 <br/>
-<h2 class="multimediah2"> Images </h2>
-<% unless @banner_pic.banner_picture.attached? == true%>
-<h4 class="imageleft1"><%= link_to image_tag("xd.jpeg") %></h4>
-<% end %>
-<% unless @banner_pic.banner_picture.attached?  == false%>
-  <h4 class="imageleft1"><%= link_to image_tag(url_for(@banner_pic.banner_picture)) %></h4>
-<% end %>
 <br/>
 
-<%= link_to 'New Multimedium', edit_event_path %>
+<h2 class="multimediah2"> Images </h2>
+
+<br/>
+
+
+<h2 class="multimediah2"> Videos </h2>
+
+<br/>
+

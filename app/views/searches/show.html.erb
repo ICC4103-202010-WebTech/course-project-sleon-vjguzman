@@ -1,20 +1,68 @@
-<h2 class="searchh2"> Search Results </h2>
+<%= stylesheet_link_tag 'search'%>
+<br/>
+<h1 class="searchh1"> Search Results </h1>
 
-<h3>Results by User</h3>
+<h2 class="searchh2">* Results by User:</h2>
+<br/>
 <% unless @search.users != nil %>
-  <div class="div-2">
-    <% @search.users.each do |user| %>
-      <h4><%link_to user.name, user_path(user)%></h4>
-    <%end%>
+  <div class="div-search">
+    <h4 class="searchh4">no results, try again</h4>
   </div>
 <%end%>
-<% unless @search.user == nil%>
-  <div class="div-2">
-      <h4>no results, try again</h4>
+<% unless @search.users == nil%>
+  <div class="div-search">
+    <% @search.users.each do |user| %>
+      <div class="div-search1">
+      <h3 class="searchh31"> User:</h3>
+      <h4 class="searchh4"><%=link_to user.full_name, users_path(user)%></h4>
+      <br/>
+      <h3 class="searchh31"> Events of the User</h3>
+      <% (Event.where(id: EventCreator.where(user_id: user.id).select(:event_id))).each do |event| %>
+        <h4 class="searchh4"><%=link_to event.title, event_path(event)%></h4>
+      <%end %>
+      </div>
+      <br/>
+    <%end%>
   </div>
 <%end %>
 
-<h3> Results by Event</h3>
+<br/>
 
+<h2 class="searchh2">* Results by Organization:</h2>
+<% unless @search.organizations_name != nil %>
+  <div class="div-search">
+    <h4 class="searchh4">no results, try again</h4>
+  </div>
+<%end%>
+<% unless @search.organizations_name == nil%>
+  <div class="div-search">
+    <% @search.organizations_name.each do |org| %>
+      <div class="div-search1">
+        <h3 class="searchh31"> Organization:</h3>
+      <h4 class="searchh4"><%=link_to org.name, organization_path(org)%></h4>
+        <br/>
+        <h3 class="searchh31"> Events of the Organization</h3>
+        <%(Event.where(organization_id: org.id)).each do |event| %>
+          <h4 class="searchh4"><%=link_to event.title, event_path(event)%></h4>
+        <%end%>
+      </div>
+    <%end%>
+  </div>
+<%end %>
+<br/>
 
-<h3> Results by Organization</h3>
+<h2 class="searchh2">* Results by Event</h2>
+<br/>
+<% unless @search.events_title != nil %>
+  <div class="div-search">
+    <h4 class="searchh4">no results, try again</h4>
+  </div>
+<%end%>
+<% unless @search.events_title == nil%>
+  <div class="div-search">
+    <% @search.events_title.each do |event| %>
+      <h4 class="searchh4"><%=link_to event.title, event_path(event)%></h4>
+    <%end%>
+  </div>
+<%end %>
+<br/>
