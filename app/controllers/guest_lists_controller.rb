@@ -7,7 +7,7 @@ class GuestListsController < ApplicationController
 
     @get_id = Event.where(id: params[:id]).select(:id)
     @guest_lists = GuestList.where(event_id: @get_id)
-    @evento = Event.where(id: @get_id)
+    @evento = Event.find(@get_id)
   end
 
   # GET /guest_lists/1

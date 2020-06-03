@@ -4,11 +4,12 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @guests = GuestList.where(event_id: params[:id]) #Todos lo invitados al evento
-    @dates = Date.where()
-    @votes_guest = Vote.where(guest_list_id: @get_id)
-    @id_evento = GuestList.where(id: @get_id).select(:event_id)
-    @get_id_evento = Event.where(id: @id_evento).select(:id)
+    @get_id = Event.where(id: params[:id]).select(:id)
+    @count = 0
+    @guests = GuestList.where(event_id: @get_id)#Todos lo invitados al evento
+    @dates = EventDate.where(event_id: @get_id)
+
+
   end
 
   # GET /votes/1
@@ -18,6 +19,9 @@ class VotesController < ApplicationController
     @votes_guest = Vote.where(guest_list_id: @get_id)
     @id_evento = GuestList.where(id: @get_id).select(:event_id)
     @get_id_evento = Event.where(id: @id_evento).select(:id)
+    @count = 0
+    @guests = GuestList.where(event_id: @get_id)#Todos lo invitados al evento
+    @dates = EventDate.where(event_id: @get_id)
   end
 
   # GET /votes/new

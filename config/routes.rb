@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :events do
         resources :comments
         resources :multimedia
+
       end
       resources :comments
       resources :organizations do
@@ -13,13 +14,17 @@ Rails.application.routes.draw do
       end
       resources :users
       resources :system_admins
-      resources :guest_lists
-      resource :multimedia
-      resource :event_dates
-      resources :votes do
-        resources :guest_lists
-        resources :event_dates
+      resources :guest_lists do
         resources :events
+      end
+      resources :multimedia
+      resources :event_dates do
+        resources :events
+        resources :guest_lists
+      end
+      resources :votes do
+        resources :events
+        resources :guest_lists
       end
     end
   end

@@ -5,22 +5,27 @@
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <td>chancho culiao</td>
     </tr>
   </thead>
-
+  <td>chancho culiao</td>
   <tbody>
   <% @dates.each do |date| %>
+    <td>chancho culiao</td>
+    <% votes = [] %>
       <tr>
-        <td><%= date %></td>
-        <% @dates.each do |vote| %>
-VOTE.WHERE(DATE_ID : DATES_ID AND GUEST_ID: LIST_ID)
 
-        <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
-        <td><%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= date.date %></td>
+        <% @guests.each do |guest| %>
+          <%= votes << Vote.where(guest_list_id: guest.id,event_dates_id:date.id)%>
+        <%end %>
+        <td>1</td>
+  <%end %>
+
+
+
       </tr>
-    <% end %>
-  <% end %>
+
   </tbody>
 </table>
 
