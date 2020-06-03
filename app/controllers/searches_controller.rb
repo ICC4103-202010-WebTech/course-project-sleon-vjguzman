@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
   # GET /searches.json
   def index
     @searches = Search.all
-    @users_name = User.where(full_name : params[:search])
+    @users_name = User.where(full_name: params[:search])
     @users_username = User.where("username like ?", "%#{keywords}%") if keywords.present?
     @organizations = Organization.where("title like ?", "%#{keywords}%") if keywords.present?
     @events_title = Event.where("title like ?", "%#{keywords}%") if keywords.present?
