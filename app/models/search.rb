@@ -1,5 +1,4 @@
 class Search < ApplicationRecord
-
   def users
     @users ||= find_users
   end
@@ -10,9 +9,9 @@ class Search < ApplicationRecord
 
   private
   def find_users
-    @users = User.order(:name)
-    @users= users.where("full_name like?", "%#{keywords}%") if keywords.present?
-    @users = users.where("username like ?", "%#{keywords}%") if keywords.present?
+    users = User.all.order(:name) if keywords.present?
+    users= users.where("full_name like?", "%#{keywords}%") if keywords.present?
+    users = users.where("username like ?", "%#{keywords}%") if keywords.present?
   end
 
   def find_events

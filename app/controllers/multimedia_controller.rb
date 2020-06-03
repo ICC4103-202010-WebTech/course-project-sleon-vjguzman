@@ -5,17 +5,14 @@ class MultimediaController < ApplicationController
   # GET /multimedia.json
   def index
     @get_id = Event.where(id: params[:id]).select(:id)
-    @event_multimedia = Multimedium.where(event_id: @get_id)
-    @event_mul = Event.where(id: @get_id)
-
+    @multimedia_event = Multimedium.where(event_id: @get_id)
   end
 
   # GET /multimedia/1
   # GET /multimedia/1.json
   def show
     @get_id = Event.where(id: params[:id]).select(:id)
-    @event_multimedia = Multimedium.where(event_id: @get_id)
-    @event_mul = Event.where(id: @get_id)
+    @multimedia_event = Multimedium.where(event_id: @get_id)
   end
 
   # GET /multimedia/new

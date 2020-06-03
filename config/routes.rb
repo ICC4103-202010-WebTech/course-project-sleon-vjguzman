@@ -14,8 +14,8 @@ Rails.application.routes.draw do
       resources :users
       resources :system_admins
       resources :guest_lists
-      resource :multimedia
-      resource :event_dates
+      resources :multimedia
+      resources :event_dates
       resources :votes do
         resources :guest_lists
         resources :event_dates
