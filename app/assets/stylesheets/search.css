@@ -10,6 +10,11 @@
     text-align: left;
     margin-left: 4cm;
 }
+.searchh31 {
+    text-align: left;
+    margin-left: 0.5cm;
+}
+
 .searchh4 {
     text-align: left;
     margin-left: 0.5cm;
@@ -57,5 +62,9 @@
 }
 
 .div-search {
-    width: 500px;
+    width: 600px;
+}
+.div-search1 {
+    width: 300px;
+    background-color: gainsboro;
 }
