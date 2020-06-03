@@ -26,5 +26,6 @@ Rails.application.routes.draw do
   resources :multimedia, defaults: { format: :html }
   resources :event_dates, defaults: { format: :html }
   resources :votes,defaults: { format: :html }
+  resources :searches, defaults: { format: :html }
 end
 
