@@ -7,12 +7,10 @@
     <td> Amound of Votes</td>
   </tr>
   </thead>
-
   <tbody>
   <% @dates.each do |date| %>
-    <% votes = [] %>
     <tr>
-      <td> Date: </td>
+      <% votes = [] %>
       <td><%= date.date %></td>
       <% @guests.each do |guest| %>
         <%= votes << Vote.where(guest_list_id: guest.id,event_dates_id:date.id)%>
