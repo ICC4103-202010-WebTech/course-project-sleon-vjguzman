@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   resources :users, defaults: { format: :html }
   resources :guest_lists, defaults: { format: :html }
   resources :multimedia, defaults: { format: :html }
+  resources :searches, defaults: { format: :html }
 end
 

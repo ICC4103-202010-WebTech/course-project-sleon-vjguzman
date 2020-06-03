@@ -29,8 +29,8 @@
     </li>
 
     <form action="/action_page.php">
-      <input class="inputxd" placeholder="Search.." name="search">
-      <button class="buttonhomexd">Search</button>
+      <input class="inputxd" placeholder="Search..." <%= text_field_tag :search, params[:search] %>
+      <button class="buttonhomexd"><%= link_to 'Search', searches_path %></button>
     </form>
 
   </ul>
