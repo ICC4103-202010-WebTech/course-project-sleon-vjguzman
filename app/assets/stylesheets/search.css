@@ -1,0 +1,45 @@
+.searchh2 {
+    text-align: left;
+}
+
+.boton_back {
+    background-color: white;
+    border: 0.5px solid black;
+    color: black;
+    padding: 10px 24px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 1cm;
+    margin-left: 4cm;
+}
+
+.boton_back a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 10px 24px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.btn-search {
+    background-color: white;
+    border: 0.5px solid black;
+    color: black;
+    padding: 10px 24px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 1cm;
+    margin-left: 3cm;
+}
+
+.btn-search a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 10px 24px;
+    text-decoration: none;
+    font-size: 16px;
+}

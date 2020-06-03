@@ -27,11 +27,9 @@
     <li>
       <%= link_to 'Admin', system_admins_path %>
     </li>
-
-    <form action="/action_page.php">
-      <input class="inputxd" placeholder="Search..." <%= text_field_tag :search, params[:search] %>
-      <button class="buttonhomexd"><%= link_to 'Search', searches_path %></button>
-    </form>
+    <li>
+      <%= link_to "Search", new_search_path%>
+    </li>
 
   </ul>
 </nav>

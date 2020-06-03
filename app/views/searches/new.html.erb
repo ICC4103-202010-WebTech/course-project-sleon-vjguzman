@@ -1,5 +1,13 @@
-<h1>New Search</h1>
+<%= stylesheet_link_tag 'search'%>
 
-<%= render 'form', search: @search %>
+<h2 class="searchh2">New Search</h2>
 
-<%= link_to 'Back', searches_path %>
+<%= form_for @search do |f| %>
+  <div class="div-2">
+    <%= f.label :keywords %><br/>
+    <%= f.text_field :keywords %>
+    <%= f.submit "Search" , class: ["btn-search"]%>
+  </div>
+<%end%>
+<br/>
+<button class="boton_back"><%= link_to 'Back', searches_path %></button>
