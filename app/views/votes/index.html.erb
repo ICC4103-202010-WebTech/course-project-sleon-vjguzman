@@ -10,13 +10,17 @@
   </thead>
 
   <tbody>
-    <% @votes_guest.each do |vote| %>
+  <% @dates.each do |date| %>
       <tr>
-        <td><%= vote.event_dates_id %></td>
+        <td><%= date %></td>
+        <% @dates.each do |vote| %>
+VOTE.WHERE(DATE_ID : DATES_ID AND GUEST_ID: LIST_ID)
+
         <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
         <td><%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+  <% end %>
   </tbody>
 </table>
 

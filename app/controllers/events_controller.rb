@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @user = User.first
-    @user_events = EventCreator.where(user_id: @user)
+    @user_events = EventCreator.where(user_id: @user).select(:event_id)
     @eventos = Event.where(id: @user_events)
     @get_id = Event.where(id: params[:id]).select(:id)
     @event_name = Event.where(id: @get_id).select(:description)
