@@ -4,8 +4,10 @@ class GuestListsController < ApplicationController
   # GET /guest_lists
   # GET /guest_lists.json
   def index
+
     @get_id = Event.where(id: params[:id]).select(:id)
     @guest_lists = GuestList.where(event_id: @get_id)
+    @evento = Event.where(id: @get_id)
   end
 
   # GET /guest_lists/1

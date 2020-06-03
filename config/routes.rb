@@ -16,7 +16,11 @@ Rails.application.routes.draw do
       resources :guest_lists
       resource :multimedia
       resource :event_dates
-      resources :votes
+      resources :votes do
+        resources :guest_lists
+        resources :event_dates
+        resources :events
+      end
     end
   end
   resources :events, defaults: { format: :html }
