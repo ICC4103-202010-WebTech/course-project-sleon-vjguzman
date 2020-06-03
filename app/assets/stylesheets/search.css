@@ -1,8 +1,18 @@
+.searchh1 {
+    text-align: center;
+    margin-left: 4cm;
+}
 .searchh2 {
     text-align: left;
+    margin-left: 4cm;
 }
 .searchh3 {
     text-align: left;
+    margin-left: 4cm;
+}
+.searchh4 {
+    text-align: left;
+    margin-left: 0.5cm;
 }
 .boton_back {
     background-color: white;
@@ -44,4 +54,8 @@
     padding: 10px 24px;
     text-decoration: none;
     font-size: 16px;
+}
+
+.div-search {
+    width: 500px;
 }

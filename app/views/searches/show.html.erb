@@ -1,21 +1,50 @@
-<h2 class="searchh2"> Search Results </h2>
+<%= stylesheet_link_tag 'search'%>
+<h1 class="searchh1"> Search Results </h1>
 
-<h3>Results by User</h3>
-
-<% unless @search.users != nil %>
-  <div class="div-2">
-    <h4>no results, try again</h4>
+<h2 class="searchh2">* Results by User:</h2>
+<br/>
+<h3 class="searchh3">By Full Name:</h3>
+<% unless @search.users_fullname != nil %>
+  <div class="div-search">
+    <h4 class="searchh4">no results, try again</h4>
   </div>
 <%end%>
-<% unless @search.users == nil%>
-  <div class="div-2">
-    <% @search.users.each do |user| %>
-      <h4> <%=link_to user.name, user_path(user)%></h4>
+<% unless @search.users_fullname == nil%>
+  <div class="div-search">
+    <% @search.users_fullname.each do |user| %>
+      <h4 class="searchh4"><%=link_to user.full_name, users_path(user)%></h4>
+    <%end%>
+  </div>
+<%end %>
+<br/>
+<h3 class="searchh3">By UserName:</h3>
+<% unless @search.users_username != nil %>
+  <div class="div-search">
+    <h4 class="searchh4">no results, try again</h4>
+  </div>
+<%end%>
+<% unless @search.users_username == nil%>
+  <div class="div-search">
+    <% @search.users_username.each do |user| %>
+      <h4 class="searchh4"><%=link_to user.username, users_path(user)%></h4>
+    <%end%>
+  </div>
+<%end %>
+<br/>
+
+<h2 class="searchh2">* Results by Organization:</h2>
+<% unless @search.organizations_name != nil %>
+  <div class="div-search">
+    <h4 class="searchh4">no results, try again</h4>
+  </div>
+<%end%>
+<% unless @search.organizations_name == nil%>
+  <div class="div-search">
+    <% @search.organizations_name.each do |org| %>
+      <h4 class="searchh4"><%=link_to org.name, organization_path(org)%></h4>
     <%end%>
   </div>
 <%end %>
 
-<h3> Results by Event</h3>
+<h2 class="searchh2">* Results by Event</h2>
 
-
-<h3> Results by Organization</h3>
