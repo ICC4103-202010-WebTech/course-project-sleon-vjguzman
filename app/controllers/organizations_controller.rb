@@ -8,7 +8,7 @@ class OrganizationsController < ApplicationController
     @member = MembersList.select(:organization_id).where(user_id: 1)
     @organization_user = Organization.where(id: @member)
     @id_org = Organization.where(id: @member).select(:id)
-    @eventos_org = Event.where(organization_id: @id_org)
+    @eventos_org = Event.where(organization_id: @id_org).where(privacy_id: 1)
     @id = Organization.where(id: @member).select(:id).first.id
     @members_org = MembersList.where(organization_id: @id)
     @admin = MembersList.where(organization_id: @id).where(user_role: "admin")

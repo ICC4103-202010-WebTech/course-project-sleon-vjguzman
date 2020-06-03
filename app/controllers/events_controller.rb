@@ -5,8 +5,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @user = User.first
-    @user_events = EventCreator.where(user_id: @user).select(:event_id)
-    @eventos = Event.where(id: @user_events)
+    @user_events = EventCreator.where(user_id: @user)
+    @eventos = Event.where(id: @user_events.select(:event_id))
     @get_id = Event.where(id: params[:id]).select(:id)
     @event_name = Event.where(id: @get_id).select(:description)
     @event_date = Event.where(id: @get_id).select(:final_date)
@@ -21,7 +21,7 @@ class EventsController < ApplicationController
   def show
     @user = User.first
     @user_events = EventCreator.where(user_id: @user)
-    @eventos = Event.where(id: @user_events)
+    @eventos = Event.where(id: @user_events.select(:event_id))
     @get_id = Event.where(id: params[:id]).select(:id)
     @event_foto = Event.where(id: @get_id)
     @event_name = Event.where(id: @get_id).select(:description)

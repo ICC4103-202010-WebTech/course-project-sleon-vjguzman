@@ -8,7 +8,9 @@ Rails.application.routes.draw do
         resources :multimedia
       end
       resources :comments
-      resources :organizations
+      resources :organizations do
+        resources :comments
+      end
       resources :users
       resources :system_admins
       resources :guest_lists

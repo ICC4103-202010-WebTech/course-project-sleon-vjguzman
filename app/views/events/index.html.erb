@@ -6,6 +6,7 @@
 <button class="btn info-1" ><%= link_to 'Back', events_path %></button>
 <br/>
 </aside>
+
 <h2>Created Events</h2>
   <% @eventos.each do |x| %>
     <div class="divorganization">
@@ -20,7 +21,7 @@
       <h4 class="organizationh4-1"><%= x.location %></h4>
       <h4 class="organizationh4-1"><%= x.final_date %></h4>
       <br/>
-      <button class="btn success"><%= link_to 'See Event Page',event_path(x) %></button>
+      <button class="btn success"><%= link_to 'See Event Page', event_path(x) %></button>
       <button class="btn warning"><%= link_to 'Edit', edit_event_path(x) %></button>
       <button class="btn info"><%= link_to 'See Guest info', guest_list_path(x) %></button>
       <button class="btn danger"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
