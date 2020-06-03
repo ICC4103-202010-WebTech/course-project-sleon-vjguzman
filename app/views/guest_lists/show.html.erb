@@ -3,13 +3,13 @@
 <table>
   <thead>
   <tr>
-    <h2>Guests of the "<%= Event.where(id: @get_id).select(:description).first.description %>" Event:</h2>
+    <h2>Guests of the "<%= Event.where(id: @get_id).select(:title).first.title %>" Event:</h2>
   </tr>
   </thead>
   <br/>
   <aside class="aside-comment">
     <button class="btn11 success-1" ><%= link_to 'Add Guests ', edit_guest_list_path(@guest_list) %></button>
-    <button class="btn11 info-1" ><%= link_to 'Back', events_path %></button>
+    <button class="btn11 success-1" ><%= link_to 'See votes ', votes_path(@guest_list) %></button>
     <br/>
   </aside>
   <tbody>
@@ -28,6 +28,7 @@
   </tbody>
 </table>
 
+<button class="btn11 info-1" ><%= link_to 'Back', events_path %></button>
 <br/>
 
 

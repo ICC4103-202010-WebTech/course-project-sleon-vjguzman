@@ -1,4 +1,4 @@
 class Multimedium < ApplicationRecord
-  belongs_to :Event
+  has_one :Event
   validates :event_id, presence:true
 end

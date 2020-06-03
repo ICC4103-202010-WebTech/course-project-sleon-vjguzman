@@ -4,12 +4,17 @@ class EventDatesController < ApplicationController
   # GET /event_dates
   # GET /event_dates.json
   def index
-    @event_dates = EventDate.all
+    @get_id = Event.where(id: params[:id]).select(:id)
+    @event_dates = EventDate.where(event_id: @get_id)
+    @dates_to_choose = EventDate.where(event_id: @get_id).select(:date)
   end
 
   # GET /event_dates/1
   # GET /event_dates/1.json
   def show
+    @get_id = Event.where(id: params[:id]).select(:id)
+    @event_dates = EventDate.where(event_id: @get_id)
+    @dates_to_choose = EventDate.where(event_id: @get_id).select(:date)
   end
 
   # GET /event_dates/new

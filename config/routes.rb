@@ -11,6 +11,10 @@ Rails.application.routes.draw do
       resources :organizations
       resources :users
       resources :system_admins
+      resources :guest_lists
+      resource :multimedia
+      resource :event_dates
+      resources :votes
     end
   end
   resources :events, defaults: { format: :html }
@@ -20,5 +24,7 @@ Rails.application.routes.draw do
   resources :users, defaults: { format: :html }
   resources :guest_lists, defaults: { format: :html }
   resources :multimedia, defaults: { format: :html }
+  resources :event_dates, defaults: { format: :html }
+  resources :votes,defaults: { format: :html }
 end
 

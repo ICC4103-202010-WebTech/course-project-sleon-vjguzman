@@ -13,6 +13,7 @@ class EventsController < ApplicationController
     @event_location = Event.where(id: @get_id).select(:location)
     @event_title = Event.where(id: @get_id).select(:title)
     @id = Event.where(id: @get_id).select(:id)
+    @guest = GuestList.where(event_id: @get_id)
   end
 
   # GET /events/1

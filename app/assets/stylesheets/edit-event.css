@@ -11,19 +11,19 @@
 .div-edit {
     background-color: gainsboro;
     background-size: 900px;
-    width: 930px;
+    width: 900px;
     padding: 15px;
     margin: 15px;
     margin-left: 0.5cm;
     margin-right: 0.5cm;
 }
-.div-1 {
+.div-2 {
     background-color: lightgray;
     background-size: 900px;
-    width: 900px;
+    width: 1010px;
     padding: 15px;
     margin: 15px;
-    margin-left: 5cm;
+    margin-left: 4cm;
     margin-right: 3cm;
 }
 .buttonedit {
