@@ -12,6 +12,9 @@ Rails.application.routes.draw do
         resources :comments
       end
       resources :users
+      resources :events do
+        resources :guest_lists
+      end
       resources :system_admins
       resources :guest_lists do
         resources :events
@@ -20,7 +23,9 @@ Rails.application.routes.draw do
       resources :event_dates do
         resources :events
       end
-      resources :guest_lists
+      resources :guest_lists do
+        resources :events
+      end
       resources :multimedia
       resources :event_dates
       resources :votes do

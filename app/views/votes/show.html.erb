@@ -1,4 +1,27 @@
 <p id="notice"><%= notice %></p>
+<h1>Votes of the Event: "<%= Event.where(id: @get_id).select(:title).first.title %>"</h1>
 
-<%= link_to 'Edit', edit_vote_path(@vote) %> |
-<%= link_to 'Back', votes_path %>
+<table>
+  <thead>
+  <tr>
+    <td> Date </td>
+    <td> Amound of Votes</td>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @dates.each do |date| %>
+    <% votes = [] %>
+    <tr>
+      <td><%= date.date %></td>
+      <% @guests.each do |guest| %>
+        <%= votes << Vote.where(guest_list_id: guest.id,event_dates_id:date.id)%>
+      <%end %>
+      <td>1</td>
+  <%end %>
+  </tr>
+  </tbody>
+
+</table>
+
+<%= link_to 'Back', events_path %>

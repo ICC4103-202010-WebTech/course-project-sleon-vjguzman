@@ -5,20 +5,17 @@ class VotesController < ApplicationController
   # GET /votes.json
   def index
     @get_id = Event.where(id: params[:id]).select(:id)
+    @event_votos = Event.where(id: @get_id)
     @count = 0
     @guests = GuestList.where(event_id: @get_id)#Todos lo invitados al evento
     @dates = EventDate.where(event_id: @get_id)
-
-
   end
 
   # GET /votes/1
   # GET /votes/1.json
   def show
-    @get_id = GuestList.where(id: params[:id]).select(:id)
-    @votes_guest = Vote.where(guest_list_id: @get_id)
-    @id_evento = GuestList.where(id: @get_id).select(:event_id)
-    @get_id_evento = Event.where(id: @id_evento).select(:id)
+    @get_id = Event.where(id: params[:id]).select(:id)
+    @event_votos = Event.where(id: @get_id)
     @count = 0
     @guests = GuestList.where(event_id: @get_id)#Todos lo invitados al evento
     @dates = EventDate.where(event_id: @get_id)
@@ -81,6 +78,6 @@ class VotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vote_params
-      params.fetch(:vote, {})
+      params.fetch(:vote, {}).permit(:id, :guest_list_id, :event_dates_id)
     end
 end
