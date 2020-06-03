@@ -8,6 +8,7 @@ class VotesController < ApplicationController
     @votes_guest = Vote.where(guest_list_id: @get_id)
     @id_evento = GuestList.where(id: @get_id).select(:event_id)
     @get_id_evento = Event.where(id: @id_evento).select(:id)
+
   end
 
   # GET /votes/1

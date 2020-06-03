@@ -9,7 +9,7 @@
       <% unless @event_foto.first.banner_picture.attached?  == false%>
         <span class="imageleft"><%= link_to image_tag(url_for(@event_foto.first.banner_picture)) %></span>
       <% end %>
-      <h4 class="eventpageh4">Description: <%= @event_name.first.description %></h4>
+      <h4 class="eventpageh4p">Description: <%= @event_name.first.description %></h4>
       <h4 class="eventpageh4">Date: <%= @event_date.first.final_date %></h4>
       <h4 class="eventpageh4">Location: <%= @event_location.first.location %></h4>
       <h4 class="eventpageh4">Create By: <%= @user.full_name %></h4>
