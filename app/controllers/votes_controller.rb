@@ -4,7 +4,6 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @fechas = []
     @get_id = Event.where(id: params[:id]).select(:id)
     @event_votos = Event.where(id: @get_id)
     @count = 0

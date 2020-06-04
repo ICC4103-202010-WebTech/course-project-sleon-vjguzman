@@ -37,7 +37,7 @@
       <h4 class="h4profile"><%= x.final_date %></h4>
       <h4 class="h4profile"><%= x.location %></h4>
       <button class="botondivprofile"><%= link_to 'View', x %></button>
-      <button class="botondivprofile"><%= link_to 'Vote', new_vote_path() %></button>
+      <button class="botondivprofile"><%= link_to 'Vote', new_vote_path(x) %></button>
     </div>
   <% end %>
 
