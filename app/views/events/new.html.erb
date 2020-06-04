@@ -37,6 +37,26 @@
       <%= form.collection_select(:privacy_id, Privacy.all.order(name: :asc), :id, :name, {}, { class: "form-control" }) %>
     </div>
     <div class="div-edit">
+      <%= form.label :banner_picture %>
+      <br/>
+      <%= form.file_field :banner_picture, multiple: true, direct_upload: true, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :images %>
+      <br/>
+      <%= form.file_field :images, multiple: true, direct_upload: true, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :videos %>
+      <br/>
+      <%= form.file_field :videos, multiple: true, direct_upload: true, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :files %>
+      <br/>
+      <%= form.file_field :files, multiple: true, direct_upload: true, class: "form-control" %>
+    </div>
+    <div class="div-edit">
       <%= form.submit "Create", class: ["btn"] %>
       <%= link_to "Back", :back, class: ["btn"] %>
     </div>

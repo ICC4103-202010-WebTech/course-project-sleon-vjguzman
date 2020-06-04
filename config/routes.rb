@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :system_admins
       resources :guest_lists do
         resources :events
+        resources :event_dates
       end
       resources :multimedia do
         resources :events

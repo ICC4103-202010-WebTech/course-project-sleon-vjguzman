@@ -1,5 +1,21 @@
-<h1>New Event Date</h1>
+<div class="row ml-0 mt-3">
+  <h2 class="edith2"> New Event date</h2>
+</div>
+<div class="div-2">
+  <%= form_with model: @event_date, local: true do |form| %>
+    <div class="div-edit">
+      <%= form.label :date %>
+      <br/>
+      <%= form.datetime_local_field :date %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :event_id %>
+      <br/>
+      <%= form.collection_select(:event_id, Event.where(id: EventCreator.where(user_id: 1)).order(name: :asc), :id, :title, {}, { class: "form-control" }) %>
+    </div>
+    <div class="div-edit">
+      <%= form.submit "Create", class: ["btn"] %>
+    </div>
+  <%end %>
+</div>
 
-<%= render 'form', event_date: @event_date %>
-
-<%= link_to 'Back', event_dates_path %>

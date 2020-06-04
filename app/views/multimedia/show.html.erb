@@ -1,5 +1,20 @@
 <p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'multimedia'%>
-<h1 class="multimediah1"> SHOW </h1>
-
+<h1 class="multimediah1"> File Attachment of the Event: <%= Event.where(id: @get_id).select(:title).first.title %> </h1>
+<br/>
+<div class="divfotos">
+  <% unless @event_multimedia.first.files.attached? == true%>
+    <span class="imageleft-11"><%=  image_tag("xd.jpeg") %></span>
+    <span class="imageleft-11"><%=  image_tag("xd.jpeg") %></span>
+    <span class="imageleft-11"><%=  image_tag("xd.jpeg") %></span>
+    <span class="imageleft-11"><%= image_tag("xd.jpeg") %></span>
+  <% end %>
+  <% unless @event_multimedia.first.files.attached?  == false%>
+    <%= @event_multimedia.first.files.each do |file|%>
+      <span class="imageleft-1"><%=  image_tag file.preview(resize_to_limit: [400,400]) %></span>
+    <%end %>
+  <% end %>
+</div>
+<br/>
+<button class="btn"><%= link_to 'Back', multimedium_path %></button>
 <br/>

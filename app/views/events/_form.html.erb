@@ -29,22 +29,22 @@
     <div class="div-edit">
       <%= form.label :banner_picture %>
       <br/>
-      <%= form.file_field :banner_picture, class: "form-control" %>
+      <%= form.file_field :banner_picture, multiple: true, direct_upload: true, class: "form-control" %>
     </div>
     <div class="div-edit">
       <%= form.label :images %>
       <br/>
-      <%= form.file_field :images, class: "form-control" %>
+      <%= form.file_field :images, multiple: true, direct_upload: true, class: "form-control" %>
     </div>
     <div class="div-edit">
       <%= form.label :videos %>
       <br/>
-      <%= form.file_field :videos, class: "form-control" %>
+      <%= form.file_field :videos, multiple: true, direct_upload: true, class: "form-control" %>
     </div>
     <div class="div-edit">
       <%= form.label :files %>
       <br/>
-      <%= form.file_field :files, class: "form-control" %>
+      <%= form.file_field :files, multiple: true, direct_upload: true, class: "form-control" %>
     </div>
     <div class="div-edit">
       <%= form.submit "Update", class: ["btn"] %>
