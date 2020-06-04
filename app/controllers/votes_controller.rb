@@ -4,11 +4,14 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
+    @fechas = []
     @get_id = Event.where(id: params[:id]).select(:id)
     @event_votos = Event.where(id: @get_id)
     @count = 0
     @guests = GuestList.where(event_id: @get_id)#Todos lo invitados al evento
     @dates = EventDate.where(event_id: @get_id)
+
+
   end
 
   # GET /votes/1

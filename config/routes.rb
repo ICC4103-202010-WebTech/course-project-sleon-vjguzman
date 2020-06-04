@@ -27,14 +27,11 @@ Rails.application.routes.draw do
       resources :guest_lists do
         resources :events
       end
-      resources :multimedia
       resources :event_dates
-      resources :votes do
-        resources :guest_lists
-      end
       resources :votes do
         resources :events
         resources :guest_lists
+        resources :event_dates
       end
     end
   end

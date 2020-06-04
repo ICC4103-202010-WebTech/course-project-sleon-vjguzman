@@ -5,20 +5,20 @@
   <tr>
     <td> Date </td>
     <td> Amound of Votes</td>
+
   </tr>
   </thead>
   <tbody>
+
   <% @dates.each do |date| %>
     <tr>
-      <% votes = [] %>
-      <td><%= date.date %></td>
+      <td><%= date.date  %></td>
       <% @guests.each do |guest| %>
-        <%= votes << Vote.where(guest_list_id: guest.id,event_dates_id:date.id)%>
-        <td><%= guest.id %></td>
+        <td><%= Vote.where(guest_list_id: guest.id, event_dates_id: date.id).select(:id) %></td>
       <%end %>
-
+    </tr>
   <%end %>
-  </tr>
+
   </tbody>
 
 </table>
