@@ -16,10 +16,10 @@
   <% @guest_lists.each do |x| %>
     <div>
       <% unless User.where(id: x.user_id).select(:profile_picture).first.profile_picture.attached? == true%>
-        <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+        <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
       <% end %>
       <% unless User.where(id: x.user_id).select(:profile_picture).first.profile_picture.attached?  == false%>
-        <span class="imageleft"><%= link_to image_tag(url_for(User.where(id: x.user_id).select(:profile_picture).first.profile_picture)) %></span>
+        <span class="imageleft"><%= link_to image_tag(url_for(User.where(id: x.user_id).select(:profile_picture).first.profile_picture), width: '300px') %></span>
       <% end %>
       <h3 class="Userp"><%= User.where(id: x.user_id).select(:username).first.username %></h3>
       <button class="btn1-1 danger2"><%= link_to 'Remove', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
