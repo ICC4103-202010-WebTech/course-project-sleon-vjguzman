@@ -20,7 +20,6 @@
       <h4 class="organizationh4-1"><%= x.description %></h4>
       <h4 class="organizationh4-1"><%= x.location %></h4>
       <h4 class="organizationh4-1"><%= x.final_date %></h4>
-      <br/>
       <button class="btn success"><%= link_to 'See Event Page', event_path(x) %></button>
       <button class="btn warning"><%= link_to 'Edit', edit_event_path(x) %></button>
       <button class="btn info"><%= link_to 'See Guests', guest_list_path(x) %></button>

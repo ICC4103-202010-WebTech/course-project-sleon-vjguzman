@@ -1,14 +1,17 @@
 .botondivprofile {
-    background-color: white;
-    border: 0.5px solid black;
-    color: black;
-    padding: 10px 24px;
-    text-align: center;
+    border: 1px solid black;
+    background-color: ghostwhite;
+    padding: 14px 20px;
     font-size: 16px;
-    margin-right: 1cm;
-    margin-left: 22cm;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    width: 12%;
+    margin-left: 3cm;
 
 }
+
+
 .divprofile {
     background-color: lightgrey;
     background-size: 900px;
@@ -79,7 +82,7 @@
 }
 .botondivprofile a {
     float: left;
-    display: block;
+    display: inline-block;
     color: black;
     text-align: center;
     padding: 10px 24px;
