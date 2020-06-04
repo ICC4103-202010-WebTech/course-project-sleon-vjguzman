@@ -1,5 +1,18 @@
 <p id="notice"><%= notice %></p>
-<h1>hola</h1>
+<%= stylesheet_link_tag 'event-comments'%>
+<br/>
+<aside class="aside-comment">
+  <button class="btn11 success-1" ><%= link_to 'Back', event_dates_path %></button>
+</aside>
+<br/>
+<br/>
 
-<%= link_to 'Edit', edit_event_date_path(@event_date) %> |
-<%= link_to 'Back', event_dates_path %>
+<h2>Dates to Vote of the "<%= Event.where(id: @get_id).select(:title).first.title %>" Event:</h2>
+<br/>
+<% @event_dates.each do |x| %>
+  <div>
+    <h3 class="User-11"><%= x.date %></h3>
+    <button class="btn11 danger2"><%= link_to 'Edit', edit_event_date_path(x)%></button>
+  </div>
+<% end %>
+
