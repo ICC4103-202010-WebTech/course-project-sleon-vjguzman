@@ -5,10 +5,10 @@
   <% @admins.each do |x| %>
     <div class="divadmin">
       <% unless x.profile_picture.attached? == true%>
-        <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+        <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
       <% end %>
       <% unless x.profile_picture.attached?  == false%>
-        <span class="imageleft"><%= link_to image_tag(url_for(x.profile_picture)) %></span>
+        <span class="imageleft"><%= link_to image_tag(url_for(x.profile_picture), width: '300px') %></span>
       <% end %>
       <h4 class="adminh4p"><%= x.username %></h4>
       <h4 class="adminh4"><%= x.full_name %></h4>

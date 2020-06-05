@@ -4,10 +4,10 @@
 <br/>
 <div class="divfotos">
   <% unless @event_multimedia.first.files.attached? == true%>
-    <span class="imageleft-11"><%=  image_tag("xd.jpeg") %></span>
-    <span class="imageleft-11"><%=  image_tag("xd.jpeg") %></span>
-    <span class="imageleft-11"><%=  image_tag("xd.jpeg") %></span>
-    <span class="imageleft-11"><%= image_tag("xd.jpeg") %></span>
+    <span class="imageleft-11"><%=  image_tag("xd.jpeg", width: '300px') %></span>
+    <span class="imageleft-11"><%=  image_tag("xd.jpeg", width: '300px') %></span>
+    <span class="imageleft-11"><%=  image_tag("xd.jpeg", width: '300px') %></span>
+    <span class="imageleft-11"><%= image_tag("xd.jpeg", width: '300px') %></span>
   <% end %>
   <% unless @event_multimedia.first.files.attached?  == false%>
     <%= @event_multimedia.first.files.each do |file|%>

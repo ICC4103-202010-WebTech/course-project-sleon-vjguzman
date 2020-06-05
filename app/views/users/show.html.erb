@@ -3,10 +3,10 @@
 
 <h2 class="h2details"> <%= @first_user.full_name %> </h2>
 <% unless @first_user.profile_picture.attached? == true%>
-  <span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
+  <span class="imageleft1"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
 <% end %>
 <% unless @first_user.profile_picture.attached?  == false%>
-  <span class="imageleft1"><%= link_to image_tag(url_for(@first_user.profile_picture)) %></span>
+  <span class="imageleft1"><%= link_to image_tag(url_for(@first_user.profile_picture), width: '300px') %></span>
 <% end %>
 
     <h4 class="h4detailsp"><%= @first_user.username %></h4>

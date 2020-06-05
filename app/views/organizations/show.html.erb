@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'members'%>
 <% unless @organization_user.first.banner_org.attached? == true%>
-  <span class="imageleft1"><%= link_to image_tag("xd.jpeg") %></span>
+  <span class="imageleft1"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
 <% end %>
 <% unless @organization_user.first.banner_org.attached?  == false%>
-  <span class="imageleft1"><%= link_to image_tag(url_for(@organization_user.first.banner_org)) %></span>
+  <span class="imageleft1"><%= link_to image_tag(url_for(@organization_user.first.banner_org), width: '300px') %></span>
 <% end %>
 <h2 class="membersh2" align="left"><%= @organization_user.first.name %></h2>
 <h4 class="membersh4",align="left"><%= @organization_user.first.description %></h4>
@@ -15,10 +15,10 @@
   <% @members_org.each do |x| %>
     <div class="membersdiv">
       <% unless User.where(id: x.user_id).select(:profile_picture).first.profile_picture.attached? == true%>
-        <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+        <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
       <% end %>
       <% unless User.where(id: x.user_id).select(:profile_picture).first.profile_picture.attached?  == false%>
-        <span class="imageleft"><%= link_to image_tag(url_for(User.where(id: x.user_id).select(:profile_picture).first.profile_picture)) %></span>
+        <span class="imageleft"><%= link_to image_tag(url_for(User.where(id: x.user_id).select(:profile_picture).first.profile_picture), width: '300px') %></span>
       <% end %>
       <h4 class="membersh4-1p"> Username: <%= User.select(:username).where(id: x.user_id).first.username %></h4>
       <h4 class="membersh4-1"> Role: <%= x.user_role %></h4>
