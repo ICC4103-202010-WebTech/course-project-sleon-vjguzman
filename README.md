@@ -50,3 +50,4 @@ As above, we have the Events directly associated with Organization through a FK 
 * Summary of features required in the assignment but pending.<br/>
     1. It’s not an required feature but we choose not to implement the fixtures and fake data.<br/>
     2. We couldn't make it possible to vote for all of the events that the user is invited to, because we don't know how to select an event_id and put it in the new Vote section.<br/>
+    3. When we create a new comment for an Event, when we press the button "Create" this redirect us to view/comments/show but this throws an error because it is not accessing to an event (not getting an event_id). You can see that the comment was added if you go to the Event page and press the button "See Comments". 
