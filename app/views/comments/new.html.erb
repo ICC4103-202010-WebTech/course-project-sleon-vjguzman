@@ -11,6 +11,17 @@
       <%= form.text_area :message, class: "form-control" %>
     </div>
     <div class="div-edit">
+      <%= form.label :event_id %>
+      <br/>
+      <%= form.collection_select :event_id, Event.where(id: EventCreator.where(user_id:1).select(:event_id)).or(Event.where(id: GuestList.where(user_id:1).select(:event_id))) , :id, :title, {}, { class: "form-control" }  %>
+    </div>
+
+    <div class="div-edit">
+      <%= form.label :user_id %>
+      <br/>
+      <%= form.collection_select(:user_id, User.where(id: 1).order(name: :asc), :id, :username, {}, { class: "form-control" }) %>
+    </div>
+    <div class="div-edit">
       <%= form.submit "Create", class: ["btn"] %>
       <%= link_to "Back", :back, class: ["btn"] %>
     </div>

@@ -6,13 +6,17 @@ Rails.application.routes.draw do
       resources :events do
         resources :comments
       end
-      resources :comments
+      resources :comments do
+        resources :events
+      end
+
       resources :organizations do
         resources :comments
       end
       resources :users
       resources :events do
         resources :guest_lists
+        resources :comments
       end
       resources :system_admins
       resources :guest_lists do
