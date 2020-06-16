@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 <div class="div-2">
   <%= form_with model: event, local: true do |form| %>
-
+    <div class="div-edit">
+      <%= form.label :title %>
+      <br/>
+      <%= form.text_area :title, class: "form-control" %>
+    </div>
     <div class="div-edit">
       <%= form.label :description %>
       <br/>

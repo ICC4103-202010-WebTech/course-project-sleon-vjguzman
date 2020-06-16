@@ -15,11 +15,6 @@
       <br/>
       <%= form.collection_select(:event_id, Event.where(id: EventDate.where(event_id: GuestList.where(user_id: 1).select(:event_id)).select(:event_id)).order(title: :asc), :id, :title, {}, { class: "form-control" }) %>
     </div>
-    <div class="div-edit">
-      <%= form.label :event_id %>
-      <br/>
-      <%= form.collection_select(:event_id, Event.where(id: EventDate.where(event_id: GuestList.where(user_id: 1).select(:event_id)).select(:event_id)).order(title: :asc), :id, :title, {}, { class: "form-control" }) %>
-    </div>
     <input type="hidden" id="guest_list_id" name="guest_list_id" value="1">
 
     <div class="div-edit">

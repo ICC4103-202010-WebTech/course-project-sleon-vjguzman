@@ -33,7 +33,7 @@ class GuestListsController < ApplicationController
     respond_to do |format|
       if @guest_list.save
         format.html { redirect_to @guest_list, notice: 'Guest list was successfully created.' }
-        format.json { render :show, status: :created, location: @guest_list }
+        format.json { render guest_list_url, status: :created, location: @guest_list }
       else
         format.html { render :new }
         format.json { render json: @guest_list.errors, status: :unprocessable_entity }
@@ -47,7 +47,7 @@ class GuestListsController < ApplicationController
     respond_to do |format|
       if @guest_list.update(guest_list_params)
         format.html { redirect_to @guest_list, notice: 'Guest list was successfully updated.' }
-        format.json { render :show, status: :ok, location: @guest_list }
+        format.json { render guest_list_url, status: :ok, location: @guest_list }
       else
         format.html { render :edit }
         format.json { render json: @guest_list.errors, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class GuestListsController < ApplicationController
   def destroy
     @guest_list.destroy
     respond_to do |format|
-      format.html { redirect_to guest_lists_url, notice: 'Guest list was successfully destroyed.' }
+      format.html { redirect_to guest_list_url, notice: 'Guest list was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
