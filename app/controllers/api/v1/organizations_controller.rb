@@ -22,8 +22,6 @@ class API::V1:: OrganizationsController < APIController
   def edit
   end
 
-  # POST /events
-  # POST /events.json
   def create
     @organization = Organization.new(organization_params)
     if @organization.save
@@ -44,8 +42,7 @@ class API::V1:: OrganizationsController < APIController
   end
 
 
-  # DELETE /events/1
-  # DELETE /events/1.json
+
   def destroy
     @organization.destroy
     head :no_content
