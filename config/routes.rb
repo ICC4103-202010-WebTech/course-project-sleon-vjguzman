@@ -13,10 +13,14 @@ Rails.application.routes.draw do
       resources :organizations do
         resources :comments
       end
+      resources :reports do
+        resources :events
+      end
       resources :users
       resources :events do
         resources :guest_lists
         resources :comments
+        resources :reports
       end
       resources :system_admins
       resources :guest_lists do
@@ -49,6 +53,7 @@ Rails.application.routes.draw do
   resources :multimedia, defaults: { format: :html }
   resources :event_dates, defaults: { format: :html }
   resources :votes,defaults: { format: :html }
+  resources :reports,defaults: { format: :html }
   resources :searches
 end
 

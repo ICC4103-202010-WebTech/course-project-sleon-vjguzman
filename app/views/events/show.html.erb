@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'event-page'%>
 <h1 class="eventpageh1"><%= @event_title.first.title%> </h1>
+<button class="btn2 info-1" align="center"><%= link_to 'Report Event', reports_path %></button>
 <br/>
     <div class="eventpagediv">
       <% unless @event_foto.first.banner_picture.attached? == true%>
