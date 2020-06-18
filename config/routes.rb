@@ -42,7 +42,6 @@ Rails.application.routes.draw do
         resources :guest_lists
         resources :event_dates
       end
-      resources :mailboxes
     end
   end
   resources :events, defaults: { format: :html }
@@ -55,7 +54,6 @@ Rails.application.routes.draw do
   resources :event_dates, defaults: { format: :html }
   resources :votes,defaults: { format: :html }
   resources :reports,defaults: { format: :html }
-  resources :mailboxes
   resources :searches
 end
 
