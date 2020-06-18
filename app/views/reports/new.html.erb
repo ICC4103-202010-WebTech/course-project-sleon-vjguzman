@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="row ml-0 mt-3">
-  <h2 class="edith2">Report Event</h2>
+  <h2 class="edith2">Report Event </h2>
   <p class="p-edit">Please enter the required information to report an event:</p>
 </div>
 
@@ -11,13 +11,11 @@
       <br/>
       <%= form.text_area :description, class: "form-control" %>
     </div>
-
     <div class="div-edit">
       <%= form.label :event_id %>
       <br/>
       <%= form.collection_select :event_id, Event.where(id: EventCreator.where(user_id:1).select(:event_id)).or(Event.where(id: GuestList.where(user_id:1).select(:event_id))) , :id, :title, {}, { class: "form-control" }  %>
     </div>
-
     <div class="div-edit">
       <%= form.label :user_id %>
       <br/>
@@ -25,7 +23,6 @@
     </div>
     <div class="div-edit">
       <%= form.submit "Create", class: ["btn"] %>
-      <%= link_to "Back", :back, class: ["btn"] %>
     </div>
   <% end %>
 </div>

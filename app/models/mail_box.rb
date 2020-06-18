@@ -1,4 +1,4 @@
 class MailBox < ApplicationRecord
-  belongs_to :User
+  has_one :User
   validates :user_id, presence:true
 end

@@ -1,7 +1,6 @@
 class Report < ApplicationRecord
-  belongs_to :User
-  belongs_to :Event
+  has_one :User
+  has_one :Event
   validates :user_id, presence:true
   validates :event_id, presence:true
-
 end
