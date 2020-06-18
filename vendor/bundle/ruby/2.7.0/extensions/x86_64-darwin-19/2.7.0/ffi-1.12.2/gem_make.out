@@ -1,5 +1,5 @@
 current directory: /Users/javiguzman/Desktop/course-project-sleon-vjguzman/vendor/bundle/ruby/2.7.0/gems/ffi-1.12.2/ext/ffi_c
-/Users/javiguzman/.rvm/rubies/ruby-2.7.1/bin/ruby -I /Users/javiguzman/.rvm/rubies/ruby-2.7.1/lib/ruby/site_ruby/2.7.0 -r ./siteconf20200602-78976-siv8vj.rb extconf.rb
+/Users/javiguzman/.rvm/rubies/ruby-2.7.1/bin/ruby -I /Users/javiguzman/.rvm/rubies/ruby-2.7.1/lib/ruby/site_ruby/2.7.0 -r ./siteconf20200617-58817-4orage.rb extconf.rb
 checking for ffi_call() in -lffi... yes
 checking for ffi_closure_alloc()... yes
 checking for shlwapi.h... no
@@ -51,4 +51,4 @@ linking shared-object ffi_c.bundle
 
 current directory: /Users/javiguzman/Desktop/course-project-sleon-vjguzman/vendor/bundle/ruby/2.7.0/gems/ffi-1.12.2/ext/ffi_c
 make "DESTDIR=" install
-/usr/local/opt/coreutils/bin/ginstall -c -m 0755 ffi_c.bundle ./.gem.20200602-78976-19tlzfe
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 ffi_c.bundle ./.gem.20200617-58817-1iapa2c
