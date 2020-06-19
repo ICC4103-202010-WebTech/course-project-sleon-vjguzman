@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  load_and_authorize_resource
   # GET /users
   # GET /users.json
   def index
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
     @invitations = Event.where(id: @guest)
     @user_member = MembersList.where(user_id: @id_user_in).select(:organization_id)
     @user_org = Organization.where(id: @user_member)
+    @pagy, @events = pagy(Event.where(user_id = current_user.id))
   end
 
   # GET /users/1
