@@ -1,0 +1,26 @@
+.h1-mail{
+    margin-top: 1cm;
+    text-align: left;
+    margin-left: 4cm;
+}
+.divorganization {
+    background-color: lightgrey;
+    background-size: 900px;
+    width: 1000px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+}
+.organizationh4-1p {
+    color: black;
+    margin-left: 12cm;
+    margin-top: -5cm;
+}
+.organizationh4-1{
+    color: black;
+    margin-left: 12cm;
+}
+h4 {
+    margin-left: 12cm;
+}

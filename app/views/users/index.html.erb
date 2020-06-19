@@ -3,7 +3,7 @@
 <br/>
 
 
-<h2 class="h2profile"><%= @first_user.full_name %></h2>
+<h2 class="h2profile"><%= User.where(id: @id_user_in).select(:full_name).first.full_name %></h2>
 <aside class="asideprofile">
   <button class="botonasideprofile"> <%= link_to 'Edit Profile', edit_user_path(@first_user) %></button>
   <button class="botonasideprofile"> <%= link_to 'See Details', user_path(@first_user) %></button>

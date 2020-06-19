@@ -47,7 +47,7 @@ class GuestListsController < ApplicationController
     respond_to do |format|
       if @guest_list.update(guest_list_params)
         format.html { redirect_to @guest_list, notice: 'Guest list was successfully updated.' }
-        format.json { render guest_lists_url, status: :ok, location: @guest_list }
+        format.json { render :show, status: :ok, location: @guest_list }
       else
         format.html { render :edit }
         format.json { render json: @guest_list.errors, status: :unprocessable_entity }

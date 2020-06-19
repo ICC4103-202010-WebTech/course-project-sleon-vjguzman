@@ -4,7 +4,7 @@ class MailboxesController < ApplicationController
   # GET /mailboxes
   # GET /mailboxes.json
   def index
-    @mailboxes = Mailbox.all
+    @mailboxes = MailBox.where(user_id:1)
   end
 
   # GET /mailboxes/1
@@ -14,7 +14,7 @@ class MailboxesController < ApplicationController
 
   # GET /mailboxes/new
   def new
-    @mailbox = Mailbox.new
+    @mailbox = MailBox.new
   end
 
   # GET /mailboxes/1/edit
@@ -24,7 +24,7 @@ class MailboxesController < ApplicationController
   # POST /mailboxes
   # POST /mailboxes.json
   def create
-    @mailbox = Mailbox.new(mailbox_params)
+    @mailbox = MailBox.new(mailbox_params)
 
     respond_to do |format|
       if @mailbox.save
@@ -64,7 +64,7 @@ class MailboxesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_mailbox
-      @mailbox = Mailbox.find(params[:id])
+      @mailbox = MailBox.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
