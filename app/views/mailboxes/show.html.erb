@@ -1,24 +1,36 @@
 <%= stylesheet_link_tag 'mailbox'%>
 <h1 class="h1-mail"> My Mailbox </h1>
-
+</br>
+<button class="btn-info-mailbox"><%= link_to 'View Sent Messages', sent_messages_url(User.where(id: @get_id).select(:id).first.id) %></button>
+<button class="btn-info-mailbox"><%= link_to 'New Chat', new_sent_message_path %></button>
+</br>
 <h2 class="h2-mail"> My Inbox </h2>
 <% @mailboxes.each do |x| %>
-  <div class="divorganization">
-    <% unless x.profile_picture.attached? == true%>
-      <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
-    <% end %>
-    <% unless x.profile_picture.attached?  == false%>
-      <span class="imageleft"><%= link_to image_tag(url_for(x.profile_picture)) %></span>
-    <% end %>
-    <h4 class="organizationh4-1p"><%= x.from_message %></h4>
-    <h4 class="organizationh4-1"><%= x.from_username %></h4>
-    <h4 class="organizationh4-1"><%= x.date %></h4>
-    <h4 class="organizationh4-1"><%= x.subject %></h4>
-    <h4 class="organizationh4-1"><%= x.message %></h4>
-    <button class="btn danger"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+  <div class="div-mailbox">
+    <aside class="aside-mailbox">
+      <h4 class="mailboxh4">Subject:  <%= x.subject %></h4>
+    </aside>
+    <aside class="aside-mailbox">
+      <h4 class="mailboxh4-1">Message:  <%= x.message %></h4>
+    </aside>
+    <h4 class="mailboxh4">From:  <%= x.from_message %></h4>
+    <h4 class="mailboxh4">Username:  <%= x.from_username %></h4>
+    <h4 class="mailboxh4">At:  <%= x.date %></h4>
   </div>
 <% end %>
 
-<h2 class="h2-mail"> Compose message to user</h2>
-<button class="btn info"><%= link_to 'New Chat', new_sent_message_path %></button>
+<% @sent_messagess.each do |x| %>
+  <div class="div-mailbox">
+    <aside class="aside-mailbox">
+      <h4 class="mailboxh4">Subject:  <%= x.subject %></h4>
+    </aside>
+    <aside class="aside-mailbox">
+      <h4 class="mailboxh4-1">Message:  <%= x.message %></h4>
+    </aside>
+    <h4 class="mailboxh4">From:  <%= User.where(id: x.user_id).select(:full_name).first.full_name %></h4>
+    <h4 class="mailboxh4">Username:  <%= User.where(id: x.user_id).select(:username).first.username %></h4>
+    <h4 class="mailboxh4">At:  <%= x.date %></h4>
+  </div>
+<% end %>
+
 

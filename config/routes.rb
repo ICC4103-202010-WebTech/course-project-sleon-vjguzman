@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       resources :users do
         resources :events
         resources :system_admins
+        resources :mailboxes
+        resources :sent_messages
       end
       resources :events do
         resources :guest_lists
@@ -49,9 +51,11 @@ Rails.application.routes.draw do
       resources :reports
       resources :sent_messages do
         resources :mailboxes
+        resources :users
       end
       resources :mailboxes do
         resources :sent_messages
+        resources :users
       end
     end
   end

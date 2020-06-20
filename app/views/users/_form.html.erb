@@ -11,6 +11,7 @@
 <h4 class="h4profile"><%= @user.location %></h4>
 <br/>
 <br/>
+<button class="btn danger"><%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' } %></button>
 <br/>
 <br/>
 <div class="row ml-0 mt-3">

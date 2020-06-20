@@ -4,12 +4,17 @@ class SentMessagesController < ApplicationController
   # GET /sent_messages
   # GET /sent_messages.json
   def index
-    @sent_messages = SentMessage.all
+    @get_id = User.where(id: 1).select(:id)
+    @mailboxes = MailBox.where(user_id: @get_id)
+    @sent_messagesss = SentMessage.where(to_email: (User.where(id: @get_id).select(:email).first.email))
   end
 
   # GET /sent_messages/1
   # GET /sent_messages/1.json
   def show
+    @get_id = User.where(id: 1).select(:id)
+    @mailboxes = MailBox.where(user_id: @get_id)
+    @sent_messagesss = SentMessage.where(to_email: (User.where(id: @get_id).select(:email).first.email))
   end
 
   # GET /sent_messages/new
@@ -29,7 +34,7 @@ class SentMessagesController < ApplicationController
     respond_to do |format|
       if @sent_message.save
         format.html { redirect_to @sent_message, notice: 'Sent message was successfully created.' }
-        format.json { render :show, status: :created, location: @sent_message }
+        format.json { render :index, status: :created, location: @sent_message }
       else
         format.html { render :new }
         format.json { render json: @sent_message.errors, status: :unprocessable_entity }
@@ -69,6 +74,6 @@ class SentMessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sent_message_params
-      params.fetch(:sent_message, {})
+      params.fetch(:sent_message, {}).permit(:id, :date, :to_email, :subject, :message, :user_id)
     end
 end

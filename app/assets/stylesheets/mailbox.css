@@ -1,31 +1,34 @@
 .h1-mail{
     margin-top: 1cm;
     text-align: left;
-    margin-left: 4cm;
+    margin-left: 15cm;
 }
-.divorganization {
+.div-mailbox {
     background-color: lightgrey;
-    background-size: 900px;
+    background-size: 1000px;
     width: 1000px;
     padding: 15px;
     margin: 15px;
     margin-left: 4cm;
     margin-right: 3cm;
 }
-.organizationh4-1p {
+.mailboxh4 {
     color: black;
-    margin-left: 12cm;
-    margin-top: -5cm;
+    margin-left: 0.5cm;
 }
-.organizationh4-1{
-    color: black;
-    margin-left: 12cm;
+.aside-mailbox {
+    background-color: #EFEFEF;
+    background-size: 550px;
+    width: 550px;
+    float: right;
+    margin-top: 0.5cm;
+    margin-right: 0.5cm;
 }
 h4 {
     margin-left: 12cm;
 }
 
-.btn {
+.btn-info-mailbox {
     border: 1px solid black;
     background-color: ghostwhite;
     padding: 14px 24px;
@@ -34,11 +37,18 @@ h4 {
     text-align: center;
     display: inline-block;
     width: 17%;
-    margin-left: 3cm;
+    margin-left: 4cm;
 }
-
+.btn-info-mailbox a {
+    text-decoration: none;
+    color: black;
+}
 .h1-mail {
     margin-top: 1cm;
     text-align: left;
     margin-left: 4cm;
+}
+.mailboxh4-1 {
+    margin-left: 0.5cm;
+    text-align: left;
 }

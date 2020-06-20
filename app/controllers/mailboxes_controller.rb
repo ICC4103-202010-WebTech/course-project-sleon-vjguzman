@@ -6,6 +6,7 @@ class MailboxesController < ApplicationController
   def index
     @get_id = User.where(id: 1).select(:id)
     @mailboxes = MailBox.where(user_id: @get_id)
+    @sent_messagess = SentMessage.where(to_email: User.where(id: @get_id).select(:email).first.email)
   end
 
   # GET /mailboxes/1
@@ -13,6 +14,7 @@ class MailboxesController < ApplicationController
   def show
     @get_id = User.where(id: 1).select(:id)
     @mailboxes = MailBox.where(user_id: @get_id)
+    @sent_messagess = SentMessage.where(to_email: User.where(id: @get_id).select(:email).first.email)
   end
 
   # GET /mailboxes/new
