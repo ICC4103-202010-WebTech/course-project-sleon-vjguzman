@@ -12,19 +12,19 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :Notifications
-  has_one :User_Administration
-  has_many :Event_Creators
-  has_and_belongs_to_many :Events
-  has_many :Reports
-  has_many :Members_Lists
+  has_many :Notifications, dependent: :destroy
+  has_one :User_Administration, dependent: :destroy
+  has_many :Event_Creators, dependent: :destroy
+  has_many :Events
+  has_many :Reports, dependent: :destroy
+  has_many :Members_Lists, dependent: :destroy
   has_many :Organizations, :through => :Members_Lists
-  has_many :Mail_Boxes
-  has_many :Sent_Messages
-  has_many :User_Invitations
-  has_many :Comments
-  has_many :Guest_Lists
-  has_one :System_Admin
+  has_many :Mail_Boxes, dependent: :destroy
+  has_many :Sent_Messages, dependent: :destroy
+  has_many :User_Invitations, dependent: :destroy
+  has_many :Comments, dependent: :destroy
+  has_many :Guest_Lists, dependent: :destroy
+  has_one :System_Admin, dependent: :destroy
   validates :email, presence: true, uniqueness: true, email: true
   validates :username, presence: true, uniqueness: true
   has_one_attached :profile_picture

@@ -70,6 +70,7 @@ Rails.application.routes.draw do
   resources :votes,defaults: { format: :html }
   resources :reports,defaults: { format: :html }
   resources :searches
+  resources :terms
   resources :mailboxes,defaults: { format: :html }
   resources :sent_messages,defaults: { format: :html }
 end
