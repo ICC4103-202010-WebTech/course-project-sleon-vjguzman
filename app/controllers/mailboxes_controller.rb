@@ -4,12 +4,15 @@ class MailboxesController < ApplicationController
   # GET /mailboxes
   # GET /mailboxes.json
   def index
-    @mailboxes = MailBox.where(user_id:1)
+    @get_id = User.where(id: 1).select(:id)
+    @mailboxes = MailBox.where(user_id: @get_id)
   end
 
   # GET /mailboxes/1
   # GET /mailboxes/1.json
   def show
+    @get_id = User.where(id: 1).select(:id)
+    @mailboxes = MailBox.where(user_id: @get_id)
   end
 
   # GET /mailboxes/new

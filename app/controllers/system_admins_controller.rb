@@ -4,18 +4,23 @@ class SystemAdminsController < ApplicationController
   # GET /system_admins
   # GET /system_admins.json
   def index
-    @system_admins = SystemAdmin.all
-    @system_admin = SystemAdmin.select(:user_id).where(admin: TRUE)
-    @admins = User.where(id: @system_admin)
-
+    @get_id = User.where(id: params[:id]).select(:id)
+    @user_in = User.where(id: @get_id)
+    @guest = GuestList.where(user_id: @get_id).select(:event_id)
+    @invitations = Event.where(id: @guest)
+    @user_member = MembersList.where(user_id: @get_id).select(:organization_id)
+    @user_org = Organization.where(id: @user_member)
   end
 
   # GET /system_admins/1
   # GET /system_admins/1.json
   def show
-    @system_admin = SystemAdmin.select(:user_id).where(admin: TRUE)
-    @admins = User.where(id: @system_admin)
-
+    @get_id = User.where(id: params[:id]).select(:id)
+    @user_in = User.where(id: @get_id)
+    @guest = GuestList.where(user_id: @get_id).select(:event_id)
+    @invitations = Event.where(id: @guest)
+    @user_member = MembersList.where(user_id: @get_id).select(:organization_id)
+    @user_org = Organization.where(id: @user_member)
   end
 
   # GET /system_admins/new

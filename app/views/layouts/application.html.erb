@@ -20,9 +20,8 @@
 <nav>
   <%= stylesheet_link_tag 'navegation'%>
   <ul>
-    <%unless user_signed_in? == false %>
     <li>
-      <%= link_to 'Profile', users_path%>
+        <%= link_to 'Profile', user_path(User.where(id: 1).first.id)%>
     </li>
     <li>
       <%= link_to 'My Events', events_path %>
@@ -34,16 +33,14 @@
       <%= link_to 'Mailbox', mailboxes_path %>
     </li>
     <li>
-      <%= link_to 'Admin', system_admins_path %>
+      <%link_to "Notifications", root_path %>
     </li>
-    <%end %>
     <li>
       <%= link_to "Search", new_search_path%>
     </li>
 
   </ul>
 </nav>
-
 <body>
 <%= yield %>
 </body>

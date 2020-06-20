@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  devise_for :admins, controllers: { sessions: 'admins/sessions' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "pages#home"
   namespace :api, defaults: {format: :json} do
@@ -7,20 +8,25 @@ Rails.application.routes.draw do
       resources :comments do
         resources :events
       end
-
       resources :organizations do
         resources :comments
       end
       resources :reports do
         resources :events
       end
-      resources :users
+      resources :users do
+        resources :events
+        resources :system_admins
+      end
       resources :events do
         resources :guest_lists
         resources :comments
         resources :reports
+        resources :users
       end
-      resources :system_admins
+      resources :system_admins do
+        resources :users
+      end
       resources :guest_lists do
         resources :events
         resources :event_dates
@@ -41,7 +47,12 @@ Rails.application.routes.draw do
         resources :event_dates
       end
       resources :reports
-      resources :mailboxes
+      resources :sent_messages do
+        resources :mailboxes
+      end
+      resources :mailboxes do
+        resources :sent_messages
+      end
     end
   end
   resources :events, defaults: { format: :html }
@@ -56,5 +67,6 @@ Rails.application.routes.draw do
   resources :reports,defaults: { format: :html }
   resources :searches
   resources :mailboxes,defaults: { format: :html }
+  resources :sent_messages,defaults: { format: :html }
 end
 

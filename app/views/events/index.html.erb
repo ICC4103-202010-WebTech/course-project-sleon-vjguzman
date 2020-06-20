@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'event'%>
-<h3 class="h3-event"> User: <%=@user.full_name%> </h3>
+<h3 class="h3-event"> User: <%=User.where(id: @user).select(:full_name).first.full_name%> </h3>
 <aside class="aside-event">
 <button class="btn success-1" ><%= link_to 'New Event', new_event_path %></button>
 <button class="btn info-1" ><%= link_to 'Back', events_path %></button>

@@ -1,7 +1,7 @@
-<p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'mailbox'%>
-<h1 class="h1-mail"> My Mailbox</h1>
+<h1 class="h1-mail"> My Mailbox </h1>
 
+<h2 class="h2-mail"> My Inbox </h2>
 <% @mailboxes.each do |x| %>
   <div class="divorganization">
     <% unless x.profile_picture.attached? == true%>
@@ -19,4 +19,5 @@
   </div>
 <% end %>
 
-<%= link_to 'New Mailbox', new_mailbox_path %>
+<button class="btn info"><%= link_to 'New Chat', new_sent_message_path %></button>
+

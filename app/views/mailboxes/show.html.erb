@@ -1,4 +1,24 @@
-<p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag 'mailbox'%>
+<h1 class="h1-mail"> My Mailbox </h1>
 
-<%= link_to 'Edit', edit_mailbox_path(@mailbox) %> |
-<%= link_to 'Back', mailboxes_path %>
+<h2 class="h2-mail"> My Inbox </h2>
+<% @mailboxes.each do |x| %>
+  <div class="divorganization">
+    <% unless x.profile_picture.attached? == true%>
+      <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+    <% end %>
+    <% unless x.profile_picture.attached?  == false%>
+      <span class="imageleft"><%= link_to image_tag(url_for(x.profile_picture)) %></span>
+    <% end %>
+    <h4 class="organizationh4-1p"><%= x.from_message %></h4>
+    <h4 class="organizationh4-1"><%= x.from_username %></h4>
+    <h4 class="organizationh4-1"><%= x.date %></h4>
+    <h4 class="organizationh4-1"><%= x.subject %></h4>
+    <h4 class="organizationh4-1"><%= x.message %></h4>
+    <button class="btn danger"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+  </div>
+<% end %>
+
+<h2 class="h2-mail"> Compose message to user</h2>
+<button class="btn info"><%= link_to 'New Chat', new_sent_message_path %></button>
+
