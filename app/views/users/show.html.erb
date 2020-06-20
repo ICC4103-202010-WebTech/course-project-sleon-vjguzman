@@ -1,22 +1,39 @@
-<p id="notice"><%= notice %></p>
-<%= stylesheet_link_tag 'seedetails-profile'%>
-
-<h2 class="h2details"> <%= @first_user.full_name %> </h2>
-<% unless @first_user.profile_picture.attached? == true%>
-  <span class="imageleft1"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
-<% end %>
-<% unless @first_user.profile_picture.attached?  == false%>
-  <span class="imageleft1"><%= link_to image_tag(url_for(@first_user.profile_picture), width: '300px') %></span>
-<% end %>
-
-    <h4 class="h4detailsp"><%= @first_user.username %></h4>
-    <h4 class="h4details"><%= @first_user.short_bio %></h4>
-    <h4 class="h4details"><%= @first_user.location %></h4>
-    <h4 class="h4details"><%= Organization.where(id: @user_member).select(:name).first.name %></h4>
-    <h4 class="h4details2"> Email: <%= @first_user.email %></h4>
-    <h4 class="h4details2"> Password: <%= @first_user.password %></h4>
+<%= stylesheet_link_tag 'profile'%>
 <br/>
-<aside class="botones">
-  <button class="buttondetails"><%= link_to 'Edit', edit_user_path(@first_user) %></button>
-<button class="back"><%= link_to 'Back', users_path %></button>
+<h2 class="h2profile"><%= User.where(id: @get_id).select(:full_name).first.full_name %></h2>
+<aside class="asideprofile">
+  <button class="botonasideprofile"> <%= link_to 'Edit Profile', edit_user_path(User.where(id: @get_id).select(:id).first.id) %></button>
+  <button class="botonasideprofile"> <%= link_to 'See Details', system_admins_url(User.where(id: @get_id).select(:id).first.id) %></button>
 </aside>
+
+<% unless User.where(id: @get_id).select(:profile_picture).first.profile_picture.attached? == true%>
+  <h4 class="imageleft1"><%= link_to image_tag("xd.jpeg") %></h4>
+<% end %>
+<% unless User.where(id: @get_id).select(:profile_picture).first.profile_picture.attached?  == false%>
+  <h4 class="imageleft1"><%= link_to image_tag(url_for(User.where(id: @get_id).select(:profile_picture).first.profile_picture), width: '300px') %></h4>
+<% end %>
+
+<h4 class="h4profilep"><%= User.where(id: @get_id).select(:username).first.username %></h4>
+<h4 class="h4profile"><%= User.where(id: @get_id).select(:short_bio).first.short_bio %></h4>
+<h4 class="h4profile"><%= User.where(id: @get_id).select(:location).first.location %></h4>
+<h4 class="h4profile"><%= Organization.where(id: @user_member).select(:name).first.name %></h4>
+<br/>
+<br/>
+<h2 class="h2profile2"> You were invited to: </h2>
+
+<% @invitations.each do |x| %>
+  <div class="divprofile">
+    <% unless x.banner_picture.attached? == true%>
+      <h4 class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></h4>
+    <% end %>
+    <% unless x.banner_picture.attached?  == false%>
+      <h4 class="imageleft"><%= link_to image_tag(url_for(x.banner_picture), width: '300px') %></h4>
+    <% end %>
+    <h4 class="h4profilep"><%= x.title %></h4>
+    <h4 class="h4profile"><%= x.description %></h4>
+    <h4 class="h4profile"><%= x.final_date %></h4>
+    <h4 class="h4profile"><%= x.location %></h4>
+    <button class="botondivprofile"><%= link_to 'View', x %></button>
+    <button class="botondivprofile"><%= link_to 'Vote', new_vote_path(x) %></button>
+  </div>
+<% end %>

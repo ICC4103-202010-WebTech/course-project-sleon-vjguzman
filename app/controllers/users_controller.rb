@@ -4,21 +4,19 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
     @get_id = User.where(id: params[:id]).select(:id)
-    @first_user = User.first
-    @id_user_in = User.where(id: 1).select(:id)
-    @guest = GuestList.where(user_id: @id_user_in).select(:event_id)
+    @user_in = User.where(id: @get_id)
+    @guest = GuestList.where(user_id: @get_id).select(:event_id)
     @invitations = Event.where(id: @guest)
-    @user_member = MembersList.where(user_id: @id_user_in).select(:organization_id)
+    @user_member = MembersList.where(user_id: @get_id).select(:organization_id)
     @user_org = Organization.where(id: @user_member)
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @users = User.all
     @get_id = User.where(id: params[:id]).select(:id)
+    @user_in = User.where(id: @get_id)
     @guest = GuestList.where(user_id: @get_id).select(:event_id)
     @invitations = Event.where(id: @guest)
     @user_member = MembersList.where(user_id: @get_id).select(:organization_id)
