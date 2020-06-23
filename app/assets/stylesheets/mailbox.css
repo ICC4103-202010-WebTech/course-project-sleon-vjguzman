@@ -52,3 +52,12 @@ h4 {
     margin-left: 0.5cm;
     text-align: left;
 }
+.div-mailbox1 {
+    background-color: lightgrey;
+    background-size: 1000px;
+    width: 1000px;
+    padding: 15px;
+    margin: 20px;
+    margin-left: 4cm;
+    margin-right: 3cm;
+}

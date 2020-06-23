@@ -1,18 +1,17 @@
 <%= stylesheet_link_tag 'mailbox'%>
-<h1 class="h1-mail"> My Sent Message </h1>
+<h1 class="h1-mail"> Sent Messages </h1>
 </br>
 <button class="btn-info-mailbox"><%= link_to 'New Chat', new_sent_message_path %></button>
 </br>
 <% @sent_messagesss.each do |x| %>
-  <div class="div-mailbox">
+  <div class="div-mailbox1">
     <aside class="aside-mailbox">
       <h4 class="mailboxh4">Subject:  <%= x.subject %></h4>
     </aside>
     <aside class="aside-mailbox">
       <h4 class="mailboxh4-1">Message:  <%= x.message %></h4>
     </aside>
-    <h4 class="mailboxh4">To:  <%= User.where(id: x.user_id).select(:full_name).first.full_name %></h4>
-    <h4 class="mailboxh4">At:  <%= x.date %></h4>
-
+    <h4 class="mailboxh4">To:  <%= User.where(email: x.to_email).select(:full_name).first.full_name %></h4>
+    <h4 class="mailboxh4">Date:  <%= x.date %></h4>
   </div>
 <% end %>
