@@ -4,23 +4,18 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @get_id = Event.where(id: params[:id]).select(:id)
-    @event_votos = Event.where(id: @get_id)
-    @count = 0
-    @guests = GuestList.where(event_id: @get_id)#Todos lo invitados al evento
-    @dates = EventDate.where(event_id: @get_id)
-
-
+    @event_vote = Event.where(id: params[:id]).select(:id)
+    @event = Event.where(id: @event_vote)
   end
 
   # GET /votes/1
   # GET /votes/1.json
   def show
-    @get_id = Event.where(id: params[:id]).select(:id)
-    @event_votos = Event.where(id: @get_id)
-    @count = 0
-    @guests = GuestList.where(event_id: @get_id)#Todos lo invitados al evento
-    @dates = EventDate.where(event_id: @get_id)
+    @get_id = User.where(id: params[:id]).select(:id)
+    @guest = GuestList.where(user_id: @get_id).select(:event_id)
+    @guest_id = GuestList.where(user_id: @get_id).select(:id)
+    @votes = Vote.where(guest_list_id: @guest_id)
+    @invitations = Event.where(id: @guest)
   end
 
   # GET /votes/new
@@ -36,10 +31,9 @@ class VotesController < ApplicationController
   # POST /votes.json
   def create
     @vote = Vote.new(vote_params)
-
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
+        format.html { redirect_to vote_path, notice: 'Vote was successfully created.' }
         format.json { render :show, status: :created, location: @vote }
       else
         format.html { render :new }
@@ -53,7 +47,7 @@ class VotesController < ApplicationController
   def update
     respond_to do |format|
       if @vote.update(vote_params)
-        format.html { redirect_to @vote, notice: 'Vote was successfully updated.' }
+        format.html { redirect_to vote_path, notice: 'Vote was successfully updated.' }
         format.json { render :show, status: :ok, location: @vote }
       else
         format.html { render :edit }

@@ -23,16 +23,16 @@
         <%= link_to 'Profile', user_path(User.where(id: 1).first.id)%>
     </li>
     <li>
-      <%= link_to 'My Events', events_path %>
+      <%= link_to 'My Events', event_creator_path(User.where(id:1).first.id)%>
     </li>
     <li>
-      <%= link_to 'Organization', organizations_path %>
+      <%=link_to "My Votes", vote_path(User.where(id:1).first.id) %>
     </li>
     <li>
-      <%= link_to 'Mailbox', mailboxes_path %>
+      <%= link_to 'Organization', organization_path(User.where(id:1).first.id) %>
     </li>
     <li>
-      <%link_to "Notifications", root_path %>
+      <%= link_to 'Mailbox', mailbox_path(User.where(id:1).first.id) %>
     </li>
     <li>
       <%= link_to "Search", new_search_path%>

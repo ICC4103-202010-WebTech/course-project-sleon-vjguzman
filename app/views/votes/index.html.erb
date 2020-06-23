@@ -1,32 +1,52 @@
-<p id="notice"><%= notice %></p>
+<h2 class="h2profile2"> You select to Vote for the following event </h2>
 
-<h2>Votes of the Event </h2>
+<div class="divprofile">
+  <% unless Event.where(id: @event_vote.first.id).select(:banner_picture).first.banner_picture.attached? == true%>
+    <h4 class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></h4>
+  <% end %>
+  <% unless Event.where(id: @event_vote.first.id).select(:banner_picture).first.banner_picture.attached?  == false%>
+    <h4 class="imageleft"><%= link_to image_tag(url_for(Event.where(id: @event_vote.first.id).select(:banner_picture).first.banner_picture), width: '300px'), x %></h4>
+  <% end %>
+  <h4 class="h4profilep"><%= Event.where(id: @event_vote.first.id).select(:title).first.title %></h4>
+  <h4 class="h4profile"><%= Event.where(id: @event_vote.first.id).select(:description).first.description %></h4>
+  <h4 class="h4profile"><%= Event.where(id: @event_vote.first.id).select(:location).first.location %></h4>
+  </br>
+  </br>
+  </br>
+  <%if @vote.present? %>
+  <%= form_with model: @vote, local: true do |form| %>
+    <div class="div-edit">
+      <%= form.label :event_date_id %>
+      <br/>
+      <%= form.collection_select(:event_date_id, EventDate.where(event_id: Event.where(id: @event_vote.first.id).select(:id)).order(date: :asc), :id, :date, {}, { class: "form-control" }) %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :guest_id %>
+      <br/>
+      <%= form.collection_select(:guest_list_id, User.where(id: GuestList.where(event_id: Event.where(id: @event_vote.first.id).select(:id)).select(:user_id)).select(:username).order(title: :asc), :id, :username, {}, { class: "form-control" }) %>
+    </div>
+    <div class="div-edit">
+      <%= form.submit "Vote", class: ["btn"] %>
+    </div>
+  <% end  %>
 
-<table>
-  <thead>
-    <tr>
+  <% else  %>
+    <%= form_with model: @vote, local: true do |form| %>
+      <div class="div-edit">
+        <%= form.label :event_date_id %>
+        <br/>
+        <%= form.collection_select(:event_date_id, EventDate.where(event_id: Event.where(id: @event_vote.first.id).select(:id)).order(date: :asc), :id, :date, {}, { class: "form-control" }) %>
+      </div>
+      <div class="div-edit">
+        <%= form.label :guest_id %>
+        <br/>
+        <%= form.collection_select(:guest_list_id, User.where(id: GuestList.where(event_id: Event.where(id: @event_vote.first.id).select(:id)).select(:user_id)).select(:username).order(title: :asc), :id, :username, {}, { class: "form-control" }) %>
+      </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+    <% end  %>
+  <% end  %>
 
-    </tr>
-  </thead>
+</div>
 
-  <tbody>
-  <% @dates.each do |date| %>
-
-    <% votes = [] %>
-      <tr>
-
-        <td><%= date.date %></td>
-        <% @guests.each do |guest| %>
-          <%= votes << Vote.where(guest_list_id: guest.id,event_dates_id:date.id)%>
-        <%end %>
-        <td>1</td>
-  <%end %>
-
-      </tr>
-
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Vote', new_vote_path %>

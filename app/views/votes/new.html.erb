@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
 <div class="row ml-0 mt-3">
   <h2 class="edith2">Vote</h2>
 </div>
-
 <div class="div-2">
   <%= form_with model: @vote, local: true do |form| %>
     <div class="div-edit">
       <%= form.label :event_date_id %>
       <br/>
-      <%= form.collection_select(:event_date_id, EventDate.where(event_id: Event.first.id).order(date: :asc), :id, :date, {}, { class: "form-control" }) %>
+      <%= form.collection_select(:event_date_id, EventDate.where(event_id: Event.where(id: @event_id).select(:id)).order(date: :asc), :id, :date, {}, { class: "form-control" }) %>
     </div>
     <div class="div-edit">
-      <%= form.label :event_id %>
+      <%= form.label :guest_id %>
       <br/>
-      <%= form.collection_select(:event_id, Event.where(id: EventDate.where(event_id: GuestList.where(user_id: 1).select(:event_id)).select(:event_id)).order(title: :asc), :id, :title, {}, { class: "form-control" }) %>
+      <%= form.collection_select(:guest_list_id, GuestList.where(event_id: Event.where(id: @event_id).select(:id)).select(:user_id).order(title: :asc), :id, :user_id, {}, { class: "form-control" }) %>
     </div>
     <input type="hidden" id="guest_list_id" name="guest_list_id" value="1">
 

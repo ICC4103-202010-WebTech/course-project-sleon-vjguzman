@@ -4,8 +4,9 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.all
-    @member = MembersList.select(:organization_id).where(user_id: 1)
+    @get_id = User.where(id: params[:id]).select(:id)
+    @user_in = User.where(id: @get_id)
+    @member = MembersList.select(:organization_id).where(user_id: @get_id)
     @organization_user = Organization.where(id: @member)
     @id_org = Organization.where(id: @member).select(:id)
     @eventos_org = Event.where(organization_id: @id_org).where(privacy_id: 1)
@@ -17,10 +18,12 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    @member = MembersList.select(:organization_id).where(user_id: 1)
+    @get_id = User.where(id: params[:id]).select(:id)
+    @user_in = User.where(id: @get_id)
+    @member = MembersList.select(:organization_id).where(user_id: @get_id)
     @organization_user = Organization.where(id: @member)
     @id_org = Organization.where(id: @member).select(:id)
-    @eventos_org = Event.where(organization_id: @id_org)
+    @eventos_org = Event.where(organization_id: @id_org).where(privacy_id: 1)
     @id = Organization.where(id: @member).select(:id).first.id
     @members_org = MembersList.where(organization_id: @id)
     @admin = MembersList.where(organization_id: @id).where(user_role: "admin")
@@ -83,6 +86,6 @@ class OrganizationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def organization_params
-      params.fetch(:organization, {}).permit(:id, :name, :description,  :banner_org)
+      params.fetch(:organization, {}).permit(:id, :name, :description, :banner_org)
     end
 end

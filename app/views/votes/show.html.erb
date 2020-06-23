@@ -1,26 +1,29 @@
-<p id="notice"><%= notice %></p>
-<h1>Votes of the Event: "<%= Event.where(id: @get_id).select(:title).first.title %>"</h1>
-<table>
-  <thead>
-  <tr>
-    <td> Date </td>
-    <td> Amound of Votes</td>
+<h2 class="h2profile2"> You were invited to: </h2>
 
-  </tr>
-  </thead>
-  <tbody>
+<% @invitations.each do |x| %>
+  <div class="divprofile">
+    <% unless x.banner_picture.attached? == true%>
+      <h4 class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></h4>
+    <% end %>
+    <% unless x.banner_picture.attached?  == false%>
+      <h4 class="imageleft"><%= link_to image_tag(url_for(x.banner_picture), width: '300px'), x %></h4>
+    <% end %>
+    <h4 class="h4profilep"><%= x.title %></h4>
+    <h4 class="h4profile"><%= x.description %></h4>
+    <h4 class="h4profile"><%= x.final_date %></h4>
+    <h4 class="h4profile"><%= x.location %></h4>
+    <button class="botondivprofile"><%= link_to 'Vote', {:action => :index, :id => Event.where(id: x.id).select(:id).first.id} %></button>
+  </div>
+<% end %>
+</br>
+</br>
+</br>
+<h2 class="membersh2-1"> My Votes </h2>
+<% @votes.each do |x| %>
+  <div class="membersdiv">
+    <h4 class="membersh4-1p"> For the Event "<%= Event.select(:title).where(id: EventDate.where(id: x.event_dates_id).select(:event_id).first.event_id).first.title %>"</h4>
+    <h4 class="membersh4-1"> Vote for: <%= x.event_dates_id %></h4>
+  </div>
+<% end %>
 
-  <% @dates.each do |date| %>
-    <tr>
-      <td><%= date.date  %></td>
-      <% @guests.each do |guest| %>
-        <td><%= Vote.where(guest_list_id: guest.id, event_dates_id: date.id).select(:id) %></td>
-      <%end %>
-    </tr>
-  <%end %>
-
-  </tbody>
-
-</table>
-
-<%= link_to 'Back', events_path %>
+<br/>

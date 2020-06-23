@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       end
       resources :organizations do
         resources :comments
+        resources :events
+        resources :members_lists
+        resources :users
       end
       resources :reports do
         resources :events
@@ -19,12 +22,20 @@ Rails.application.routes.draw do
         resources :system_admins
         resources :mailboxes
         resources :sent_messages
+        resources :event_dates
+        resources :event_creators
+        resources :members_lists
+        resources :votes
       end
       resources :events do
         resources :guest_lists
         resources :comments
         resources :reports
         resources :users
+        resources :event_creators
+        resources :organizations
+        resources :members_lists
+        resources :votes
       end
       resources :system_admins do
         resources :users
@@ -32,22 +43,16 @@ Rails.application.routes.draw do
       resources :guest_lists do
         resources :events
         resources :event_dates
+        resources :votes
       end
       resources :multimedia do
         resources :events
       end
       resources :event_dates do
         resources :events
-      end
-      resources :guest_lists do
-        resources :events
+        resources :votes
       end
       resources :event_dates
-      resources :votes do
-        resources :events
-        resources :guest_lists
-        resources :event_dates
-      end
       resources :reports
       resources :sent_messages do
         resources :mailboxes
@@ -56,6 +61,21 @@ Rails.application.routes.draw do
       resources :mailboxes do
         resources :sent_messages
         resources :users
+      end
+      resources :event_creators do
+        resources :events
+        resources :users
+      end
+      resources :members_lists do
+        resources :events
+        resources :users
+        resources :organizations
+      end
+      resources :votes do
+        resources :events
+        resources :users
+        resources :guest_lists
+        resources :event_dates
       end
     end
   end
@@ -73,5 +93,7 @@ Rails.application.routes.draw do
   resources :terms
   resources :mailboxes,defaults: { format: :html }
   resources :sent_messages,defaults: { format: :html }
+  resources :event_creators, defaults: { format: :html }
+  resources :members_lists, defaults: { format: :html }
 end
 

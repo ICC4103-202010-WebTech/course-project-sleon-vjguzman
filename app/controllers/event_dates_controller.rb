@@ -33,7 +33,7 @@ class EventDatesController < ApplicationController
 
     respond_to do |format|
       if @event_date.save
-        format.html { redirect_to @event_date, notice: 'Event date was successfully created.' }
+        format.html { redirect_to events_path(), notice: 'Event date was successfully created.' }
         format.json { render :show, status: :created, location: @event_date }
       else
         format.html { render :new }

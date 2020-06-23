@@ -4,12 +4,33 @@ class EventCreatorsController < ApplicationController
   # GET /event_creators
   # GET /event_creators.json
   def index
-    @event_creators = EventCreator.all
+    @user = User.where(id: params[:id]).select(:id)
+    @user_events = EventCreator.where(user_id: @user)
+    @eventos = Event.where(id: @user_events.select(:event_id))
+    @get_id = Event.where(id: params[:id]).select(:id)
+    @event_foto = Event.where(id: @get_id)
+    @event_name = Event.where(id: @get_id).select(:description)
+    @event_date = Event.where(id: @get_id).select(:final_date)
+    @event_location = Event.where(id: @get_id).select(:location)
+    @event_title = Event.where(id: @get_id).select(:title)
+    @id = Event.where(id: @get_id).select(:id)
+    @guest = GuestList.where(event_id: @get_id)
   end
 
   # GET /event_creators/1
   # GET /event_creators/1.json
   def show
+    @user = User.where(id: params[:id]).select(:id)
+    @user_events = EventCreator.where(user_id: @user)
+    @eventos = Event.where(id: @user_events.select(:event_id))
+    @get_id = Event.where(id: params[:id]).select(:id)
+    @event_foto = Event.where(id: @get_id)
+    @event_name = Event.where(id: @get_id).select(:description)
+    @event_date = Event.where(id: @get_id).select(:final_date)
+    @event_location = Event.where(id: @get_id).select(:location)
+    @event_title = Event.where(id: @get_id).select(:title)
+    @id = Event.where(id: @get_id).select(:id)
+    @guest = GuestList.where(event_id: @get_id)
   end
 
   # GET /event_creators/new

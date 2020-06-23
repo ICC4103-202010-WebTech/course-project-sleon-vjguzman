@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     @invitations = Event.where(id: @guest)
     @user_member = MembersList.where(user_id: @get_id).select(:organization_id)
     @user_org = Organization.where(id: @user_member)
-    @pagy, @events = pagy(Event.where(user_id = current_user.id))
   end
 
   # GET /users/1
