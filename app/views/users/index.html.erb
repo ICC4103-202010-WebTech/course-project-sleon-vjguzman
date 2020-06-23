@@ -17,6 +17,7 @@
 <h4 class="h4profile"><%= User.where(id: @get_id).select(:short_bio).first.short_bio %></h4>
 <h4 class="h4profile"><%= User.where(id: @get_id).select(:location).first.location %></h4>
 <h4 class="h4profile"><%= Organization.where(id: @user_member).select(:name).first.name %></h4>
+<h4 class="h4details"><%= User.where(id: @get_id).select(:last_active_at).first.last_active_at %></h4>
 
 <br/>
 <br/>

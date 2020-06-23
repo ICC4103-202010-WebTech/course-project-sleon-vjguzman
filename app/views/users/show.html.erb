@@ -3,7 +3,7 @@
 <h2 class="h2profile"><%= User.where(id: @get_id).select(:full_name).first.full_name %></h2>
 <aside class="asideprofile">
   <button class="botonasideprofile"> <%= link_to 'Edit Profile', edit_user_path(User.where(id: @get_id).select(:id).first.id) %></button>
-  <button class="botonasideprofile"> <%= link_to 'See Details', system_admins_url(User.where(id: @get_id).select(:id).first.id) %></button>
+  <button class="botonasideprofile"> <%= link_to 'See Details', system_admin_path(User.where(id: @get_id).select(:id).first.id) %></button>
 </aside>
 
 <% unless User.where(id: @get_id).select(:profile_picture).first.profile_picture.attached? == true%>

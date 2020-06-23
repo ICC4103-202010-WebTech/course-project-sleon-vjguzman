@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'multimedia'%>
 <h1 class="multimediah1"> File Attachment of the Event: <%= Event.where(id: @get_id).select(:title).first.title %> </h1>
 <br/>

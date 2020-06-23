@@ -47,7 +47,7 @@ class EventDatesController < ApplicationController
   def update
     respond_to do |format|
       if @event_date.update(event_date_params)
-        format.html { redirect_to @event_date, notice: 'Event date was successfully updated.' }
+        format.html { redirect_to events_path, notice: 'Event date was successfully updated.' }
         format.json { render :show, status: :ok, location: @event_date }
       else
         format.html { render :edit }
@@ -74,6 +74,6 @@ class EventDatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_date_params
-      params.fetch(:event_date, {})
+      params.fetch(:event_date, {}).permit(:id, :date , :event_id)
     end
 end

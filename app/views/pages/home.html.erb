@@ -1,33 +1,4 @@
 
-<div class="container-fluid">
-  <div class="row">
-    <aside class="col-sm-2" id="customer_info">
-      <% unless user_signed_in? == false %>
-        <div class="card mt-4">
-          <div class="card-body">
-            <h5 class="apph5">Welcome, <%= current_customer.name %></h5>
-          </div>
-        </div>
-      <%end %>
-      <% unless admin_signed_in? == false %>
-        <h5 class="apph5">Welcome Admin%></h5>
-      <% end %>
-    </aside>
-    <main class="col-sm-10" id="main_content">
-      <% if notice.present? %>
-        <div class="row ml-0 mt-3" role="alert">
-          <div id="notice" class="alert alert-success"><%= notice %></div>
-        </div>
-      <% end %>
-      <% if alert.present? %>
-        <div class="row ml-0 mt-3" role="alert">
-          <div id="notice" class="alert alert-success"><%= notice %></div>
-        </div>
-      <% end %>
-      <%= yield %>
-    </main>
-  </div>
-</div>
 <h2 class="homeh2">Upcoming Events</h2>
 <%= stylesheet_link_tag 'homepage'%>
 <% @upcoming_events.each do |x| %>
