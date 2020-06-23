@@ -26,6 +26,7 @@ gem 'bootstrap', '~> 4.4.1'
 # gem 'image_processing', '~> 1.2'
 gem 'devise', '~> 4.7'
 gem 'cancancan', '~> 3.1'
+gem 'omniauth-google-oauth2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
