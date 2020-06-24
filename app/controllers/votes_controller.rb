@@ -33,8 +33,8 @@ class VotesController < ApplicationController
     @vote = Vote.new(vote_params)
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to vote_path, notice: 'Vote was successfully created.' }
-        format.json { render :show, status: :created, location: @vote }
+        format.html { redirect_to votes_path(@vote), notice: 'Vote was successfully created.' }
+        format.json { render :index, status: :created, location: @vote }
       else
         format.html { render :new }
         format.json { render json: @vote.errors, status: :unprocessable_entity }
@@ -47,8 +47,8 @@ class VotesController < ApplicationController
   def update
     respond_to do |format|
       if @vote.update(vote_params)
-        format.html { redirect_to vote_path, notice: 'Vote was successfully updated.' }
-        format.json { render :show, status: :ok, location: @vote }
+        format.html { redirect_to votes_path(@vote), notice: 'Vote was successfully updated.' }
+        format.json { render :index, status: :ok, location: @vote }
       else
         format.html { render :edit }
         format.json { render json: @vote.errors, status: :unprocessable_entity }

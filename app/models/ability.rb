@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+ # frozen_string_literal: true
 
 class Ability
   include CanCan::Ability
@@ -15,8 +15,16 @@ class Ability
 
     # Unregistered users should only be able to read Events.
     if user.present?
-      can :manage, Order, costumer_id: user.id
-      can :manage, Customer, id: user.id
+      can :manage, Report, user_id: user.id
+      can :manage, SentMessage, user_id: user.id
+      can :manage, User, id: user.id
+      can :manage, UserInvitation, user_id: user.id
+      can :manage, Comment, user_id: user.id
+      can :manage, EventCreator, user_id: user.id
+      can :manage, GuestList, user_id: user.id
+      can :manage, MailBox, user_id: user.id
+      can :manage, MembersList, user_id: user.id
+
     else
       can :manage, :all
     end
