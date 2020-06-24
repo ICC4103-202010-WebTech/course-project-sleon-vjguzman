@@ -42,7 +42,6 @@
 </nav>
 
 <body>
-<div class="container-fluid">
   <div class="row">
     <aside class="col-sm-2" id="customer_info">
       <% unless user_signed_in? == false %>
@@ -56,7 +55,6 @@
         <h5 class="apph5">Welcome Admin%></h5>
       <% end %>
     </aside>
-    <main class="col-sm-10" id="main_content">
       <% if notice.present? %>
         <div class="row ml-0 mt-3" role="alert">
           <div id="notice" class="alert alert-success"><%= notice %></div>
@@ -67,9 +65,7 @@
           <div id="notice" class="alert alert-success"><%= notice %></div>
         </div>
       <% end %>
-    </main>
   </div>
-</div>
 <%= yield %>
 </body>
 </html>
