@@ -50,7 +50,7 @@ class EventCreatorsController < ApplicationController
     respond_to do |format|
       if @event_creator.save
         format.html { redirect_to @event_creator, notice: 'Event creator was successfully created.' }
-        format.json { render :show, status: :created, location: @event_creator }
+        format.json { render :index, status: :created, location: @event_creator }
       else
         format.html { render :new }
         format.json { render json: @event_creator.errors, status: :unprocessable_entity }
@@ -64,7 +64,7 @@ class EventCreatorsController < ApplicationController
     respond_to do |format|
       if @event_creator.update(event_creator_params)
         format.html { redirect_to @event_creator, notice: 'Event creator was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event_creator }
+        format.json { render :index, status: :ok, location: @event_creator }
       else
         format.html { render :edit }
         format.json { render json: @event_creator.errors, status: :unprocessable_entity }
@@ -90,6 +90,6 @@ class EventCreatorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_creator_params
-      params.fetch(:event_creator, {})
+      params.fetch(:event_creator, {}).permit(:id, :event_id, :user_id)
     end
 end

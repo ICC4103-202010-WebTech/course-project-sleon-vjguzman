@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag 'event'%>
-<h3 class="h3-event"> User: <%=User.where(id: @user).select(:full_name).first.full_name%> </h3>
+<h3 class="h3-event"> User: <%=User.where(id: current_user.id).select(:full_name).first.full_name%> </h3>
 <aside class="aside-event">
   <button class="btn success-1" ><%= link_to 'New Event', new_event_path %></button>
   <button class="btn info-1" ><%= link_to 'Back', events_path %></button>
@@ -7,7 +7,7 @@
 </aside>
 
 <h2>Created Events</h2>
-<% @eventos.each do |x| %>
+<% Event.where(id: EventCreator.where(user_id: current_user.id).select(:event_id)).each do |x| %>
   <div class="divorganization">
     <% unless x.banner_picture.attached? == true%>
       <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>

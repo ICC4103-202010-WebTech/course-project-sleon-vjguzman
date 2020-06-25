@@ -26,8 +26,8 @@ class User < ApplicationRecord
   has_many :Comments, dependent: :destroy
   has_many :Guest_Lists, dependent: :destroy
   has_one :System_Admin, dependent: :destroy
-  validates :email, presence: true, uniqueness: true, email: true
-  validates :username, presence: true, uniqueness: true
+  validates :email, uniqueness: true, email: true
+  validates :username,uniqueness: true
   has_one_attached :profile_picture
   def self.from_omniauth(access_token)
     data = access_token.info

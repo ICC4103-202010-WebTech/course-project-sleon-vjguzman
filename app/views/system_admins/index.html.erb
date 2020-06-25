@@ -1,21 +1,21 @@
 <%= stylesheet_link_tag 'seedetails-profile'%>
 
-<h2 class="h2details"> <%= User.where(id: @get_id).select(:full_name).first.full_name %> </h2>
-<% unless User.where(id: @get_id).select(:profile_picture).first.profile_picture.attached? == true%>
+<h2 class="h2details"> <%= User.where(id: current_user.id).select(:full_name).first.full_name %> </h2>
+<% unless User.where(id: current_user.id).select(:profile_picture).first.profile_picture.attached? == true%>
   <span class="imageleft1"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
 <% end %>
-<% unless User.where(id: @get_id).select(:profile_picture).first.profile_picture.attached? == false%>
-  <span class="imageleft1"><%= link_to image_tag(url_for(User.where(id: @get_id).select(:profile_picture).first.profile_picture), width: '300px') %></span>
+<% unless User.where(id: current_user.id).select(:profile_picture).first.profile_picture.attached? == false%>
+  <span class="imageleft1"><%= link_to image_tag(url_for(User.where(id: current_user.id).select(:profile_picture).first.profile_picture), width: '300px') %></span>
 <% end %>
 
-<h4 class="h4detailsp"><%= User.where(id: @get_id).select(:username).first.username %></h4>
-<h4 class="h4details"><%= User.where(id: @get_id).select(:short_bio).first.short_bio %></h4>
-<h4 class="h4details"><%= User.where(id: @get_id).select(:location).first.location %></h4>
-<h4 class="h4details"><%= User.where(id: @get_id).select(:full_name).first.full_name %></h4>
-<h4 class="h4details2"> Email: <%= User.where(id: @get_id).select(:email).first.email %></h4>
-<h4 class="h4details2"> Password: <%= User.where(id: @get_id).select(:password).first.password %></h4>
+<h4 class="h4detailsp"><%= User.where(id: current_user.id).select(:username).first.username %></h4>
+<h4 class="h4details"><%= User.where(id: current_user.id).select(:short_bio).first.short_bio %></h4>
+<h4 class="h4details"><%= User.where(id: current_user.id).select(:location).first.location %></h4>
+<h4 class="h4details"><%= User.where(id: current_user.id).select(:full_name).first.full_name %></h4>
+<h4 class="h4details2"> Email: <%= User.where(id: current_user.id).select(:email).first.email %></h4>
+<h4 class="h4details2"> Password: <%= User.where(id: current_user.id).select(:password).first.password %></h4>
 <br/>
 <aside class="botones">
-  <button class="buttondetails"><%= link_to 'Edit', edit_user_path(User.where(id: @get_id).select(:id).first.id) %></button>
+  <button class="buttondetails"><%= link_to 'Edit', edit_user_path(User.where(id: current_user.id).select(:id).first.id) %></button>
   <button class="back"><%= link_to 'Back', users_path %></button>
 </aside>

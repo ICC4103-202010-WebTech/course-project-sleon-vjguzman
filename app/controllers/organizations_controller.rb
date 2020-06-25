@@ -4,29 +4,15 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
-    @get_id = User.where(id: params[:id]).select(:id)
+    @get_id = User.where(id: current_user.id).select(:id)
     @user_in = User.where(id: @get_id)
-    @member = MembersList.select(:organization_id).where(user_id: @get_id)
-    @organization_user = Organization.where(id: @member)
-    @id_org = Organization.where(id: @member).select(:id)
-    @eventos_org = Event.where(organization_id: @id_org).where(privacy_id: 1)
-    @id = Organization.where(id: @member).select(:id).first.id
-    @members_org = MembersList.where(organization_id: @id)
-    @admin = MembersList.where(organization_id: @id).where(user_role: "admin")
   end
 
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    @get_id = User.where(id: params[:id]).select(:id)
+    @get_id = User.where(id: current_user.id).select(:id)
     @user_in = User.where(id: @get_id)
-    @member = MembersList.select(:organization_id).where(user_id: @get_id)
-    @organization_user = Organization.where(id: @member)
-    @id_org = Organization.where(id: @member).select(:id)
-    @eventos_org = Event.where(organization_id: @id_org).where(privacy_id: 1)
-    @id = Organization.where(id: @member).select(:id).first.id
-    @members_org = MembersList.where(organization_id: @id)
-    @admin = MembersList.where(organization_id: @id).where(user_role: "admin")
   end
 
   # GET /organizations/new

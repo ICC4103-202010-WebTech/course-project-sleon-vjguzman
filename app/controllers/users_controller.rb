@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  load_and_authorize_resource
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   # GET /users
   # GET /users.json
   def index
-    @get_id = User.where(id: current_user.id).select(:id)
+    @get_id = User.where(id: params[:id]).select(:id)
     @user_in = User.where(id: @get_id)
     @guest = GuestList.where(user_id: @get_id).select(:event_id)
     @invitations = Event.where(id: @guest)
@@ -17,7 +16,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @get_id = User.where(id: current_user).select(:id)
+    @get_id = User.where(id: params[:id]).select(:id)
     @user_in = User.where(id: @get_id)
     @guest = GuestList.where(user_id: @get_id).select(:event_id)
     @invitations = Event.where(id: @guest)
