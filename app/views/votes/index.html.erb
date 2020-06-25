@@ -14,11 +14,41 @@
   </br>
   </br>
   <%unless @vote.present? == false %>
-    <%= render 'app/views/votes/new' %>
+
+    <%= form_with model: @vote, local: true do |form| %>
+      <div class="div-edit">
+        <%= form.label :event_date_id %>
+        <br/>
+        <%= form.collection_select(:event_date_id, EventDate.where(event_id: Event.where(id: @event_vote.first.id).select(:id)).order(date: :asc), :id, :date, {}, { class: "form-control" }) %>
+      </div>
+      <div class="div-edit">
+        <%= form.label :guest_id %>
+        <br/>
+        <%= form.collection_select(:guest_list_id, User.where(id: GuestList.where(event_id: Event.where(id: @event_vote.first.id).select(:id)).select(:user_id)).select(:username).order(title: :asc), :id, :username, {}, { class: "form-control" }) %>
+      </div>
+      <div class="actions">
+        <%= form.submit "Vote", class: ["btn"] %>
+      </div>
+    <% end  %>
   <% end  %>
 
   <% unless @vote.present? == true %>
-    <%= render 'app/views/votes/edit'%>
+
+    <%= form_with model: @vote, local: true do |form| %>
+      <div class="div-edit">
+        <%= form.label :event_date_id %>
+        <br/>
+        <%= form.collection_select(:event_date_id, EventDate.where(event_id: Event.where(id: @event_vote.first.id).select(:id)).order(date: :asc), :id, :date, {}, { class: "form-control" }) %>
+      </div>
+      <div class="div-edit">
+        <%= form.label :guest_id %>
+        <br/>
+        <%= form.collection_select(:guest_list_id, User.where(id: GuestList.where(event_id: Event.where(id: @event_vote.first.id).select(:id)).select(:user_id)).select(:username).order(title: :asc), :id, :username, {}, { class: "form-control" }) %>
+      </div>
+      <div class="actions">
+        <%= form.submit "Update", class: ["btn"] %>
+      </div>
+    <% end  %>
     <% end  %>
 </div>
 
