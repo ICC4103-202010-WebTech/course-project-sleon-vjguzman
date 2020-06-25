@@ -6,6 +6,11 @@ class VotesController < ApplicationController
   def index
     @event_vote = Event.where(id: params[:id]).select(:id)
     @event = Event.where(id: @event_vote)
+    @get_id = User.where(id:1).first.id
+    @guest = GuestList.where(user_id: @get_id).select(:event_id)
+    @guest_id = GuestList.where(user_id: @get_id).select(:id)
+    @votes = Vote.where(guest_list_id: @guest_id)
+    @invitations = Event.where(id: @guest)
   end
 
   # GET /votes/1

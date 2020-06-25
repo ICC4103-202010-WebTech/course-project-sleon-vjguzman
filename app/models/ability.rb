@@ -15,14 +15,14 @@ class Ability
 
     # Unregistered users should only be able to read Events.
     if user.present?
-      can :manage, Report, user_id: user.id
-      can :manage, SentMessage, user_id: user.id
-      can :manage, User, id: user.id
-      can :manage, UserInvitation, user_id: user.id
-      can :manage, Comment, user_id: user.id
+      #can :manage, Report, user_id: user.id
+      #can :manage, SentMessage, user_id: user.id
+      #can :manage, User, id: user.id
+      #can :manage, UserInvitation, user_id: user.id
+      #can :manage, Comment, user_id: user.id
       can :manage, EventCreator, user_id: user.id
       can :manage, GuestList, user_id: user.id
-      can :manage, MailBox, user_id: user.id
+      #can :manage, MailBox, user_id: user.id
       can :manage, MembersList, user_id: user.id
 
     else

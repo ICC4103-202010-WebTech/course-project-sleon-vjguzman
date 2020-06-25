@@ -1,4 +1,23 @@
-<%= render partial: "form",
-           locals: {
-               vote: @vote
-           } %>
+<div class="row ml-0 mt-3">
+  <h2 class="edith2">Vote for your preferred date of an event</h2>
+  <p class="p-edit">Please enter the required information to create a Comment:</p>
+</div>
+
+<div class="div-2">
+  <%= form_with model: @vote, local: true do |form| %>
+    <div class="div-edit">
+      <%= form.label :event_dates_id %>
+      <br/>
+      <%= form.collection_select(:event_dates_id, EventDate.where(event_id: Event.where(id: GuestList.where(user_id: 1).select(:event_id)).order(date: :asc)), :id, :date, {}, { class: "form-control" }) %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :guest_list_id %>
+      <br/>
+      <%= form.collection_select(:guest_list_id, User.where(id: GuestList.where(user_id: 1).select(:user_id)).select(:username).order(title: :asc), :id, :username, {}, { class: "form-control" }) %>
+    </div>
+    <div class="actions">
+      <%= form.submit "Vote", class: ["btn"] %>
+    </div>
+  <% end  %>
+
+</div>
