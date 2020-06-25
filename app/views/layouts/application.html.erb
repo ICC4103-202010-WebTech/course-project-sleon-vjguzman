@@ -22,15 +22,15 @@
 <nav>
   <%= stylesheet_link_tag 'navegation'%>
   <ul>
-    <% unless user_signed_in? == false %>
+    <% unless user_signed_in? == false%>
     <li>
-      <%= link_to 'Profile', user_path(current_user.id)%>
+      <%= link_to 'Profile', user_path(User.where(id:1).first.id)%>
     </li>
     <li>
       <%= link_to 'My Events', event_creators_path(current_user.id)%>
     </li>
     <li>
-      <%=link_to "My Votes", vote_path(User.where(id:1).first.id) %>
+      <%=link_to "My Votes", votes_path(User.where(id:1).first.id)%>
     </li>
     <li>
       <%= link_to 'Organization', organizations_path(current_user.id) %>
