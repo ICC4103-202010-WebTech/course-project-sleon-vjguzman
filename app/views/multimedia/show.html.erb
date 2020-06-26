@@ -15,5 +15,35 @@
   <% end %>
 </div>
 <br/>
-<button class="btn"><%= link_to 'Back', multimedium_path %></button>
 <br/>
+<h2 class="homeh2">Images of the Events</h2>
+<div class="divfotos">
+  <% unless @event_images.first.images.attached? == true%>
+    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
+    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
+    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
+    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
+  <% end %>
+  <% unless @event_images.first.images.attached?  == false%>
+    <%= @event_images.images.each do |imagen|%>
+      <span class="imageleft-1"><%= link_to image_tag(url_for(@event_images.first.imagen)) %></span>
+    <%end %>
+  <% end %>
+</div>
+<br/>
+<h2 class="homeh2">Videos of the Events</h2>
+<div class="divfotos">
+  <% unless @event_videos.first.videos.attached? == true%>
+    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
+    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
+    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
+    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
+  <% end %>
+  <% unless @event_videos.first.videos.attached?  == false%>
+    <%= @event_videos.videos.each do |video|%>
+      <span class="imageleft-1"><%= link_to video_tag(url_for(@event_videos.first.video)) %></span>
+    <%end %>
+  <% end %>
+</div>
+<br/>
+<button class="btn"><%= link_to 'Back', multimedium_path %></button>

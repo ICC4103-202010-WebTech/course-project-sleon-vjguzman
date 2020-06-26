@@ -8,10 +8,7 @@
     <h5 class="apph5"><%= link_to "Sign Up", "/users/sign_up" %></h5>
   <% end %>
   <%unless user_signed_in? == false %>
-  <h5 class="apph5"><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></h5>
-  <%end %>
-  <%unless admin_signed_in? == false %>
-  <h5 class="apph5">Welcome, <%= current_user.full_name %></h5>
+    <h5 class="apph5">Welcome, <%= current_user.full_name %></h5>
   <h5 class="apph5"><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></h5>
   <%end %>
   <%unless admin_signed_in? == false %>
@@ -35,7 +32,7 @@
       <%= link_to 'My Events', event_creators_path(current_user.id)%>
     </li>
     <li>
-      <%=link_to "My Votes", votes_path(User.where(id:1).first.id)%>
+      <%=link_to "My Votes", votes_path(current_user.id)%>
     </li>
     <li>
       <%= link_to 'Organization', organizations_path(current_user.id) %>
@@ -46,20 +43,21 @@
     <li>
         <%= link_to "Search", new_search_path%>
     </li>
+      <li>
+        <%= link_to "System Admins", "/admins/sign_in"%>
+      </li>
     <%end %>
 
   </ul>
 </nav>
 
 <body>
-  <div class="row">
       <% if notice.present? %>
       <div id="notice" class="alert alert-success"><%= notice %></div>
       <% end %>
       <% if alert.present? %>
       <div id="notice" class="alert alert-success"><%= notice %></div>
       <% end %>
-  </div>
 <%= yield %>
 </body>
 </html>

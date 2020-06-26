@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
     @event = Comment.where(id: @comment.id).select(:event_id)
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to comments_path(@event), notice: 'Comment was successfully created.' }
+        format.html { redirect_to @event, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -43,9 +43,10 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    @event = Comment.where(id: @comment.id).select(:event_id)
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to @event, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
