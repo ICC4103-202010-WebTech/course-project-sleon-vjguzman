@@ -1,10 +1,11 @@
 <%= stylesheet_link_tag 'mailbox'%>
 <h1 class="h1-mail"> My Mailbox </h1>
 </br>
-<button class="btn-info-mailbox"><%= link_to 'View Sent Messages', sent_message_url(User.where(id: @get_id).select(:id).first.id) %></button>
+<button class="btn-info-mailbox"><%= link_to 'View Sent Messages', sent_messages_url(User.where(id: current_user.id).select(:id).first.id) %></button>
 <button class="btn-info-mailbox"><%= link_to 'New Chat', new_sent_message_path %></button>
 </br>
 <h2 class="h2-mail"> My Inbox </h2>
+<%unless @mailboxes != nil %>
 <% @mailboxes.each do |x| %>
   <div class="div-mailbox">
     <aside class="aside-mailbox">
@@ -18,6 +19,8 @@
     <h4 class="mailboxh4">At:  <%= x.date %></h4>
   </div>
 <% end %>
+<% end %>
+<%unless @sent_messagess != nil %>
 <% @sent_messagess.each do |x| %>
   <div class="div-mailbox">
     <aside class="aside-mailbox">
@@ -30,4 +33,5 @@
     <h4 class="mailboxh4">Username:  <%= User.where(id: x.user_id).select(:username).first.username %></h4>
     <h4 class="mailboxh4">At:  <%= x.date %></h4>
   </div>
+<% end %>
 <% end %>

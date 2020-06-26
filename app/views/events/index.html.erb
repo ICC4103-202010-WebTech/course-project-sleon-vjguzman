@@ -1,31 +1,3 @@
-<%= stylesheet_link_tag 'event'%>
-<h3 class="h3-event"> User: <%=User.where(id: @user).select(:full_name).first.full_name%> </h3>
-<aside class="aside-event">
-<button class="btn success-1" ><%= link_to 'New Event', new_event_path %></button>
-<button class="btn info-1" ><%= link_to 'Back', events_path %></button>
-<br/>
-</aside>
-
-<h2>Created Events</h2>
-  <% @eventos.each do |x| %>
-    <div class="divorganization">
-      <% unless x.banner_picture.attached? == true%>
-        <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
-      <% end %>
-      <% unless x.banner_picture.attached?  == false%>
-        <span class="imageleft"><%= link_to image_tag(url_for(x.banner_picture)) %></span>
-      <% end %>
-      <h4 class="organizationh4-1p"><%= x.title %></h4>
-      <h4 class="organizationh4-1"><%= x.description %></h4>
-      <h4 class="organizationh4-1"><%= x.location %></h4>
-      <h4 class="organizationh4-1"><%= x.final_date %></h4>
-      <button class="btn success"><%= link_to 'See Event Page', event_path(x) %></button>
-      <button class="btn warning"><%= link_to 'Edit', edit_event_path(x) %></button>
-      <button class="btn info"><%= link_to 'See More', guest_list_path(x) %></button>
-      <button class="btn danger"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-    </div>
-  <% end %>
-
 
 
 

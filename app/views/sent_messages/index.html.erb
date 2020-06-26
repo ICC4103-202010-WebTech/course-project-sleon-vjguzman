@@ -3,7 +3,7 @@
 </br>
 <button class="btn-info-mailbox"><%= link_to 'New Chat', new_sent_message_path %></button>
 </br>
-<% @sent_messagesss.each do |x| %>
+<% SentMessage.where(user_id: (User.where(id: current_user.id).select(:id))).each do |x| %>
   <div class="div-mailbox1">
     <aside class="aside-mailbox">
       <h4 class="mailboxh4">Subject:  <%= x.subject %></h4>

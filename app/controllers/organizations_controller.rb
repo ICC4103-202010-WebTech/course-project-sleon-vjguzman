@@ -6,6 +6,8 @@ class OrganizationsController < ApplicationController
   def index
     @get_id = User.where(id: current_user.id).select(:id)
     @user_in = User.where(id: @get_id)
+    @organization_show = Organization.where(id: params[:id]).select(:id)
+    @events_show = Event.where(organization_id: @organization_show)
   end
 
   # GET /organizations/1
@@ -13,6 +15,9 @@ class OrganizationsController < ApplicationController
   def show
     @get_id = User.where(id: current_user.id).select(:id)
     @user_in = User.where(id: @get_id)
+    @organization_show = Organization.where(id: params[:id]).select(:id)
+    @events_show = Event.where(organization_id: @organization_show).where(privacy_id: 1)
+    @admin = MembersList.where(organization_id: @organization_show).where(user_role: 'admin').select(:user_id)
   end
 
   # GET /organizations/new
