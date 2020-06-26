@@ -4,17 +4,17 @@ class MailboxesController < ApplicationController
   # GET /mailboxes
   # GET /mailboxes.json
   def index
-    @get_id = User.where(id: params[:id]).select(:id)
+    @get_id = User.where(id: current_user.id).select(:id)
     @mailboxes = MailBox.where(user_id: @get_id)
-    @sent_messagess = SentMessage.where(to_email: User.where(id: @get_id).select(:email).first.email)
+    @sent_messagess = SentMessage.where(to_email: User.where(id: current_user.id).select(:email).first.email)
   end
 
   # GET /mailboxes/1
   # GET /mailboxes/1.json
   def show
-    @get_id = User.where(id: params[:id]).select(:id)
+    @get_id = User.where(id: current_user.id).select(:id)
     @mailboxes = MailBox.where(user_id: @get_id)
-    @sent_messagess = SentMessage.where(to_email: User.where(id: @get_id).select(:email).first.email)
+    @sent_messagess = SentMessage.where(to_email: User.where(id: current_user.id).select(:email).first.email)
   end
 
   # GET /mailboxes/new

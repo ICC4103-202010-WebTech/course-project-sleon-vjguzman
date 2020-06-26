@@ -17,7 +17,9 @@
     </div>
 
 <br/>
+<%unless GuestList.where(event_id: @get_id).where(user_id: current_user.id) != nil %>
 <button class="button1"><%= link_to 'See Comments', comment_path %></button>
+<%end %>
 <button class="button1"><%= link_to 'View File Attachment', multimedium_path(Event.where(id: @get_id).first.id)%></button>
 <br/>
 <br/>

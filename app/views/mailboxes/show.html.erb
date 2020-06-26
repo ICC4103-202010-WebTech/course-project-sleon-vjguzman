@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'mailbox'%>
 <h1 class="h1-mail"> My Mailbox </h1>
 </br>
-<button class="btn-info-mailbox"><%= link_to 'View Sent Messages', sent_message_url(User.where(id: @get_id).select(:id).first.id) %></button>
+<button class="btn-info-mailbox"><%= link_to 'View Sent Messages', sent_messages_url(User.where(id: current_user.id).select(:id).first.id) %></button>
 <button class="btn-info-mailbox"><%= link_to 'New Chat', new_sent_message_path %></button>
 </br>
 <h2 class="h2-mail"> My Inbox </h2>

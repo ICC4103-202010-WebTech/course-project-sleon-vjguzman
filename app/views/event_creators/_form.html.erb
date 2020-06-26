@@ -1,8 +1,9 @@
+<br/>
+<h1 class="edith2-1">Link Event to my Profile</h1>
 <%= form_with(model: event_creator, local: true) do |form| %>
   <% if event_creator.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event_creator.errors.count, "error") %> prohibited this event_creator from being saved:</h2>
-
       <ul>
         <% event_creator.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,15 +11,20 @@
       </ul>
     </div>
   <% end %>
-  <div class="div-edit">
+  <div class="actions">
     <%= form.label :user_id %>
     <br/>
     <%= form.collection_select(:user_id, User.where(id: current_user.id).order(name: :asc), :id, :username, {}, { class: "form-control" }) %>
   </div>
-  <div class="div-edit">
+  <div class="actions">
     <%= form.label :event_id %>
     <br/>
+    <%unless Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)) != nil %>
     <%= form.collection_select(:event_id, Event.all.order(name: :asc), :id, :title, {}, { class: "form-control" }) %>
+    <%end %>
+    <%unless Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)) == nil %>
+      <%= form.collection_select(:event_id, Event.where(organization_id: nil).order(name: :asc), :id, :title, {}, { class: "form-control" }) %>
+    <%end %>
   </div>
   <div class="actions">
     <%= form.submit %>

@@ -12,7 +12,7 @@
     <div class="div-edit">
       <%= form.label :to_email %>
       <br/>
-      <%= form.collection_select(:to_email, User.where('id != 1').order(username: :asc), :email, :email, {}, { class: "form-control" }) %>
+      <%= form.collection_select(:to_email, User.where('id NOT LIKE ?', "%#{current_user.id}%").order(username: :asc), :email, :email, {}, { class: "form-control" }) %>
     </div>
     <div class="div-edit">
       <%= form.label :subject %>
@@ -27,7 +27,7 @@
     <div class="div-edit">
       <%= form.label :user_id %>
       <br/>
-      <%= form.collection_select(:user_id, User.where(id: 1).order(email: :asc), :id, :username, {}, { class: "form-control" }) %>
+      <%= form.collection_select(:user_id, User.where(id: current_user.id).order(email: :asc), :id, :username, {}, { class: "form-control" }) %>
     </div>
     <div class="div-edit">
       <%= form.submit "Create", class: ["btn"] %>

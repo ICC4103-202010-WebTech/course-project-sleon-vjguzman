@@ -10,12 +10,21 @@
 <% end %>
 <aside class="aside-organization">
   <button class="botonorganizacion1"> <%= link_to 'See Members', members_list_path(Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).select(:id).first.id) %></button>
-  <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).select(:id).first.id) %></button>
+  <%unless admin_signed_in? == false %>
+    <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @organization_show).select(:id).first.id) %></button>
+  <%end %>
 </aside>
 <h2 class="organizationh2" align="left"><%= Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).select(:name).first.name %></h2>
 <h4 class="organizationh4",align="left"><%= Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).select(:description).first.description %></h4>
-<h3 class="organizationh3-2"> ADMIN: <%= User.where(id: MembersList.where(organization_id: Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).select(:id)).where(user_role: "admin")).select(:username) %></h3>
-<br>
+  <%unless @admin != nil %>
+  <h3 class="organizationh3-2"> ADMIN: <%= User.where(id: MembersList.where(organization_id: Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).select(:id)).where(user_role: "admin")).select(:username) %></h3>
+<%end %>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
 <h2 class="organizationh2-1"> Events of the Organization </h2>
 <% Event.where(organization_id: Organization.where(id: MembersList.where(user_id: current_user.id).select(:user_id)).select(:id)).where(privacy_id: 1).each do |x| %>
   <div class="divorganization">
@@ -35,11 +44,11 @@
 
 <%unless  Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)) == nil%>
 <h2 margin-left="4cm"> Organizations </h2>
-
   <%Organization.all.each do |x| %>
     <div class="divorganization">
-    <h4 class="organizationh4-1"><%= x.name %></h4>
-    <h4 class="organizationh4-1"><%= x.description %></h4>
+    <h4 class="organizationh4-11"><%= x.name %></h4>
+    <h4 class="organizationh4-11"><%= x.description %></h4>
+      <button class="botonorganizacion"><%= link_to 'View', organization_path(x) %></button>
     </div>
   <% end %>
 <% end %>
