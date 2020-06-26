@@ -25,7 +25,7 @@
 <%= stylesheet_link_tag 'event-comments'%>
 <h2><%= Event.select(:title).where(id: @get_id).first.title%> Comments:</h2>
 <aside class="aside-comment">
-  <%unless GuestList.where(event_id: @get_id).where(user_id: current_user.id) == nil or EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil %>
+  <%unless GuestList.where(event_id: @get_id).where(user_id: current_user.id) == nil or EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil  %>
     <button class="btn11 success-1" ><%= link_to 'New Comment', new_comment_path %></button>
   <%end %>
 </aside>
@@ -40,7 +40,9 @@
     <% end %>
     <h3 class="Userp"><%= User.select(:username).where(id: comment.user_id).first.username%>:</h3>
     <h4 class="User"><%= comment.message %></h4>
+    <% unless admin_signed_in? == false or EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil or Comment.where(user_id: current_user.id) == nil %>
     <button class="btn1-1 danger"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    <%end %>
   </div>
 <% end %>
 </tbody>|

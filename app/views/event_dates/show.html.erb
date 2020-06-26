@@ -12,6 +12,7 @@
   <div>
     <h3 class="User-11"><%= x.date %></h3>
     <button class="btn11 danger2"><%= link_to 'Edit', edit_event_date_path(x)%></button>
+    <button class="btn11 danger2"><%= link_to 'Delete', x,  method: :delete, data: { confirm: 'Are you sure?' }%></button>
   </div>
 <% end %>
 

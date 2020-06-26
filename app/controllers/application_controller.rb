@@ -10,5 +10,15 @@ class ApplicationController < ActionController::Base
       user.permit(:username,:full_name, :short_bio, :email, :password, :password_confirmation, :location)
     end
   end
+
+  def current_customer
+    if current_user
+      current_user
+    elsif current_admin
+      current_admin
+    else
+      Customer.new
+    end
+  end
 end
 

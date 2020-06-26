@@ -52,3 +52,15 @@
     </div>
   <% end %>
 <% end %>
+
+<%unless admin_signed_in?  == false %>
+  <h2 margin-left="4cm"> Organizations </h2>
+  <%Organization.all.each do |x| %>
+    <div class="divorganization">
+      <h4 class="organizationh4-11"><%= x.name %></h4>
+      <h4 class="organizationh4-11"><%= x.description %></h4>
+      <button class="botonorganizacion"><%= link_to 'View', organization_path(x) %></button>
+      <button class="botonorganizacion"><%= link_to 'Delete', x , method: :delete, data: { confirm: 'Are you sure?' }  %></button>
+    </div>
+  <% end %>
+<% end %>

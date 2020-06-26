@@ -245,7 +245,6 @@ ActiveRecord::Schema.define(version: 2020_06_26_190853) do
     t.index ["guest_list_id"], name: "index_votes_on_guest_list_id"
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "users"
   add_foreign_key "event_creators", "events"

@@ -61,6 +61,7 @@
     <h4 class="h4profile"><%= x.full_name %></h4>
     <h4 class="h4profile"><%= x.location %></h4>
     <h4 class="h4profile"><%= x.short_bio %></h4>
+    <button class="botondivprofile"><%= link_to 'Edit', edit_user_path(x)  %></button>
     <button class="botondivprofile"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
   </div>
 <% end %>
