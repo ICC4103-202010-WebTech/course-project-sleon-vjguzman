@@ -7,6 +7,8 @@ class MultimediaController < ApplicationController
     @get_id = Event.where(id: params[:id]).select(:id)
     @multimedia_event = Multimedium.where(event_id: @get_id)
     @event_multimedia = Event.where(id: @get_id).select(:files)
+    @event_images = Event.where(id: @get_id).select(:images)
+    @event_videos = Event.where(id: @get_id).select(:videos)
   end
 
   # GET /multimedia/1
@@ -15,6 +17,8 @@ class MultimediaController < ApplicationController
     @get_id = Event.where(id: params[:id]).select(:id)
     @multimedia_event = Multimedium.where(event_id: @get_id)
     @event_multimedia = Event.where(id: @get_id).select(:files)
+    @event_images = Event.where(id: @get_id).select(:images)
+    @event_videos = Event.where(id: @get_id).select(:videos)
   end
 
   # GET /multimedia/new

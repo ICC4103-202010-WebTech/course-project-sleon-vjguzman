@@ -1,59 +1,55 @@
 <%= stylesheet_link_tag 'event-page'%>
-<h1 class="eventpageh1"><%= @event_title.first.title%> </h1>
-<button class="btn2 info-1" align="center"><%= link_to 'See profile from the Event Creator', user_path(EventCreator.where(event_id: @get_id).select(:user_id).first.user_id) %></button>
-<button class="btn2 info-1" align="center"><%= link_to 'Report Event', new_report_path %></button>
-<br/>
-    <div class="eventpagediv">
-      <% unless @event_foto.first.banner_picture.attached? == true%>
-        <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
-      <% end %>
-      <% unless @event_foto.first.banner_picture.attached?  == false%>
-        <span class="imageleft"><%= link_to image_tag(url_for(@event_foto.first.banner_picture)) %></span>
-      <% end %>
-      <h4 class="eventpageh4p">Description: <%= @event_name.first.description %></h4>
-      <h4 class="eventpageh4">Date: <%= @event_date.first.final_date %></h4>
-      <h4 class="eventpageh4">Location: <%= @event_location.first.location %></h4>
-      <h4 class="eventpageh4">Create By: <%= @user.full_name %></h4>
-    </div>
-
-<br/>
-<%unless GuestList.where(event_id: @get_id).where(user_id: current_user.id) != nil %>
-<button class="button1"><%= link_to 'See Comments', comment_path %></button>
-<%end %>
-<button class="button1"><%= link_to 'View File Attachment', multimedium_path(Event.where(id: @get_id).first.id)%></button>
-<br/>
-<br/>
-<br/>
-<h2 class="homeh2">Images of the Events</h2>
-<div class="divfotos">
-  <% unless @event_foto.first.images.attached? == true%>
-    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
-    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
-    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
-    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
-  <% end %>
-  <% unless @event_foto.first.images.attached?  == false%>
-    <%= @event_foto.images.each do |imagen|%>
-    <span class="imageleft-1"><%= link_to image_tag(url_for(@event_foto.first.imagen)) %></span>
-    <%end %>
-  <% end %>
-</div>
-<br/>
-<h2 class="homeh2">Videos of the Events</h2>
-<div class="divfotos">
-  <% unless @event_foto.first.videos.attached? == true%>
-    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
-    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
-    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
-    <span class="imageleft-11"><%= link_to image_tag("xd.jpeg") %></span>
-  <% end %>
-  <% unless @event_foto.first.videos.attached?  == false%>
-    <%= @event_foto.videos.each do |video|%>
-      <span class="imageleft-1"><%= link_to video_tag(url_for(@event_foto.first.video)) %></span>
-    <%end %>
-  <% end %>
-</div>
+<h1 class="eventpageh1"><%= Event.where(id: @get_id).select(:title).first.title%> </h1>
 <br/>
 
-<button class="btn2 info-1" align="center"><%= link_to 'Back', events_path %></button>
+<button class="button1" align="center"><%= link_to 'Report Event', new_report_path %></button>
+<button class="button1"><%= link_to 'Videos/Images/Files', multimedium_path(Event.where(id: @get_id).select(:id).first.id)%></button>
+
+<br/>
+<div class="eventpagediv">
+  <% unless Event.where(id: @get_id).select(:banner_picture).first.banner_picture.attached? == true%>
+    <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+  <% end %>
+  <% unless Event.where(id: @get_id).select(:banner_picture).first.banner_picture.attached?  == false%>
+    <span class="imageleft"><%= link_to image_tag(url_for(Event.where(id: @get_id).select(:banner_picture).first.banner_picture)) %></span>
+  <% end %>
+  <h4 class="eventpageh4p">Description: <%= Event.where(id: @get_id).select(:description).first.description %></h4>
+  <h4 class="eventpageh4">Date: <%= Event.where(id: @get_id).select(:final_date).first.final_date %></h4>
+  <h4 class="eventpageh4">Location: <%=Event.where(id: @get_id).select(:location).first.location %></h4>
+  <h4 class="eventpageh4">Create By: <%= @user.first.full_name %></h4>
+</div>
+
+<br/>
+<br/>
+<br/>
+<%= stylesheet_link_tag 'event-comments'%>
+<h2><%= Event.select(:title).where(id: @get_id).first.title%> Comments:</h2>
+<aside class="aside-comment">
+  <%unless GuestList.where(event_id: @get_id).where(user_id: current_user.id) == nil or EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil %>
+    <button class="btn11 success-1" ><%= link_to 'New Comment', new_comment_path %></button>
+  <%end %>
+</aside>
+<tbody>
+<% Comment.where(event_id: @get_id).each do |comment| %>
+  <div>
+    <% unless User.select(:username).where(id: comment.user_id).first.profile_picture.attached? == true%>
+      <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
+    <% end %>
+    <% unless User.select(:username).where(id: comment.user_id).first.profile_picture.attached?  == false%>
+      <span class="imageleft"><%= link_to image_tag(url_for(User.select(:username).where(id: comment.user_id).first.profile_picture), width: '300px') %></span>
+    <% end %>
+    <h3 class="Userp"><%= User.select(:username).where(id: comment.user_id).first.username%>:</h3>
+    <h4 class="User"><%= comment.message %></h4>
+    <button class="btn1-1 danger"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+  </div>
+<% end %>
+</tbody>|
+</table>
+
+<br/>
+<button class="button1" align="center"><%= link_to 'See profile from the Event Creator', user_path(EventCreator.where(event_id: @get_id).select(:user_id).first.user_id) %></button>
+<button class="button1" align="center"><%= link_to 'Back', events_path %></button>
+
+
+
 

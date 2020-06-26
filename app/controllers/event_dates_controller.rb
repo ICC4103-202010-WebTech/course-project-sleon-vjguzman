@@ -33,8 +33,8 @@ class EventDatesController < ApplicationController
 
     respond_to do |format|
       if @event_date.save
-        format.html { redirect_to events_path(), notice: 'Event date was successfully created.' }
-        format.json { render :show, status: :created, location: @event_date }
+        format.html { redirect_to root_path, notice: 'Event date was successfully created.' }
+        format.json { render root_path, status: :created, location: @event_date }
       else
         format.html { render :new }
         format.json { render json: @event_date.errors, status: :unprocessable_entity }
@@ -47,8 +47,8 @@ class EventDatesController < ApplicationController
   def update
     respond_to do |format|
       if @event_date.update(event_date_params)
-        format.html { redirect_to events_path, notice: 'Event date was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event_date }
+        format.html { redirect_to root_path, notice: 'Event date was successfully updated.' }
+        format.json { render root_path, status: :ok, location: @event_date }
       else
         format.html { render :edit }
         format.json { render json: @event_date.errors, status: :unprocessable_entity }
@@ -61,7 +61,7 @@ class EventDatesController < ApplicationController
   def destroy
     @event_date.destroy
     respond_to do |format|
-      format.html { redirect_to event_dates_url, notice: 'Event date was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Event date was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

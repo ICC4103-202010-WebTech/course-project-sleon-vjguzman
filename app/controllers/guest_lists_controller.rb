@@ -33,8 +33,8 @@ class GuestListsController < ApplicationController
     @guest_list = GuestList.new(guest_list_params)
     respond_to do |format|
       if @guest_list.save
-        format.html { redirect_to @guest_list, notice: 'Guest list was successfully created.' }
-        format.json { render guest_lists_url, status: :created, location: @guest_list }
+        format.html { redirect_to root_path, notice: 'Guest list was successfully created.' }
+        format.json { render root_path, status: :created, location: @guest_list }
       else
         format.html { render :new }
         format.json { render json: @guest_list.errors, status: :unprocessable_entity }
@@ -47,8 +47,8 @@ class GuestListsController < ApplicationController
   def update
     respond_to do |format|
       if @guest_list.update(guest_list_params)
-        format.html { redirect_to @guest_list, notice: 'Guest list was successfully updated.' }
-        format.json { render :show, status: :ok, location: @guest_list }
+        format.html { redirect_to root_path, notice: 'Guest list was successfully updated.' }
+        format.json { render root_path, status: :ok, location: @guest_list }
       else
         format.html { render :edit }
         format.json { render json: @guest_list.errors, status: :unprocessable_entity }
@@ -60,8 +60,9 @@ class GuestListsController < ApplicationController
   # DELETE /guest_lists/1.json
   def destroy
     @guest_list.destroy
+    @evento = Event.where(id: @get_id)
     respond_to do |format|
-      format.html { redirect_to guest_lists_url, notice: 'Guest list was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Guest list was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
