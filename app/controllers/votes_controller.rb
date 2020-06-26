@@ -17,7 +17,7 @@ class VotesController < ApplicationController
   # GET /votes/1.json
   def show
     @get_id = User.where(id: current_user.id).select(:id)
-    @guest = GuestList.where(user_id:current_user.id).select(:event_id)
+    @guest = GuestList.where(user_id: current_user.id).select(:event_id)
     @guest_id = GuestList.where(user_id: @get_id).select(:id)
     @votes = Vote.where(guest_list_id: @guest_id)
     @invitations = Event.where(id: @guest)
