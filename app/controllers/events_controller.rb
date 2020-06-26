@@ -39,7 +39,8 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     respond_to do |format|
       if @event.save
-        format.html { redirect_back(fallback_location: root_path) }
+        @event_creator = EventCreator.create(user_id: current_user.id, event_id: @event.id)
+        format.html { redirect_to root_path }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
