@@ -29,8 +29,8 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to event_path, notice: 'Report was successfully created.' }
-        format.json { render :show, status: :created, location: @report }
+        format.html { redirect_to rooth_path, notice: 'Report was successfully created.' }
+        format.json { render rooth_path, status: :created, location: @report }
       else
         format.html { render :new }
         format.json { render json: @report.errors, status: :unprocessable_entity }
@@ -43,8 +43,8 @@ class ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to event_path, notice: 'Report was successfully updated.' }
-        format.json { render :show, status: :ok, location: @report }
+        format.html { redirect_to rooth_path, notice: 'Report was successfully updated.' }
+        format.json { render rooth_path, status: :ok, location: @report }
       else
         format.html { render :edit }
         format.json { render json: @report.errors, status: :unprocessable_entity }
