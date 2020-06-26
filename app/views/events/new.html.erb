@@ -26,11 +26,6 @@
       <%= form.datetime_local_field :final_date %>
     </div>
     <div class="div-edit">
-      <%= form.label :creation_date %>
-      <br/>
-      <%= form.datetime_local_field :creation_date %>
-    </div>
-    <div class="div-edit">
       <%= form.label :choice_of_date_id %>
       <br/>
       <%= form.collection_select(:choice_of_date_id, ChoiceOfDate.all.order(description: :asc), :id, :description, {}, { class: "form-control" }) %>
