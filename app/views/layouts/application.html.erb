@@ -8,10 +8,10 @@
     <h5 class="apph5"><%= link_to "Sign Up", "/users/sign_up" %></h5>
   <% end %>
   <%unless user_signed_in? == false %>
-  <h5 class="apph5"><%= link_to "Log Out", destroy_user_session_path, :method => :destroy %></h5>
+  <h5 class="apph5"><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></h5>
   <%end %>
   <%unless admin_signed_in? == false %>
-    <h5 class="apph5"><%= link_to "Log Out", destroy_admin_session_path, :method => :destroy %></h5>
+    <h5 class="apph5"><%= link_to "Log Out", destroy_admin_session_path, :method => :delete %></h5>
   <%end %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>

@@ -1,5 +1,5 @@
 <h2 class="h2profile2"> You were invited to: </h2>
-
+<button class="botondivprofile"><%= link_to 'Vote', new_vote_path %></button>
 <% @invitations.each do |x| %>
   <div class="divprofile">
     <% unless x.banner_picture.attached? == true%>
@@ -12,7 +12,6 @@
     <h4 class="h4profile"><%= x.description %></h4>
     <h4 class="h4profile"><%= x.final_date %></h4>
     <h4 class="h4profile"><%= x.location %></h4>
-    <button class="botondivprofile"><%= link_to 'Vote', {:action => :new, :id => Event.where(id: x.id).select(:id).first.id} %></button>
   </div>
 <% end %>
 </br>

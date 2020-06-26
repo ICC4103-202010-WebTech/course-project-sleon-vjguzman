@@ -35,9 +35,9 @@ class User < ApplicationRecord
 
     # Uncomment the section below if you want users to be created if they don't exist
      unless user
-         user = User.create(name: data['name'],
+         user = User.create(full_name: data['name'],
            email: data['email'],
-           password: "salchipapas",
+           password: data['email']
          )
      end
     user
