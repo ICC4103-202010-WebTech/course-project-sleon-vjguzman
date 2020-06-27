@@ -50,4 +50,15 @@ As above, we have the Events directly associated with Organization through a FK 
 * Summary of features required in the assignment but pending.<br/>
     1. It’s not an required feature but we choose not to implement the fixtures and fake data.<br/>
     2. We couldn't make it possible to vote for all of the events that the user is invited to, because we don't know how to select an event_id and put it in the new Vote section.<br/>
-    3. When we create a new comment for an Event, when we press the button "Create" this redirect us to view/comments/show but this throws an error because it is not accessing to an event (not getting an event_id). You can see that the comment was added if you go to the Event page and press the button "See Comments". 
+    3. When we create a new comment for an Event, when we press the button "Create" this redirect us to view/comments/show but this throws an error because it is not accessing to an event (not getting an event_id). You can see that the comment was added if you go to the Event page and press the button "See Comments". <br/>
+<br/>
+//Assignment 4// <br/>
+* Summary of implemented features.<br/>
+   1. We fix bugs from the last assignment like the redirect when you make an action like new event and other things<br/>
+   2. We implement the system access with login with email, google and be able to log out<br/>
+   3. We implement a user registration with a change/recovery password<br/>
+   4. We implement the user administration, where you can create a new user, view user details with last access, edit a user (change his password) and delete an user <br/>
+      <br/>
+* Summary of features required in the assignment but pending.<br/>
+   1. We couldnt implement the user role because we didnt know what it is about<br/>
+   2. We didnt find the error that makes the active records fails :( <br/>
