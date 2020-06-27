@@ -11,14 +11,5 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_customer
-    if current_user
-      current_user
-    elsif current_admin
-      current_admin
-    else
-      Customer.new
-    end
-  end
 end
 
