@@ -27,6 +27,7 @@ Rails.application.routes.draw do
         resources :event_creators
         resources :members_lists
         resources :votes
+        resources :organizations
       end
       resources :events do
         resources :guest_lists

@@ -37,7 +37,7 @@
     </li>
         <%end %>
     <li>
-      <%= link_to 'Organization', organizations_path(current_user.id) %>
+      <%= link_to 'Organization', organizations_url %>
     </li>
     <li>
       <% unless admin_signed_in? == true or user_signed_in? == false%>

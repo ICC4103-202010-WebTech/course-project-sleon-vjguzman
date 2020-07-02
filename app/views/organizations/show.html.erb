@@ -3,27 +3,31 @@
 <br/>
 <br/>
 <br/>
-<% unless Organization.where(id: @organization_show).select(:banner_org).first.banner_org.attached? == true%>
+<% unless Organization.where(id: @get_id).select(:banner_org).first.banner_org.attached? == true%>
   <span class="imageleft1"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
 <% end %>
-<% unless Organization.where(id: @organization_show).select(:banner_org).first.banner_org.attached?  == false%>
-  <span class="imageleft1"><%= link_to image_tag(url_for(Organization.where(id: @organization_show).select(:banner_org).first.banner_org), width: '300px') %></span>
+<% unless Organization.where(id: @get_id).select(:banner_org).first.banner_org.attached?  == false%>
+  <span class="imageleft1"><%= link_to image_tag(url_for(Organization.where(id: @get_id).select(:banner_org).first.banner_org), width: '300px') %></span>
 <% end %>
 <aside class="aside-organization">
-  <button class="botonorganizacion1"> <%= link_to 'See Members', members_list_path(Organization.where(id: @organization_show).select(:id).first.id) %></button>
+  <button class="botonorganizacion1"> <%= link_to 'See Members', members_list_path(Organization.where(id: @get_id).select(:id).first.id) %></button>
   <%unless admin_signed_in? == false %>
-  <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @organization_show).select(:id).first.id) %></button>
+    <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @get_id).select(:id).first.id) %></button>
   <%end %>
-  <%if User.where(id: @admin).select(:id).first.id == current_user.id %>
-    <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @organization_show).select(:id).first.id) %></button>
+  <%if MembersList.where(organization_id: @get_id).where(user_role: 'admin').select(:user_id) == current_user  %>
+    <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @get_id).select(:id).first.id) %></button>
   <%end %>
 </aside>
-<h2 class="organizationh2" align="left"><%= Organization.where(id: @organization_show).select(:name).first.name %></h2>
-<h4 class="organizationh4" align="left"><%= Organization.where(id: @organization_show).select(:description).first.description %></h4>
-<%if @admin != nil %>
+<h2 class="organizationh2" align="left"><%= Organization.where(id: @get_id).select(:name).first.name %></h2>
+<h4 class="organizationh4" align="left"><%= Organization.where(id: @get_id).select(:description).first.description %></h4>
+<br/>
+<br/>
+<br/>
+<%unless User.where(id: @admin).select(:username) != nil %>
   <h3 class="organizationh3-2"> ADMIN: <%= User.where(id: @admin).select(:username).first.username%></h3>
 <%end %>
-  <br/>
+
+<br/>
 <br/>
 <br/>
 
@@ -42,3 +46,4 @@
     <button class="botonorganizacion"><%= link_to 'View', event_path(x) %></button>
   </div>
 <% end %>
+

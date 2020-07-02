@@ -9,10 +9,16 @@
 <% end %>
 <h2 class="membersh2" align="left"><%= Organization.where(id: @get_id).select(:name).first.name %></h2>
 <h4 class="membersh4",align="left"><%= Organization.where(id: @get_id).select(:description).first.description %></h4>
-
-<%if @admin != nil %>
+<br/>
+<br/>
+<br/>
+<br/>
+<%unless User.where(id: @admin).select(:username) != nil %>
   <h3 class="organizationh3-2"> ADMIN: <%= User.where(id: @admin).select(:username).first.username%></h3>
 <%end %>
+<br/>
+<br/>
+<br/>
 <br/>
 
 <%if @members_org != nil %>

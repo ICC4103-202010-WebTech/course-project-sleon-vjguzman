@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_devise_params, if: :devise_controller?
+
   protected
   def record_user_activity
     if current_user
