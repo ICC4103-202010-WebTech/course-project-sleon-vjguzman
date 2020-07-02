@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag 'organization'%>
 <br/>
 <br/>
+<br/>
+<br/>
 <% unless Organization.where(id: @organization_show).select(:banner_org).first.banner_org.attached? == true%>
   <span class="imageleft1"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
 <% end %>
@@ -12,16 +14,16 @@
   <%unless admin_signed_in? == false %>
   <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @organization_show).select(:id).first.id) %></button>
   <%end %>
+  <%if MembersList.where(user_role: "admin").where(organization_id: Organization.where(id: @organization_show).select(:id).first.id).select(:user_id).first.id == current_user.id %>
+    <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @organization_show).select(:id).first.id) %></button>
+  <%end %>
 </aside>
 <h2 class="organizationh2" align="left"><%= Organization.where(id: @organization_show).select(:name).first.name %></h2>
 <h4 class="organizationh4",align="left"><%= Organization.where(id: @organization_show).select(:description).first.description %></h4>
-<%unless @admin != nil %>
-<h3 class="organizationh3-2"> ADMIN: <%= User.where(id: @admin.first.user_id).select(:username).first.username %></h3>
+<%if @admin != nil %>
+  <h3 class="organizationh3-2"> ADMIN: <%= User.where(id: @admin).select(:username).first.username%></h3>
 <%end %>
   <br/>
-<br/>
-<br/>
-<br/>
 <br/>
 <br/>
 
