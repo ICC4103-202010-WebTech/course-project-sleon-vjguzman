@@ -32,6 +32,7 @@ class OrganizationsController < ApplicationController
 
   # GET /organizations/1/edit
   def edit
+
   end
 
   # POST /organizations
@@ -56,7 +57,7 @@ class OrganizationsController < ApplicationController
     respond_to do |format|
       if @organization.update(organization_params)
         format.html { redirect_to @organization, notice: 'Organization was successfully updated.' }
-        format.json { render :show, status: :ok, location: @organization }
+        format.json { render :index, status: :ok, location: @organization }
       else
         format.html { render :edit }
         format.json { render json: @organization.errors, status: :unprocessable_entity }

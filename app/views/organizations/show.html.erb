@@ -14,12 +14,12 @@
   <%unless admin_signed_in? == false %>
   <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @organization_show).select(:id).first.id) %></button>
   <%end %>
-  <%if MembersList.where(user_role: "admin").where(organization_id: Organization.where(id: @organization_show).select(:id).first.id).select(:user_id).first.id == current_user.id %>
+  <%if User.where(id: @admin).select(:id).first.id == current_user.id %>
     <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @organization_show).select(:id).first.id) %></button>
   <%end %>
 </aside>
 <h2 class="organizationh2" align="left"><%= Organization.where(id: @organization_show).select(:name).first.name %></h2>
-<h4 class="organizationh4",align="left"><%= Organization.where(id: @organization_show).select(:description).first.description %></h4>
+<h4 class="organizationh4" align="left"><%= Organization.where(id: @organization_show).select(:description).first.description %></h4>
 <%if @admin != nil %>
   <h3 class="organizationh3-2"> ADMIN: <%= User.where(id: @admin).select(:username).first.username%></h3>
 <%end %>

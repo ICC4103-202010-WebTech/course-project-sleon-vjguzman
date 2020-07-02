@@ -14,7 +14,7 @@
 <aside class="aside-organization">
   <button class="botonorganizacion1"> <%= link_to 'See Members', members_list_path(Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).select(:id).first.id) %></button>
   <%if MembersList.where(organization_id: Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).select(:id).first.id).where(user_role: 'admin').select(:user_id).first.user_id == current_user.id %>
-    <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @organization_show).select(:id).first.id) %></button>
+    <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).first.id) %></button>
   <%end %>
 </aside>
 <h2 class="organizationh2" align="left"><%= Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).select(:name).first.name %></h2>
