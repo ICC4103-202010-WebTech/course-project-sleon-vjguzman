@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     @user_member = MembersList.where(user_id: @get_id).select(:organization_id)
     @user_org = Organization.where(id: @user_member)
     @todos_usuarios = User.all
+    @creador = EventCreator.where(user_id: @get_id).select(:event_id)
+    @created = Event.where(id: @creador)
   end
 
   # GET /users/1
@@ -24,6 +26,8 @@ class UsersController < ApplicationController
     @user_member = MembersList.where(user_id: @get_id).select(:organization_id)
     @user_org = Organization.where(id: @user_member)
     @todos_usuarios = User.all
+    @creador = EventCreator.where(user_id: @get_id).select(:event_id)
+    @created = Event.where(id: @creador)
   end
 
   # GET /users/new

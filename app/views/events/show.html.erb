@@ -32,17 +32,23 @@
 <tbody>
 <% Comment.where(event_id: @get_id).each do |comment| %>
   <div>
+    <br/>
     <% unless User.select(:username).where(id: comment.user_id).first.profile_picture.attached? == true%>
-      <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
+      <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '250px') %></span>
     <% end %>
     <% unless User.select(:username).where(id: comment.user_id).first.profile_picture.attached?  == false%>
-      <span class="imageleft"><%= link_to image_tag(url_for(User.select(:username).where(id: comment.user_id).first.profile_picture), width: '300px') %></span>
+      <span class="imageleft"><%= link_to image_tag(url_for(User.select(:username).where(id: comment.user_id).first.profile_picture), width: '250px') %></span>
     <% end %>
     <h3 class="Userp"><%= User.select(:username).where(id: comment.user_id).first.username%>:</h3>
     <h4 class="User"><%= comment.message %></h4>
     <% unless admin_signed_in? == false or EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil or Comment.where(user_id: current_user.id) == nil %>
     <button class="btn1-1 danger"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
     <%end %>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
   </div>
 <% end %>
 </tbody>|

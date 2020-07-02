@@ -3,7 +3,7 @@
 <aside class="aside-comment">
   <button class="btn11 success-1"><%=link_to "Add Event Date", new_event_date_path(Event.where(id: @get_id).first.id) %></button>
   <button class="btn11 info-1" ><%= link_to 'Configure Event Dates', event_date_path(Event.where(id: @get_id).first.id) %></button>
-  <button class="btn11 success-1" ><%= link_to 'Add Guests ', new_guest_list_path %></button>
+  <button class="btn11 info-1" ><%= link_to 'New Guest', new_guest_list_path(Event.where(id: @get_id).first.id) %></button>
 </aside>
 <br/>
 
@@ -29,6 +29,7 @@
   </tbody>
 </table>
 <br/>
+
 
 
 

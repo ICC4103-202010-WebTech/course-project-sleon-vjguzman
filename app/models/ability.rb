@@ -19,6 +19,10 @@ class Ability
       can :manage, GuestList, user_id: user.id
       can :manage, MembersList, user_id: user.id
       can :manage, User, id: user.id
+      can :manage, Organization
+      can :manage, Vote
+      can :manage, MailBox
+      can :manage, Event
     else
       can :manage, :all
     end

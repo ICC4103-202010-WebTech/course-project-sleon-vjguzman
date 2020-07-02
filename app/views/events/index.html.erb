@@ -33,10 +33,10 @@
 <% Comment.where(event_id: @get_id).each do |comment| %>
   <div>
     <% unless User.select(:username).where(id: comment.user_id).first.profile_picture.attached? == true%>
-      <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
+      <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '100px') %></span>
     <% end %>
     <% unless User.select(:username).where(id: comment.user_id).first.profile_picture.attached?  == false%>
-      <span class="imageleft"><%= link_to image_tag(url_for(User.select(:username).where(id: comment.user_id).first.profile_picture), width: '300px') %></span>
+      <span class="imageleft"><%= link_to image_tag(url_for(User.select(:username).where(id: comment.user_id).first.profile_picture), width: '100px') %></span>
     <% end %>
     <h3 class="Userp"><%= User.select(:username).where(id: comment.user_id).first.username%>:</h3>
     <h4 class="User"><%= comment.message %></h4>

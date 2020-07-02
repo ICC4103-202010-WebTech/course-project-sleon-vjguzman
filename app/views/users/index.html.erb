@@ -21,7 +21,7 @@
 
 <br/>
 <br/>
-<h2 class="h2profile2"> You were invited to: </h2>
+<h2 class="h2profile2"> <%= User.where(id: @get_id).select(:full_name).first.full_name %> was invited to: </h2>
 
 <% @invitations.each do |x| %>
   <div class="divprofile">
@@ -36,7 +36,23 @@
     <h4 class="h4profile"><%= x.final_date %></h4>
     <h4 class="h4profile"><%= x.location %></h4>
     <button class="botondivprofile"><%= link_to 'View', x %></button>
-    <button class="botondivprofile"><%= link_to 'Vote', new_vote_path(x) %></button>
   </div>
 <% end %>
 
+<h2 class="h2profile2"> <%= User.where(id: @get_id).select(:full_name).first.full_name %> created the events: </h2>
+
+<% @created.each do |x| %>
+  <div class="divprofile">
+    <% unless x.banner_picture.attached? == true%>
+      <h4 class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></h4>
+    <% end %>
+    <% unless x.banner_picture.attached?  == false%>
+      <h4 class="imageleft"><%= link_to image_tag(url_for(x.banner_picture), width: '300px') %></h4>
+    <% end %>
+    <h4 class="h4profilep"><%= x.title %></h4>
+    <h4 class="h4profile"><%= x.description %></h4>
+    <h4 class="h4profile"><%= x.final_date %></h4>
+    <h4 class="h4profile"><%= x.location %></h4>
+    <button class="botondivprofile"><%= link_to 'View', x %></button>
+  </div>
+<% end %>
