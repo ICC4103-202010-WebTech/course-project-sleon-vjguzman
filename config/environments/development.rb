@@ -16,7 +16,7 @@ Rails.application.configure do
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
-    config.action_controller.enable_fragment_cache_logging = true
+    config.action_controller.enabl e_fragment_cache_logging = true
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
@@ -52,7 +52,16 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "example.com",
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV["GMAIL_USERNAME"],
+      password:ENV["GMAIL_PASSWORD"]
+  }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
 
