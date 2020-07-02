@@ -23,6 +23,7 @@ class Ability
       can :manage, Vote
       can :manage, MailBox
       can :manage, Event
+      can :read, User
     else
       can :manage, :all
     end

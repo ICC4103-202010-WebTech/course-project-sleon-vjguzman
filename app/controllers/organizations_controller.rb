@@ -10,6 +10,9 @@ class OrganizationsController < ApplicationController
     @user_in = User.where(id: @get_id)
     @organization_show = Organization.where(id: params[:id]).select(:id)
     @events_show = Event.where(organization_id: @organization_show)
+    @admin = MembersList.where(organization_id: @organization_show).where(user_role: 'admin').select(:user_id)
+    @current_org =  Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id).first.organization_id).select(:id).first.id
+    @eventos_organizacion = Event.where(organization_id: @current_org)
   end
 
   # GET /organizations/1

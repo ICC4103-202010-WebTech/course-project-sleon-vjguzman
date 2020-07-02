@@ -9,11 +9,13 @@
 <% end %>
 <h2 class="membersh2" align="left"><%= Organization.where(id: @get_id).select(:name).first.name %></h2>
 <h4 class="membersh4",align="left"><%= Organization.where(id: @get_id).select(:description).first.description %></h4>
-<%unless @admin != nil %>
-<h3 class="membersh3"> ADMIN: <%= User.where(id: @admin.first.user_id).select(:username).first.username %></h3>
+
+<%if @admin != nil %>
+  <h3 class="organizationh3-2"> ADMIN: <%= User.where(id: @admin).select(:username).first.username%></h3>
 <%end %>
-  <br/>
-<%unless @members_org != nil %>
+<br/>
+
+<%if @members_org != nil %>
 <h2 class="membersh2-1"> Members </h2>
 <% @members_org.each do |x| %>
   <div class="membersdiv">
