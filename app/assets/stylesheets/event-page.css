@@ -265,3 +265,17 @@ h2 {
 .eventpagediv-button {
     display: inline-block;
 }
+
+.report {
+    margin-left: 1cm;
+    text-align: left;
+}
+
+.buttonreport {
+    margin-left: 4cm;
+    text-align: center;
+}
+.buttonreport a {
+    color: black;
+    text-decoration: none;
+}

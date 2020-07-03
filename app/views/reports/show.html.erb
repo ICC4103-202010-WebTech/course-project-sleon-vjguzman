@@ -1,4 +1,18 @@
+<h1 class="eventpageh1">My Reports :<%= User.where(id: current_user.id).select(:username).first.username%> </h1>
+<br/>
+<button class="buttonreport" ><%= link_to 'New Report', new_report_path %></button>
+<br/>
+<%if @my_reports != nil %>
+<% @my_reports.each do |x| %>
+    <%if x.event_id == nil %>
+    <%else %>
+    <div>
+    <h4 class="report">Event: <%= Event.where(id: x.event_id).select(:title).first.title %></h4>
+    <h4 class="report">Reason: <%= x.description %></h4>
+    <button class="btn danger"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    </div>
+    <%end %>
+<% end %>
+<% end %>
+<br/>
 
-
-<%= link_to 'Edit', edit_report_path(@report) %> |
-<%= link_to 'Back', reports_path %>
