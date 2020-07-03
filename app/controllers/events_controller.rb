@@ -42,6 +42,7 @@ class EventsController < ApplicationController
       if @event.save
         multimedia = Multimedium.create(event_id: @event.id)
         @event_creator = EventCreator.create(user_id: current_user.id, event_id: @event.id)
+        @guest_list = GuestList.create(user_id: current_user.id, event_id: @event.id)
         format.html { redirect_back(fallback_location: root_path, notice: "Your event was successfully created")}
         format.json { render :show, status: :created, location: @event }
       else

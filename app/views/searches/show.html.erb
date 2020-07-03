@@ -14,7 +14,7 @@
     <% @search.users.each do |user| %>
       <div class="div-search1">
       <h3 class="searchh31"> User:</h3>
-      <h4 class="searchh4"><%=link_to user.full_name, users_path(user)%></h4>
+      <h4 class="searchh4"><%=link_to user.full_name, user_path(user)%></h4>
       <br/>
       <h3 class="searchh31"> Events of the User</h3>
       <% (Event.where(id: EventCreator.where(user_id: user.id).select(:event_id))).each do |event| %>
