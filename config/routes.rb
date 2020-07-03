@@ -93,6 +93,7 @@ Rails.application.routes.draw do
   resources :reports,defaults: { format: :html }
   resources :searches
   resources :terms
+  resources :au_ps
   resources :mailboxes,defaults: { format: :html }
   resources :sent_messages,defaults: { format: :html }
   resources :event_creators, defaults: { format: :html }

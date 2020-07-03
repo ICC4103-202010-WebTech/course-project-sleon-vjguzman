@@ -51,12 +51,13 @@
     <br/>
   </div>
 <% end %>
-</tbody>|
+</tbody>
 </table>
 
 <br/>
 <button class="button1" align="center"><%= link_to "See Creator's Profile", user_path(EventCreator.where(event_id: @get_id).select(:user_id).first.user_id) %></button>
 <button class="button1" align="center"><%= link_to 'Back', events_path %></button>
+
 
 
 

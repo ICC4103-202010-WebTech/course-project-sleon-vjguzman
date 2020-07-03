@@ -33,7 +33,7 @@ class GuestListsController < ApplicationController
     @guest_list = GuestList.new(guest_list_params)
     respond_to do |format|
       if @guest_list.save
-        format.html { redirect_back(fallback_location: root_path, notice: 'Guest was successfully created.') }
+        format.html { redirect_to event_creators_path(current_user.id), notice: 'Guest was successfully created.' }
         format.json { render :show, status: :created, location: @guest_list }
       else
         format.html { render :new }
@@ -42,12 +42,12 @@ class GuestListsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /guest_lists/1
+  # PATCH/PUT /guest_lists/1Use
   # PATCH/PUT /guest_lists/1.json
   def update
     respond_to do |format|
       if @guest_list.update(guest_list_params)
-        format.html { redirect_back(fallback_location: root_path, notice: 'Guest list was successfully updated.') }
+        format.html { redirect_to event_creators_path(current_user.id), notice: 'Guest list was successfully updated.' }
         format.json { render :show, status: :ok, location: @guest_list }
       else
         format.html { render :edit }

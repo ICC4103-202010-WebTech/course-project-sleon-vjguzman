@@ -33,7 +33,7 @@ class EventDatesController < ApplicationController
 
     respond_to do |format|
       if @event_date.save
-        format.html { redirect_back(fallback_location: root_path, notice: 'Event date was successfully created.') }
+        format.html { redirect_to event_creators_path(current_user.id), notice: 'Event date was successfully created.' }
         format.json { render root_path, status: :created, location: @event_date }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class EventDatesController < ApplicationController
   def update
     respond_to do |format|
       if @event_date.update(event_date_params)
-        format.html { redirect_back(fallback_location: root_path, notice: 'Event date was successfully updated.') }
+        format.html { redirect_to event_creators_path(current_user.id), notice: 'Event date was successfully updated.' }
         format.json { render root_path, status: :ok, location: @event_date }
       else
         format.html { render :edit }

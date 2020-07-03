@@ -40,10 +40,12 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     respond_to do |format|
       if @event.save
+        @guest_list = GuestList.create(user_id: current_user.id, event_id: @event.id)
+        @event_date = EventDate.create(date: "2020-01-01 01:01:01", event_id: @event.id)
         multimedia = Multimedium.create(event_id: @event.id)
         @event_creator = EventCreator.create(user_id: current_user.id, event_id: @event.id)
         @guest_list = GuestList.create(user_id: current_user.id, event_id: @event.id)
-        format.html { redirect_back(fallback_location: root_path, notice: "Your event was successfully created")}
+        format.html { redirect_to event_creators_path(current_user.id), notice: "Your event was successfully created"}
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -57,7 +59,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_back(fallback_location: root_path, notice: "Your event was successfully updated")}
+        format.html { redirect_to event_creators_path(current_user.id), notice: "Your event was successfully updated"}
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }

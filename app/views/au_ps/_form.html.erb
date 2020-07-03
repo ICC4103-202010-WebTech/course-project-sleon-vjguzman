@@ -1,0 +1,17 @@
+<%= form_with(model: aup, local: true) do |form| %>
+  <% if aup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(aup.errors.count, "error") %> prohibited this aup from being saved:</h2>
+
+      <ul>
+        <% aup.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
