@@ -1,17 +1,24 @@
-<%= form_with(model: comment, local: true) do |form| %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<div>
+  <%= form_with model: comment, local: true do |form| %>
+    <div class="div-edit11">
+      <%= form.label :user_id %>
+      <br/>
+      <%= form.collection_select(:user_id, User.where(id: current_user.id).order(name: :asc), :id, :username, {}, { class: "form-control" }) %>
+    </div>
+    <div class="div-edit11">
+      <%= form.label :event_id %>
+      <br/>
+      <%= form.collection_select :event_id, Event.where(id: EventCreator.where(user_id: current_user.id).select(:event_id)).or(Event.where(id: GuestList.where(user_id: current_user.id).select(:event_id))) , :id, :title, {}, { class: "form-control" }  %>
+    </div>
+    <div class="div-edit11">
+      <%= form.label :message %>
+      <br/>
+      <%= form.text_area :message, class: "form-control" %>
+    </div>
 
-      <ul>
-        <% comment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <div class="div-edit11">
+      <%= form.submit "Create", class: ["btn"] %>
     </div>
   <% end %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

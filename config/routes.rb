@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     resources :guest_lists
     resources :events
   end
+  resources :report_comments do
+    resources :reports
+  end
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       resources :comments do
@@ -57,7 +60,9 @@ Rails.application.routes.draw do
       resources :multimedia do
         resources :events
       end
-      resources :reports
+      resources :reports do
+        resources :report_comments
+      end
       resources :sent_messages do
         resources :mailboxes
         resources :users
@@ -100,5 +105,6 @@ Rails.application.routes.draw do
   resources :sent_messages,defaults: { format: :html }
   resources :event_creators, defaults: { format: :html }
   resources :members_lists, defaults: { format: :html }
+  resources :report_comments, defaults: { format: :html}
 end
 

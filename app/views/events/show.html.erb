@@ -1,9 +1,14 @@
 <%= stylesheet_link_tag 'event-page'%>
+<br/>
 <h1 class="eventpageh1"><%= Event.where(id: @get_id).select(:title).first.title%> </h1>
 <br/>
 
-<button class="button1" align="center"><%= link_to 'Report Event', new_report_path %></button>
-<button class="button1"><%= link_to 'Videos/Images/Files', multimedium_path(Event.where(id: @get_id).select(:id).first.id)%></button>
+<div class="boton-ev">
+  <button class="button1-ev" align="center"><%= link_to "See Creator's Profile", user_path(EventCreator.where(event_id: @get_id).select(:user_id).first.user_id) %></button>
+  <button class="button1-ev" align="center"><%= link_to 'Report Event', new_report_path %></button>
+  <button class="button1-ev"><%= link_to 'Videos/Images/Files', multimedium_path(Event.where(id: @get_id).select(:id).first.id)%></button>
+
+</div>
 
 <br/>
 <div class="eventpagediv">
@@ -47,7 +52,6 @@
     <% unless EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil or  Comment.where(user_id: current_user.id) == nil%>
       <button class="btn1-1 danger"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
     <%end %>
-
     <br/>
     <br/>
     <br/>
@@ -59,10 +63,6 @@
 </table>
 
 <br/>
-<button class="button1" align="center"><%= link_to "See Creator's Profile", user_path(EventCreator.where(event_id: @get_id).select(:user_id).first.user_id) %></button>
-<button class="button1" align="center"><%= link_to 'Back', event_creators_path(current_user.id) %></button>
-
-
 
 
 
