@@ -13,11 +13,7 @@
           <br/>
           <%= form.collection_select(:event_dates_id, EventDate.where(event_id: Event.where(id: x.event_id).order(date: :asc)), :id, :date, {}, { class: "form-control" }) %>
         </div>
-        <div class="div-edit">
-          <%= form.label :guest_list_id %>
-          <br/>
-          <%= form.collection_select(:guest_list_id, GuestList.where(event_id: x.event_id).order(id: :asc), :id, :id, {}, { class: "form-control" }) %>
-        </div>
+          <%= form.hide(:guest_list_id, GuestList.where(event_id: x.event_id).order(id: :asc), :id, :id, {}, { class: "form-control" }) %>
         <div class="actions">
           <%= form.submit "Vote", class: ["btn"] %>
         </div>

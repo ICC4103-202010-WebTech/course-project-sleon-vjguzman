@@ -14,7 +14,7 @@
   <%unless admin_signed_in? == false %>
     <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @get_id).select(:id).first.id) %></button>
   <%end %>
-  <%if MembersList.where(organization_id: @get_id).where(user_role: 'admin').select(:user_id) == current_user  %>
+  <%if MembersList.where(organization_id: @get_id).where(user_role: 'admin').select(:user_id) == current_user.id  %>
     <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @get_id).select(:id).first.id) %></button>
   <%end %>
 </aside>
@@ -23,7 +23,7 @@
 <br/>
 <br/>
 <br/>
-<%unless User.where(id: @admin).select(:username) != nil %>
+<%if User.where(id: @admin).select(:username).present? == true %>
   <h3 class="organizationh3-2"> ADMIN: <%= User.where(id: @admin).select(:username).first.username%></h3>
 <%end %>
 

@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-
+  resources :event_dates do
+    resources :events
+    resources :votes
+  end
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       resources :comments do
@@ -54,11 +57,6 @@ Rails.application.routes.draw do
       resources :multimedia do
         resources :events
       end
-      resources :event_dates do
-        resources :events
-        resources :votes
-      end
-      resources :event_dates
       resources :reports
       resources :sent_messages do
         resources :mailboxes

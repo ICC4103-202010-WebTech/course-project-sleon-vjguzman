@@ -21,7 +21,7 @@
     <button class="btn success"><%= link_to 'See Event Page', event_path(x) %></button>
     <button class="btn warning"><%= link_to 'Edit', edit_event_path(x) %></button>
     <button class="btn info"><%= link_to 'See More', guest_list_path(x) %></button>
-    <button class="btn danger"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    <button class="btn danger"><%= link_to 'Delete', event_path(x), method: :delete, data: { confirm: 'Are you sure?' } %></button>
   </div>
 <% end %>
 

@@ -44,8 +44,6 @@ class EventsController < ApplicationController
         @event_date = EventDate.create(date: "2020-01-01 01:01:01", event_id: @event.id)
         multimedia = Multimedium.create(event_id: @event.id)
         @event_creator = EventCreator.create(user_id: current_user.id, event_id: @event.id)
-        @id_org = MembersList.where(user_id: current_user.id).select(:organization_id)
-        @event.organization_id = @id_org
         format.html { redirect_to event_creators_path(current_user.id), notice: "Your event was successfully created"}
         format.json { render :show, status: :created, location: @event }
       else

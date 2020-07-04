@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'organization'%>
 <br/>
 <br/>
-<%unless Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).select(:id) == nil  %>
+<%if Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).select(:id).present? == true  %>
   <h1 class="h1-mail"> My Organization </h1>
   <% Organization.where(id: MembersList.where(user_id: current_user.id).select(:organization_id)).each do |o| %>
     <div class="divorganization">
