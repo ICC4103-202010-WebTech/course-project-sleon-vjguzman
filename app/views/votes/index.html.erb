@@ -21,6 +21,18 @@
     <br/>
     <br/>
   </div>
+    <div class="divprofile">
+      <h3>Current Votes:</h3>
+      <% EventDate.where(event_id: x.id).each do |z| %>
+        <h3 class="votes">→ Date: <%=  z.date  %></h3>
+        <h3 class="votes">«» Votes: <%=  Vote.where(event_dates_id: z.id).count  %></h3>
+
+      <% end %>
+
+
+    </div>
+
   <% end %>
 <% end %>
+
 
