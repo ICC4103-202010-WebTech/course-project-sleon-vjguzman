@@ -68,3 +68,7 @@
     width: 300px;
     background-color: gainsboro;
 }
+.votes{
+    text-align: left;
+    margin-right: 1cm;
+}

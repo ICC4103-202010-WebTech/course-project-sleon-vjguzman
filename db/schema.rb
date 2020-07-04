@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_203405) do
+ActiveRecord::Schema.define(version: 2020_07_04_214235) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -178,18 +178,6 @@ ActiveRecord::Schema.define(version: 2020_07_04_203405) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "report_comments", force: :cascade do |t|
-    t.text "description"
-    t.integer "comment_id_id", null: false
-    t.integer "creator_id", null: false
-    t.integer "user_id_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["comment_id_id"], name: "index_report_comments_on_comment_id_id"
-    t.index ["creator_id"], name: "index_report_comments_on_creator_id"
-    t.index ["user_id_id"], name: "index_report_comments_on_user_id_id"
-  end
-
   create_table "reports", force: :cascade do |t|
     t.text "description"
     t.string "status"
@@ -290,9 +278,6 @@ ActiveRecord::Schema.define(version: 2020_07_04_203405) do
   add_foreign_key "multimedia", "events"
   add_foreign_key "notifications", "events"
   add_foreign_key "notifications", "users"
-  add_foreign_key "report_comments", "comment_ids"
-  add_foreign_key "report_comments", "creators"
-  add_foreign_key "report_comments", "user_ids"
   add_foreign_key "reports", "events"
   add_foreign_key "reports", "users"
   add_foreign_key "sent_messages", "users"
