@@ -19,6 +19,7 @@
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag 'application'%>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 </head>
 
 <nav>
@@ -41,7 +42,7 @@
     </li>
     <li>
       <% unless admin_signed_in? == true or user_signed_in? == false%>
-      <%= link_to 'Mailbox', mailboxes_path(current_user.id) %>
+      <%= link_to 'Mailbox', conversations_path %>
     </li>
       <%end %>
     <li>

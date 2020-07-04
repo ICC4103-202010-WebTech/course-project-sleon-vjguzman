@@ -3,24 +3,25 @@
 </div>
 
 <div class="div-2">
-  <% GuestList.where(user_id: 1).each do |x| %>
-  <%= form_with model: @vote, local: true do |form| %>
+  <% GuestList.where(user_id: current_user.id).each do |x| %>
+    <%if Vote.where(guest_list_id: x.id).select(:guest_list_id).present? == false %>
+      <%= form_with model: @vote, local: true do |form| %>
 
-      <h1><%=  Event.where(id: x.event_id).select(:title).first.title %> </h1>
-    <div class="div-edit">
-      <%= form.label :event_dates_id %>
-      <br/>
-      <%= form.collection_select(:event_dates_id, EventDate.where(event_id: Event.where(id: x.event_id).order(date: :asc)), :id, :date, {}, { class: "form-control" }) %>
-    </div>
-    <div class="div-edit">
-      <%= form.label :guest_list_id %>
-      <br/>
-      <%= form.collection_select(:guest_list_id, GuestList.where(event_id: x.event_id).order(id: :asc), :id, :id, {}, { class: "form-control" }) %>
-    </div>
-    <div class="actions">
-      <%= form.submit "Vote", class: ["btn"] %>
-    </div>
+        <h1><%=  Event.where(id: x.event_id).select(:title).first.title %> </h1>
+        <div class="div-edit">
+          <%= form.label :event_dates_id %>
+          <br/>
+          <%= form.collection_select(:event_dates_id, EventDate.where(event_id: Event.where(id: x.event_id).order(date: :asc)), :id, :date, {}, { class: "form-control" }) %>
+        </div>
+        <div class="div-edit">
+          <%= form.label :guest_list_id %>
+          <br/>
+          <%= form.collection_select(:guest_list_id, GuestList.where(event_id: x.event_id).order(id: :asc), :id, :id, {}, { class: "form-control" }) %>
+        </div>
+        <div class="actions">
+          <%= form.submit "Vote", class: ["btn"] %>
+        </div>
+    <% end  %>
   <% end  %>
   <% end  %>
-
 </div>

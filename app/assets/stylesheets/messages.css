@@ -1,0 +1,63 @@
+.button-ms {
+    border: 1px solid black;
+    padding: 14px 24px;
+    cursor: pointer;
+    text-align: center;
+    display: inline;
+    width: 17%;
+}
+.button-ms a{
+    text-decoration: none;
+    color: black;
+}
+
+.button-ms1 {
+    border: 1px solid black;
+    padding: 14px 24px;
+    cursor: pointer;
+    text-align: center;
+    display: inline;
+    width: 17%;
+}
+.button-ms1 a{
+    text-decoration: none;
+    color: black;
+}
+
+.buttons- {
+    background-color: white;
+    width: auto;
+}
+
+.div-conversation {
+    background-color: whitesmoke;
+    width: auto;
+    border: 1px solid black;
+    margin-left: -0.1cm;
+}
+.user-name {
+    margin-left: 0.5cm;
+    text-align: left;
+}
+
+.user-name a {
+    text-decoration: none;
+    color: black;
+}
+
+.titulo {
+    color: #B00100;
+}
+
+.titulo1 {
+    color: black;
+}
+.titulo1 a{
+    text-decoration: none;
+    color: black;
+}
+.message {
+    background-color: whitesmoke;
+    width: auto;
+    margin-left: -0.1cm;
+}

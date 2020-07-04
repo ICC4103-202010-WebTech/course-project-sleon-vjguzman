@@ -1,0 +1,55 @@
+<br/>
+<div class="buttons-">
+<br/>
+<button class="button-ms" onclick="conversation()">Conversations </button>
+<button class="button-ms" onclick="message()">New Message</button>
+<br/>
+</div>
+
+<script>
+  function conversation() {
+      var x = document.getElementById("mail");
+      if(x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+  }
+  function message() {
+      var x = document.getElementById("new");
+      if(x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display= "none";
+      }
+  }
+</script>
+
+<div class="buttons-">
+
+  <h1 class="h1message">My Inbox</h1>
+
+  <div id="mail" class="div-conversation">
+    <h3 class="titulo">All Conversations:</h3>
+      <% @conversations.each do |conversation| %>
+        <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+          <% if conversation.sender_id == current_user.id %>
+            <% recipient = User.find(conversation.recipient_id) %>
+          <% else %>
+            <% recipient = User.find(conversation.sender_id) %>
+          <% end %>
+          <h4 class="user-name"><%= link_to recipient.username, conversation_messages_path(conversation)%></h4>
+        <% end %>
+      <% end %>
+  </div>
+
+  <div id="new" class="div-conversation">
+    <h3 class="titulo">All Users To Send A New Message:</h3>
+      <% @users.each do |user| %>
+        <% if user.id != current_user.id %>
+          <h4 class="user-name"><%= link_to user.username, new_conversation_path(sender_id: current_user.id, recipient_id: user.id)%></h4>
+        <% end %>
+      <% end %>
+  </div>
+
+</div>

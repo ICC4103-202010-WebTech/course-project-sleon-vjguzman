@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag 'messages.css'%>
+<div class="buttons-">
+<button class="button-ms"><%= link_to 'Back To Inbox', '/conversations' %></button>
+<br/>
+</div>
+
+<div class="buttons-">
+    <% if @over_5 %>
+      <%= link_to 'Show All', '?m=all', class: 'btn btn-link pull-right' %>
+    <% end %>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <% if @messages.nil?%>
+      No messages yet!
+    <%else %>
+
+      <% @messages.each do |message| %>
+        <% if message.body %>
+          <% user = User.find(message.user_id) %>
+        <div class="message">
+          <h3 class="titulo1"> <%=link_to user.username, user_path(user) %> - <%= message.message_time %></h3>
+          <%= message.body %>
+        </div>
+        <% end %>
+      <% end %>
+    <%end %>
+
+    <%= form_for [@conversation, @message] do |f| %>
+      <div class="message">
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+      <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+      <div class="message">
+        <%= f.submit "Send Reply", class: "button-ms" %>
+      </div>
+    <% end %>
+
+</div>
