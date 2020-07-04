@@ -13,19 +13,20 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
-  has_many :Notifications, dependent: :destroy
-  has_one :User_Administration, dependent: :destroy
-  has_many :Event_Creators, dependent: :destroy
-  has_many :Events
-  has_many :Reports, dependent: :destroy
-  has_many :Members_Lists, dependent: :destroy
-  has_many :Organizations, :through => :Members_Lists
-  has_many :Mail_Boxes, dependent: :destroy
-  has_many :Sent_Messages, dependent: :destroy
-  has_many :User_Invitations, dependent: :destroy
-  has_many :Comments, dependent: :destroy
-  has_many :Guest_Lists, dependent: :destroy
-  has_one :System_Admin, dependent: :destroy
+  has_many :notifications, dependent: :destroy
+  has_one :user_administrations, dependent: :destroy
+  has_many :event_creators, dependent: :destroy
+  has_many :events
+  has_many :reports, dependent: :destroy
+  has_many :members_lists, dependent: :destroy
+  has_many :organizations, :through => :Members_Lists
+  has_many :mail_boxes, dependent: :destroy
+  has_many :sent_messages, dependent: :destroy
+  has_many :user_invitations, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :guest_lists, dependent: :destroy
+  has_one :system_admin, dependent: :destroy
+  has_many :messages, dependent: :destroy
   validates :email, uniqueness: true, email: true
   validates :username,uniqueness: true
   has_one_attached :profile_picture

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     resources :messages
   end
   resources :event_dates do
+    resources :guest_lists
     resources :events
-    resources :votes
   end
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
