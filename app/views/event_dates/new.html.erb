@@ -11,7 +11,7 @@
     <div class="div-edit">
       <%= form.label :event_id %>
       <br/>
-      <%= form.collection_select(:event_id, Event.where(id: EventCreator.where(user_id: current_user.id)).order(name: :asc), :id, :title, {}, { class: "form-control" }) %>
+      <%= form.collection_select(:event_id, Event.where(id: EventCreator.where(user_id: current_user.id).select(:event_id)).order(name: :asc), :id, :title, {}, { class: "form-control" }) %>
     </div>
     <div class="div-edit">
       <%= form.submit "Create", class: ["btn"] %>
