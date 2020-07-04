@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_devise_params, if: :devise_controller?
+  after_action :record_user_activity
 
   protected
   def record_user_activity
     if current_user
-      current_user.touch :last_active_at
+      current_user.update_attribute(:last_active_at, Time.now)
     end
   end
   def configure_devise_params

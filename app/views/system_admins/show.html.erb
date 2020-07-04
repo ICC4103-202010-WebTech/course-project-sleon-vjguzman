@@ -11,15 +11,24 @@
 </br>
 </br>
 </br>
-<h4 class="h4detailsp"><%= User.where(id: @get_id).select(:username).first.username %></h4>
-<h4 class="h4details"><%= User.where(id: @get_id).select(:short_bio).first.short_bio %></h4>
-<h4 class="h4details"><%= User.where(id: @get_id).select(:location).first.location %></h4>
-<h4 class="h4details"><%= User.where(id: @get_id).select(:last_active_at).first.last_active_at %></h4>
+<h4 class="h4detailsp"> Username: <%= User.where(id: @get_id).select(:username).first.username %></h4>
+<h4 class="h4details"> Bio: <%= User.where(id: @get_id).select(:short_bio).first.short_bio %></h4>
+<h4 class="h4details"> Location: <%= User.where(id: @get_id).select(:location).first.location %></h4>
+<h4 class="h4details"> Member since: <%= User.where(id: @get_id).select(:created_at).first.created_at %></h4>
 <h4 class="h4details2"> Email: <%= User.where(id: @get_id).select(:email).first.email %></h4>
-<h4 class="h4details2"> Last Access at: <%= User.where(id: @get_id).select(:updated_at).first.updated_at %></h4>
+<h4 class="h4details2"> Last Access at: <%= User.where(id: @get_id).select(:last_active_at).first.last_active_at %></h4>
+<%if MembersList.where(user_id: @get_id).select(:organization_id).present? == true%>
+<h4 class="h4details2"> User Role:
+  <%=MembersList.where(user_id: @get_id).select(:user_role).first.user_role %> in Organization <%=Organization.where(id: MembersList.where(user_id: @get_id).select(:organization_id).first.organization_id).select(:name).first.name %>
+</h4>
+<%end %>
+<%if MembersList.where(user_id: @get_id).select(:organization_id).present? == false%>
+  <h4 class="h4details2"> User Role: None </h4>
+<%end %>
 <br/>
 <aside class="botones">
   <%if User.where(id: @get_id).select(:id).first.id == current_user.id  %>
   <button class="buttondetails"><%= link_to 'Edit', edit_user_path(User.where(id: @get_id).select(:id).first.id) %></button>
+  <button class="buttondetails"><%= link_to 'Delete', current_user,  method: :delete, data: { confirm: 'Are you sure?' }%></button>
   <%end %>
 </aside>
