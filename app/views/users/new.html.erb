@@ -1,5 +1,38 @@
-<h1>New User</h1>
+<div class="row ml-0 mt-3">
+  <h2 class="edith2">New User</h2>
+  <p class="p-edit">Please enter the required information to create a user:</p>
+</div>
 
-<%= render 'form', user: @user %>
+<div class="div-2">
+  <%= form_with model: @user, local: true do |form| %>
+    <div class="div-edit">
+      <%= form.label :full_name %>
+      <br/>
+      <%= form.text_area :full_name, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :username %>
+      <br/>
+      <%= form.text_area :username, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :short_bio %>
+      <br/>
+      <%= form.text_area :short_bio, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :location %>
+      <br/>
+      <%= form.text_area :location, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :profile_picture %>
+      <br/>
+      <%= form.file_field :profile_picture, class: "form-control" %>
+    </div>
+    <div class="div-edit">
+      <%= form.submit "Create", class: ["btn"] %>
+    </div>
+  <% end %>
+</div>
 
-<%= link_to 'Back', users_path %>

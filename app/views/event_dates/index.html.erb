@@ -1,19 +1,24 @@
-<%= stylesheet_link_tag 'event-comments'%>
+<%= stylesheet_link_tag 'dates'%>
 <br/>
-<aside class="aside-comment">
-  <button class="btn11 success-1" ><%= link_to 'Back', event_dates_path %></button>
-</aside>
+<h1 class="dates"> >> Dates for the Guest to Vote << </h1>
 <br/>
-<br/>
-
-<h2>Dates to Vote of the "<%= Event.where(id: @get_id).select(:title).first.title %>" Event:</h2>
-<h3> please vote for one </h3>
-<br/>
-<% @event_dates.each do |x| %>
-  <div>
-    <aside class="aside-botoneditar">
-      <button ><%= link_to 'Edit', edit_event_date_path(x)%></button>
-    </aside>
-    <h3 class="User-11"><%= x.date %></h3>
+<% Event.where(id: EventCreator.where(user_id: current_user.id)).each do |x| %>
+  <h1 class="dates1">Dates to Vote of the "<%= x.title %>" Event:</h1>
+  <div class="datesbotones">
+    <button class="btndate1 "><%= link_to 'New Date', new_event_date_path %></button>
+    <button class="btndate1 "><%= link_to 'See Event Page', event_path(x) %></button>
+    <button class="btndate1"><%= link_to 'Edit Event', edit_event_path(x) %></button>
+    <button class="btndate1"><%= link_to 'Delete Event', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
   </div>
+  <br/>
+  <% EventDate.where(event_id: x.id).each do |x| %>
+    <div class="divdate">
+      <h4 class="h4date">Date: <%= x.date %></h4>
+      <br/>
+      <button class="btndate "><%= link_to 'Edit', edit_event_date_path(x) %></button>
+      <button class="btndate "><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    </div>
+    <br/>
+    <br/>
+  <% end %>
 <% end %>

@@ -5,12 +5,9 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @user = User.where(id: current_user.id)
-    @user_events = EventCreator.where(user_id: @user)
-    @eventos = Event.where(id: @user_events.select(:event_id))
     @get_id = Event.where(id: params[:id]).select(:id)
-    @guest = GuestList.where(event_id: @get_id)
-    @comments = Comment.where(event_id: @get_id)
+    @event_dates = EventDate.where(event_id: @get_id)
+    @dates_to_choose = EventDate.where(event_id: @get_id).select(:date)
   end
 
   # GET /events/1
@@ -40,10 +37,10 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     respond_to do |format|
       if @event.save
-        @guest_list = GuestList.create(user_id: current_user.id, event_id: @event.id)
-        @event_date = EventDate.create(date: "2020-01-01 01:01:01", event_id: @event.id)
-        multimedia = Multimedium.create(event_id: @event.id)
-        @event_creator = EventCreator.create(user_id: current_user.id, event_id: @event.id)
+        GuestList.create(user_id: current_user.id, event_id: @event.id)
+        EventDate.create(date: "1000-01-01 00:00:00", event_id: @event.id)
+        Multimedium.create(event_id: @event.id)
+         EventCreator.create(user_id: current_user.id, event_id: @event.id)
         format.html { redirect_to event_creators_path(current_user.id), notice: "Your event was successfully created"}
         format.json { render :show, status: :created, location: @event }
       else
@@ -70,7 +67,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event.destroy
+    @event.delete
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path, notice: "Your Event was successfully destroyed")}
       format.json { head :no_content }
