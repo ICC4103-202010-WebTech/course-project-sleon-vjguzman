@@ -33,6 +33,7 @@
   <h2 class="h2profile2"> <%= User.where(id: @get_id).select(:full_name).first.full_name %> was invited to: </h2>
 
   <% @invitations.each do |x| %>
+    <%if EventCreator.where(user_id: current_user.id).where(event_id: x.id).present? == false %>
     <div class="divprofile">
       <% unless x.banner_picture.attached? == true%>
         <h4 class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></h4>
@@ -44,8 +45,13 @@
       <h4 class="h4profile"><%= x.description %></h4>
       <h4 class="h4profile"><%= x.final_date %></h4>
       <h4 class="h4profile"><%= x.location %></h4>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <button class="botondivprofile"><%= link_to 'View', x %></button>
     </div>
+    <% end %>
   <% end %>
   <br/>
   <br/>
@@ -63,6 +69,10 @@
       <h4 class="h4profile"><%= x.description %></h4>
       <h4 class="h4profile"><%= x.final_date %></h4>
       <h4 class="h4profile"><%= x.location %></h4>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <button class="botondivprofile"><%= link_to 'View', x %></button>
     </div>
   <% end %>
