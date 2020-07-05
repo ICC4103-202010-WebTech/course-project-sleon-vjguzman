@@ -1,6 +1,6 @@
 <div class="row ml-0 mt-3">
-  <h2 class="edith2">Report Event </h2>
-  <p class="p-edit">Please enter the required information to report an event:</p>
+  <h2 class="edith2">Report</h2>
+  <p class="p-edit">Please enter the required information to generate the report :</p>
 </div>
 
 <div class="div-2">
@@ -8,6 +8,11 @@
       <%= form.hidden_field :user_id, value: current_user.id %>
     <div class="div-edit">
       <%= form.collection_select :event_id, Event.all , :id, :title, {}, { class: "form-control" }  %>
+    </div>
+    <div class="div-edit">
+      <%= form.label :description %>
+      <br/>
+      <%= form.text_area :description, class: "form-control" %>
     </div>
     <div class="div-edit">
       <%= form.label :description %>
