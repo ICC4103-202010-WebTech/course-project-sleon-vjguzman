@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
   load_and_authorize_resource
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   # GET /users
@@ -45,7 +44,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        @report = Report.create(user_id: @user.id)
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -72,6 +70,15 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    Comment.where(user_id: @user.id).destroy_all
+    EventCreator.where(user_id: @user.id).destroy_all
+    GuestList.where(user_id: @user.id).destroy_all
+    MembersList.where(user_id: @user.id).destroy_all
+    Message.where(user_id: @user.id).destroy_all
+    ReplyComment.where(user_id: @user.id).destroy_all
+    Report.where(user_id: @user.id).destroy_all
+    SystemAdmin.where(user_id: @user.id).destroy_all
+    UserAdministration.where(user_id: @user.id).destroy_all
     @user.destroy
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }

@@ -10,7 +10,6 @@ class OrganizationsController < ApplicationController
     @id_org = Organization.where(id: @member).select(:id)
     @organization = Organization.where(id: @get_id)
     @all_org = Organization.all
-    @events_org = Event.where(organization_id: @id_org).where(privacy_id: 1)
     @admin = MembersList.where(organization_id: @id_org).where(user_role: 'admin').select(:user_id)
   end
 
@@ -18,7 +17,6 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1.json
   def show
     @get_id = Organization.where(id: params[:id]).select(:id)
-    @events_show = Event.where(organization_id: @get_id)
     @admin = MembersList.where(organization_id: @get_id).where(user_role: 'admin').select(:user_id)
   end
 
