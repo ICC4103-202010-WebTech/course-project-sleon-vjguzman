@@ -7,12 +7,12 @@
     <h5 class="apph5"><%= link_to "Sign In", user_session_path %></h5>
     <h5 class="apph5"><%= link_to "Sign Up", "/users/sign_up" %></h5>
   <% end %>
-  <%unless user_signed_in? == false %>
+  <%unless current_user.admin  == true %>
     <h5 class="apph5">Welcome, <%= current_user.full_name %></h5>
   <h5 class="apph5"><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></h5>
   <%end %>
-  <%unless admin_signed_in? == false %>
-    <h5 class="apph5">Welcome Admin%></h5>
+  <%unless current_user.admin == false %>
+    <h5 class="apph5">Welcome Admin</h5>
     <h5 class="apph5"><%= link_to "Log Out", destroy_admin_session_path, :method => :delete %></h5>
   <%end %>
   <%= csrf_meta_tags %>
@@ -32,31 +32,26 @@
     <li>
       <%= link_to 'My Events', event_creators_path(current_user.id)%>
     </li>
-      <% unless admin_signed_in? == true or user_signed_in? == false%>
     <li>
       <%=link_to "My Votes", votes_path(current_user.id)%>
     </li>
-        <%end %>
     <li>
       <%= link_to 'Organization', organizations_url %>
     </li>
     <li>
-      <% unless admin_signed_in? == true or user_signed_in? == false%>
       <%= link_to 'Mailbox', conversations_path %>
     </li>
-      <%end %>
     <li>
-      <% unless user_signed_in? == false%>
-        <%= link_to 'My Reports', report_path(current_user.id) %>
+      <%= link_to "Search", new_search_path%>
+    </li>
+      <% unless current_user.admin == false%>
+        <li>
+          <%= link_to "Managements", admin_manages_path%>
         </li>
       <%end %>
-    <li>
-        <%= link_to "Search", new_search_path%>
-    </li>
     <%end %>
-    <li>
-      <%= link_to "System Admins", "/admins/sign_in"%>
-    </li>
+
+
   </ul>
 </nav>
 

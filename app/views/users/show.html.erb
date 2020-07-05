@@ -77,27 +77,3 @@
     </div>
   <% end %>
 <% end %>
-<br/>
-<br/>
-<br/>
-
-<% unless current_user.admin == false %>
-  <h2 class="h2profile2">  Manage Users: </h2>
-<% @todos_usuarios.each do |x| %>
-  <div class="divprofile">
-    <% unless x.profile_picture.attached? == true%>
-      <h4 class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></h4>
-    <% end %>
-    <% unless x.profile_picture.attached?  == false%>
-      <h4 class="imageleft"><%= link_to image_tag(url_for(x.profile_picture), width: '300px') %></h4>
-    <% end %>
-    <h4 class="h4profilep"><%= x.username %></h4>
-    <h4 class="h4profile"><%= x.full_name %></h4>
-    <h4 class="h4profile"><%= x.location %></h4>
-    <h4 class="h4profile"><%= x.short_bio %></h4>
-    <button class="botondivprofile"><%= link_to 'Edit', edit_user_path(x)  %></button>
-    <button class="botondivprofile"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-  </div>
-<% end %>
-<button class="button1" align="center"><%= link_to 'New User', new_user_path %></button>
-<% end %>
