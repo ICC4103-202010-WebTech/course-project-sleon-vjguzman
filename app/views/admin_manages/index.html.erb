@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+<h1 class="h2profile2">Admin Manages</h1>
+<h2 class="h2profile2">  Manage Users: </h2>
+<% @todos_usuarios.each do |x| %>
+  <div class="divprofile">
+    <% unless x.profile_picture.attached? == true%>
+      <h4 class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></h4>
+    <% end %>
+    <% unless x.profile_picture.attached?  == false%>
+      <h4 class="imageleft"><%= link_to image_tag(url_for(x.profile_picture), width: '300px') %></h4>
+    <% end %>
+    <h4 class="h4profilep"><%= x.username %></h4>
+    <h4 class="h4profile"><%= x.full_name %></h4>
+    <h4 class="h4profile"><%= x.location %></h4>
+    <h4 class="h4profile"><%= x.short_bio %></h4>
+    <button class="btn warning"><%= link_to 'Edit', edit_user_path(x)  %></button>
+    <button class="btn danger"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+  </div>
+<% end %>
+<button class="button1" align="center"><%= link_to 'Create a New User', new_user_path %></button>
+<br/>
+<br/>
+<br/>
+<h2 class="h2profile2">  Manage Events: </h2>
+<% @todos_eventos.each do |x| %>
+  <div class="divorganization">
+    <% unless x.banner_picture.attached? == true%>
+      <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+    <% end %>
+    <% unless x.banner_picture.attached?  == false%>
+      <span class="imageleft"><%= link_to image_tag(url_for(x.banner_picture)) %></span>
+    <% end %>
+    <h4 class="organizationh4-1p"><%= x.title %></h4>
+    <h4 class="organizationh4-1"><%= x.description %></h4>
+    <h4 class="organizationh4-1"><%= x.location %></h4>
+    <h4 class="organizationh4-1"><%= x.final_date %></h4>
+    <button class="btn warning"><%= link_to 'Edit', edit_event_path(x) %></button>
+    <button class="btn danger"><%= link_to 'Delete', event_path(x), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+  </div>
+<% end %>
+<button class="button1" align="center"><%= link_to 'Create a New Event', new_event_path %></button>
+<br/>
+<br/>
+<br/>
+<h2 class="h2profile2">  Manage Organizations: </h2>
+<% @todos_organizaciones.each do |x| %>
+  <div class="divorganization">
+    <% unless x.banner_org.attached? == true%>
+      <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
+    <% end %>
+    <% unless x.banner_org.attached?  == false%>
+      <span class="imageleft"><%= link_to image_tag(url_for(x.banner_org), width: '300px') %></span>
+    <% end %>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <h4 class="organizationh4-1p"><%= x.name %></h4>
+    <h4 class="organizationh4-1"><%= x.description %></h4>
+    <button class="btn warning"><%= link_to 'Edit', edit_organization_path(x) %></button>
+    <button class="btn danger"><%= link_to 'Delete', organization_path(x), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+  </div>
+<% end %>
+<button class="button1" align="center"><%= link_to 'Create a New Organization', new_organization_path %></button>
+
+
+

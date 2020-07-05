@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     resources :guest_lists
     resources :events
   end
+  resources :admin_manages do
+    resources :users
+    resources :events
+    resources :organizations
+  end
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       resources :reply_comments do
