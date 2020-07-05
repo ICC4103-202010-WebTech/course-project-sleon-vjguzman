@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     resources :events
     resources :organizations
   end
+  resources :system_admins do
+    resources :users
+  end
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       resources :reply_comments do

@@ -1,0 +1,32 @@
+<%= stylesheet_link_tag 'seedetails-profile'%>
+
+<h2 class="h2details"> <%= User.where(id: @get_id).select(:full_name).first.full_name %> </h2>
+<% unless User.where(id: @get_id).select(:profile_picture).first.profile_picture.attached? == true%>
+  <span class="imageleft1"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
+<% end %>
+<% unless User.where(id: @get_id).select(:profile_picture).first.profile_picture.attached? == false%>
+  <span class="imageleft1"><%= link_to image_tag(url_for(User.where(id: @get_id).select(:profile_picture).first.profile_picture), width: '300px') %></span>
+<% end %>
+</br>
+</br>
+</br>
+</br>
+<h4 class="h4detailsp"> Username: <%= User.where(id: @get_id).select(:username).first.username %></h4>
+<h4 class="h4details"> Bio: <%= User.where(id: @get_id).select(:short_bio).first.short_bio %></h4>
+<h4 class="h4details"> Location: <%= User.where(id: @get_id).select(:location).first.location %></h4>
+<h4 class="h4details"> Member since: <%= User.where(id: @get_id).select(:created_at).first.created_at %></h4>
+<h4 class="h4details2"> Email: <%= User.where(id: @get_id).select(:email).first.email %></h4>
+<h4 class="h4details2"> Last Access at: <%= User.where(id: @get_id).select(:last_active_at).first.last_active_at %></h4>
+<%unless User.where(id: @get_id).select(:admin).first.admin == false%>
+  <h4 class="h4details2"> User Role: ADMIN </h4>
+<%end %>
+<%unless User.where(id: @get_id).select(:admin).first.admin == true %>
+  <h4 class="h4details2"> User Role: None </h4>
+<%end %>
+<br/>
+<aside class="botones">
+  <%if User.where(id: @get_id).select(:id).first.id == current_user.id  %>
+    <button class="buttondetails"><%= link_to 'Edit', edit_user_path(User.where(id: @get_id).select(:id).first.id) %></button>
+    <button class="buttondetails"><%= link_to 'Delete', current_user,  method: :delete, data: { confirm: 'Are you sure?' }%></button>
+  <%end %>
+</aside>
