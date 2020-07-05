@@ -77,8 +77,12 @@
     </div>
   <% end %>
 <% end %>
+<br/>
+<br/>
+<br/>
 
-<% unless admin_signed_in? == false %>
+<% unless current_user.admin == false %>
+  <h2 class="h2profile2">  Manage Users: </h2>
 <% @todos_usuarios.each do |x| %>
   <div class="divprofile">
     <% unless x.profile_picture.attached? == true%>
@@ -95,5 +99,5 @@
     <button class="botondivprofile"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
   </div>
 <% end %>
-<button class="button1" align="center"><%= link_to 'New User', new_users_path %></button>
+<button class="button1" align="center"><%= link_to 'New User', new_user_path %></button>
 <% end %>
