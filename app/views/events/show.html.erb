@@ -61,6 +61,7 @@
     <% unless EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil or  Comment.where(user_id: current_user.id) == nil%>
       <aside class="buttondel">
         <button class="btn1-1 danger"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        <button class="btn1-1 danger"><%= link_to 'Report Comment', new_report_path %></button>
       </aside>
     <%end %>
     <br/>
@@ -75,6 +76,7 @@
       <% unless EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil or  ReplyComment.where(user_id: current_user.id) == nil%>
         <aside class="buttondel">
           <button class="btn1-1 danger"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+          <button class="btn1-1 danger"><%= link_to 'Report Comment', new_report_path %></button>
         </aside>
       <%end %>
       <%end %>

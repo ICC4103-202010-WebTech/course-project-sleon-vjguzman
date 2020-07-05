@@ -31,9 +31,7 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
     respond_to do |format|
       if @report.save
-        @id = Report.where(id: @report.id).select(:event_id)
-        @event = Event.where(id: @id)
-        format.html { redirect_to event_path(@event.first), notice: 'Report was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Report was successfully created.' }
         format.json { render rooth_path, status: :created, location: @report }
       else
         format.html { render :new }
@@ -61,7 +59,7 @@ class ReportsController < ApplicationController
   def destroy
     @report.destroy
     respond_to do |format|
-      format.html { redirect_back(fallback_location: root_path, notice: 'Report was successfully destroyed.') }
+      format.html { redirect_back root_path, notice: 'Report was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -74,6 +72,6 @@ class ReportsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def report_params
-      params.fetch(:report, {}).permit(:id,:description, :status, :user_id, :event_id)
+      params.fetch(:report, {}).permit(:id,:description, :status, :user_id, :event_id, :name_reports_id)
     end
 end

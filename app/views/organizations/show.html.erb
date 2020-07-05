@@ -11,6 +11,7 @@
 <% end %>
 <aside class="aside-organization">
   <button class="botonorganizacion1"> <%= link_to 'See Members', members_list_path(Organization.where(id: @get_id).select(:id).first.id) %></button>
+  <button class="botonorganizacion1"> <%= link_to 'Report Organization', new_report_path %></button>
   <%unless admin_signed_in? == false %>
     <button class="botonorganizacion1"> <%= link_to 'Edit Organization', edit_organization_path(Organization.where(id: @get_id).select(:id).first.id) %></button>
   <%end %>

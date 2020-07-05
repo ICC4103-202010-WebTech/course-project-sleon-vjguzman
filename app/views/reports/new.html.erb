@@ -7,12 +7,9 @@
   <%= form_with model: @report, local: true do |form| %>
       <%= form.hidden_field :user_id, value: current_user.id %>
     <div class="div-edit">
-      <%= form.collection_select :event_id, Event.all , :id, :title, {}, { class: "form-control" }  %>
-    </div>
-    <div class="div-edit">
-      <%= form.label :description %>
+      <%= form.label :name_reports %>
       <br/>
-      <%= form.text_area :description, class: "form-control" %>
+      <%= form.collection_select :name_reports_id, NameReport.all , :id, :name, {}, { class: "form-control" }  %>
     </div>
     <div class="div-edit">
       <%= form.label :description %>

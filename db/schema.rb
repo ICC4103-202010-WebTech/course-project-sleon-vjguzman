@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_05_024051) do
+ActiveRecord::Schema.define(version: 2020_07_05_050707) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -152,6 +152,12 @@ ActiveRecord::Schema.define(version: 2020_07_05_024051) do
     t.index ["event_id"], name: "index_multimedia_on_event_id"
   end
 
+  create_table "name_reports", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "notifications", force: :cascade do |t|
     t.datetime "received_date"
     t.string "subject"
@@ -207,7 +213,9 @@ ActiveRecord::Schema.define(version: 2020_07_05_024051) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.integer "event_id"
+    t.integer "name_reports_id", null: false
     t.index ["event_id"], name: "index_reports_on_event_id"
+    t.index ["name_reports_id"], name: "index_reports_on_name_reports_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
@@ -234,6 +242,12 @@ ActiveRecord::Schema.define(version: 2020_07_05_024051) do
     t.integer "user_id"
     t.boolean "admin"
     t.index ["user_id"], name: "index_system_admins_on_user_id"
+  end
+
+  create_table "tipos", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_administrations", force: :cascade do |t|
@@ -307,6 +321,7 @@ ActiveRecord::Schema.define(version: 2020_07_05_024051) do
   add_foreign_key "reply_comments", "events"
   add_foreign_key "reply_comments", "users"
   add_foreign_key "reports", "events"
+  add_foreign_key "reports", "name_reports", column: "name_reports_id"
   add_foreign_key "reports", "users"
   add_foreign_key "sent_messages", "users"
   add_foreign_key "system_admins", "users"

@@ -64,9 +64,16 @@ class EventsController < ApplicationController
     end
   end
 
+
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    Multimedium.where(event_id: @event.id).destroy_all
+    GuestList.where(event_id: @event.id).destroy_all
+    Comment.where(event_id: @event.id).destroy_all
+    EventCreator.where(event_id: @event.id).destroy_all
+    EventDate.where(event_id: @event.id).destroy_all
+    ReplyComment.where(event_id: @event.id).destroy_all
     @event.delete
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path, notice: "Your Event was successfully destroyed")}
