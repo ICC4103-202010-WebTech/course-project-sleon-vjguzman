@@ -55,7 +55,7 @@
     <h4 class="User"><%= comment.message %></h4>
 
 
-    <% if EventCreator.where(event_id: @get_id).where(user_id: current_user.id).present? == true or  Comment.where(user_id: current_user.id).present? == true or current_user.admin == true%>
+    <% if EventCreator.where(event_id: @get_id).where(user_id: current_user.id).present? == true or  Comment.where(user_id: comment.user_id).select(:user_id).first.user_id == current_user.id or current_user.admin == true%>
       <aside class="buttondel">
         <button class=" danger22"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
         <button class=" danger22"><%= link_to 'Report ', new_report_path %></button>
@@ -70,7 +70,7 @@
     <div class="replys">
       <h3 class="reply-p3"><%= User.select(:username).where(id: x.user_id).first.username%> at <%=x.created_at %> :</h3>
       <h4 class="reply-p4"><%= x.message %></h4>
-      <% if EventCreator.where(event_id: @get_id).where(user_id: current_user.id).present? == true or  Comment.where(user_id: current_user.id).present? == true or current_user.admin == true%>
+      <% if EventCreator.where(event_id: @get_id).where(user_id: current_user.id).present? == true or  ReplyComment.where(user_id: x.user_id).select(:user_id).first.user_id == current_user.id or current_user.admin == true%>
         <aside class="buttondel">
           <button class=" danger22"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
           <button class=" danger22"><%= link_to 'Report ', new_report_path %></button>
