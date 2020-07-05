@@ -17,10 +17,10 @@
 <h4 class="h4details"> Member since: <%= User.where(id: @get_id).select(:created_at).first.created_at %></h4>
 <h4 class="h4details2"> Email: <%= User.where(id: @get_id).select(:email).first.email %></h4>
 <h4 class="h4details2"> Last Access at: <%= User.where(id: @get_id).select(:last_active_at).first.last_active_at %></h4>
-<%unless User.where(id: @get_id).select(:admin).first.admin == true%>
+<%unless User.where(id: @get_id).select(:admin).first.admin == false%>
   <h4 class="h4details2"> User Role: ADMIN </h4>
-  <%unless User.where(id: @get_id).select(:admin).first.admin == false %>
-  <%else%>
+<%end %>
+  <%unless User.where(id: @get_id).select(:admin).first.admin == true %>
     <h4 class="h4details2"> User Role: None </h4>
   <%end %>
 <br/>
@@ -30,4 +30,3 @@
   <button class="buttondetails"><%= link_to 'Delete', current_user,  method: :delete, data: { confirm: 'Are you sure?' }%></button>
   <%end %>
 </aside>
-<%end %>
