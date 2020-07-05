@@ -2,7 +2,16 @@
 <br/>
 <h1 class="eventpageh1"><%= Event.where(id: @get_id).select(:title).first.title%> </h1>
 <br/>
-
+<script>
+    function conversation() {
+        var x = document.getElementById("reply");
+        if(x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+</script>
 <div class="boton-ev">
   <button class="button1-ev" align="center"><%= link_to "See Creator's Profile", user_path(EventCreator.where(event_id: @get_id).select(:user_id).first.user_id) %></button>
   <button class="button1-ev" align="center"><%= link_to 'Report Event', new_report_path %></button>
@@ -31,7 +40,7 @@
 <h2><%= Event.select(:title).where(id: @get_id).first.title%> Comments:</h2>
 
 <% Comment.where(event_id: @get_id).each do |comment| %>
-  <div >
+  <div class="comment" >
     <br/>
     <% unless User.select(:username).where(id: comment.user_id).first.profile_picture.attached? == true%>
       <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '200px') %></span>
@@ -42,9 +51,9 @@
     <br/>
     <br/>
     <br/>
-    <h3 class="Userp"><%= User.select(:username).where(id: comment.user_id).first.username%>:</h3>
+    <h3 class="Userp"><%= User.select(:username).where(id: comment.user_id).first.username%> at <%= comment.created_at %> :</h3>
     <h4 class="User"><%= comment.message %></h4>
-    <% unless admin_signed_in? == false  %>
+    <% unless current_user.admin == false  %>
       <aside class="buttondel">
         <button class="btn1-1 danger"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
       </aside>
@@ -55,12 +64,40 @@
       </aside>
     <%end %>
     <br/>
+
+    <%if  ReplyComment.where(comment_id: comment.id).present? == true %>
+    <% ReplyComment.where(comment_id: comment.id).each do |x| %>
     <br/>
     <br/>
-    <br/>
-    <br/>
+    <div class="replys">
+      <h3 class="reply-p3"><%= User.select(:username).where(id: x.user_id).first.username%> at <%=x.created_at %> :</h3>
+      <h4 class="reply-p4"><%= x.message %></h4>
+      <% unless EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil or  ReplyComment.where(user_id: current_user.id) == nil%>
+        <aside class="buttondel">
+          <button class="btn1-1 danger"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        </aside>
+      <%end %>
+      <%end %>
+    </div>
+    <%end %>
+    <div class="reply" id="reply" style.display = "block">
+      <%unless GuestList.where(event_id: @get_id).where(user_id: current_user.id) == nil or EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil  %>
+        <%= form_for :reply_comment, :url => {:controller => "reply_comments", :action => "create"} do |r|%>
+          <h2 class="h2reply"> Reply the comment </h2>
+          <%= r.number_field :user_id, value: current_user.id, type:'hidden' %>
+          <%= r.number_field :event_id, value: Event.where(id: @get_id).select(:id).first.id, type:'hidden' %>
+          <%= r.number_field :comment_id, value: comment.id, type:'hidden' %>
+          <%= r.text_area :message, class: "form-reply" %>
+          <%= r.submit "Reply" , class: ["btn-reply"]%>
+        <%end %>
+      <%end %>
+    </div>
+
   </div>
 <% end %>
+
+
+
 <div>
   <%unless GuestList.where(event_id: @get_id).where(user_id: current_user.id) == nil or EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil  %>
     <%= form_for :comment, :url => {:controller => "comments", :action => "create"} do |c|%>

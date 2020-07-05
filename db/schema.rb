@@ -188,6 +188,18 @@ ActiveRecord::Schema.define(version: 2020_07_05_024051) do
     t.index ["user_id_id"], name: "index_replies_on_user_id_id"
   end
 
+  create_table "reply_comments", force: :cascade do |t|
+    t.integer "comment_id", null: false
+    t.integer "user_id", null: false
+    t.integer "event_id", null: false
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_reply_comments_on_comment_id"
+    t.index ["event_id"], name: "index_reply_comments_on_event_id"
+    t.index ["user_id"], name: "index_reply_comments_on_user_id"
+  end
+
   create_table "reports", force: :cascade do |t|
     t.text "description"
     t.string "status"
@@ -291,6 +303,9 @@ ActiveRecord::Schema.define(version: 2020_07_05_024051) do
   add_foreign_key "notifications", "users"
   add_foreign_key "replies", "event_ids"
   add_foreign_key "replies", "user_ids"
+  add_foreign_key "reply_comments", "comments"
+  add_foreign_key "reply_comments", "events"
+  add_foreign_key "reply_comments", "users"
   add_foreign_key "reports", "events"
   add_foreign_key "reports", "users"
   add_foreign_key "sent_messages", "users"
