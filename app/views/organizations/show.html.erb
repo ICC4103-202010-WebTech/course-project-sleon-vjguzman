@@ -33,7 +33,7 @@
 <br/>
 
 <h2 class="organizationh2-1"> Events of the Organization </h2>
-<% @events_show.each do |x| %>
+<% Event.where(organization_id: Organization.where(id: @get_id).select(:id).first.id).each do |x| %>
   <div class="divorganization">
     <% unless x.banner_picture.attached? == true%>
       <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
@@ -44,6 +44,8 @@
     <h4 class="organizationh4-1p"><%= x.title %></h4>
     <h4 class="organizationh4-1"><%= x.location %></h4>
     <h4 class="organizationh4-1"><%= x.final_date %></h4>
+    <br/>
+    <br/>
     <button class="botonorganizacion"><%= link_to 'View', event_path(x) %></button>
   </div>
 <% end %>
