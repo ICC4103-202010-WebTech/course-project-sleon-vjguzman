@@ -1,10 +1,10 @@
 
 .User {
-    margin-left: 12cm;
+    margin-left: 8cm;
 }
 .Userp {
-    margin-left: 12cm;
-    margin-top: -5cm;
+    margin-left: 8cm;
+    margin-top: -4.3cm;
 }
 .User-11 {
     margin-left: 1cm;
@@ -141,4 +141,34 @@ h2 {
     font-style: italic;
     background-color: white;
     margin-bottom: 1cm;
+}
+
+.form-comment{
+    width: 800px;
+    height: 80px;
+}
+
+.h2comment {
+    margin-left: 8cm;
+}
+
+.btn-comment {
+    margin-left: 8cm;
+    background-color: white;
+    padding: 10px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    width: 17%;
+}
+
+.btn-comment a{
+    text-decoration: none;
+    color: black;
+}
+
+.buttondel{
+    float: right;
+    margin-right: 1cm;
+    margin-top: -3cm;
 }

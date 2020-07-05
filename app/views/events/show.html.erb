@@ -7,16 +7,15 @@
   <button class="button1-ev" align="center"><%= link_to "See Creator's Profile", user_path(EventCreator.where(event_id: @get_id).select(:user_id).first.user_id) %></button>
   <button class="button1-ev" align="center"><%= link_to 'Report Event', new_report_path %></button>
   <button class="button1-ev"><%= link_to 'Videos/Images/Files', multimedium_path(Event.where(id: @get_id).select(:id).first.id)%></button>
-
 </div>
 
 <br/>
 <div class="eventpagediv">
   <% unless Event.where(id: @get_id).select(:banner_picture).first.banner_picture.attached? == true%>
-    <span class="imageleft"><%= link_to image_tag("xd.jpeg") %></span>
+    <span class="imageleft"><%= link_to image_tag("xd.jpeg", wide: "800",height: "200") %></span>
   <% end %>
   <% unless Event.where(id: @get_id).select(:banner_picture).first.banner_picture.attached?  == false%>
-    <span class="imageleft"><%= link_to image_tag(url_for(Event.where(id: @get_id).select(:banner_picture).first.banner_picture)) %></span>
+    <span class="imageleft"><%= link_to image_tag(url_for(Event.where(id: @get_id).select(:banner_picture).first.banner_picture),wide: "400",height: "400") %></span>
   <% end %>
   <h4 class="eventpageh4p">Description: <%= Event.where(id: @get_id).select(:description).first.description %></h4>
   <h4 class="eventpageh4">Date: <%= Event.where(id: @get_id).select(:final_date).first.final_date %></h4>
@@ -27,30 +26,33 @@
 <br/>
 <br/>
 <br/>
+
 <%= stylesheet_link_tag 'event-comments'%>
 <h2><%= Event.select(:title).where(id: @get_id).first.title%> Comments:</h2>
-<aside class="aside-comment">
-  <%unless GuestList.where(event_id: @get_id).where(user_id: current_user.id) == nil or EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil  %>
-    <button class="btn11 success-1" ><%= link_to 'New Comment', new_comment_path %></button>
-  <%end %>
-</aside>
-<tbody>
+
 <% Comment.where(event_id: @get_id).each do |comment| %>
-  <div>
+  <div >
     <br/>
     <% unless User.select(:username).where(id: comment.user_id).first.profile_picture.attached? == true%>
-      <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '250px') %></span>
+      <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '200px') %></span>
     <% end %>
     <% unless User.select(:username).where(id: comment.user_id).first.profile_picture.attached?  == false%>
-      <span class="imageleft"><%= link_to image_tag(url_for(User.select(:username).where(id: comment.user_id).first.profile_picture), width: '250px') %></span>
+      <span class="imageleft"><%= link_to image_tag(url_for(User.select(:username).where(id: comment.user_id).first.profile_picture), width: '200px') %></span>
     <% end %>
+    <br/>
+    <br/>
+    <br/>
     <h3 class="Userp"><%= User.select(:username).where(id: comment.user_id).first.username%>:</h3>
     <h4 class="User"><%= comment.message %></h4>
     <% unless admin_signed_in? == false  %>
-    <button class="btn1-1 danger"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+      <aside class="buttondel">
+        <button class="btn1-1 danger"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+      </aside>
     <%end %>
     <% unless EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil or  Comment.where(user_id: current_user.id) == nil%>
-      <button class="btn1-1 danger"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+      <aside class="buttondel">
+        <button class="btn1-1 danger"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+      </aside>
     <%end %>
     <br/>
     <br/>
@@ -59,8 +61,17 @@
     <br/>
   </div>
 <% end %>
-</tbody>
-</table>
+<div>
+  <%unless GuestList.where(event_id: @get_id).where(user_id: current_user.id) == nil or EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil  %>
+    <%= form_for :comment, :url => {:controller => "comments", :action => "create"} do |c|%>
+      <h2 class="h2comment"> New Comment</h2>
+      <%= c.number_field :user_id, value: current_user.id, type:'hidden' %>
+      <%= c.number_field :event_id, value: Event.where(id: @get_id).select(:id).first.id, type:'hidden' %>
+        <%= c.text_area :message, class: "form-comment" %>
+      <%= c.submit "Create" , class: ["btn-comment"]%>
+    <%end %>
+  <%end %>
+</div>
 
 <br/>
 
