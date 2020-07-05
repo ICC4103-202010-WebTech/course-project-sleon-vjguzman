@@ -4,40 +4,63 @@
 </div>
 
 <div class="div-2">
-  <%= form_with model: @user, local: true do |form| %>
+  <%= form_with model: @user, local: true do |f| %>
+
     <div class="div-edit">
-      <%= form.label :full_name %>
-      <br/>
-      <%= form.text_area :full_name, class: "form-control" %>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control"%>
     </div>
+
     <div class="div-edit">
-      <%= form.label :username %>
-      <br/>
-      <%= form.text_area :username, class: "form-control" %>
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     </div>
+
     <div class="div-edit">
-      <%= form.label :email %>
-      <br/>
-      <%= form.text_area :email, class: "form-control" %>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
     </div>
+
     <div class="div-edit">
-      <%= form.label :short_bio %>
-      <br/>
-      <%= form.text_area :short_bio, class: "form-control" %>
+      <%= f.label :username %><br />
+      <%= f.text_field :username, autocomplete: "username", class: "form-control" %>
     </div>
+
     <div class="div-edit">
-      <%= form.label :location %>
-      <br/>
-      <%= form.text_area :location, class: "form-control" %>
+      <%= f.label :profile_picture %><br />
+      <%= f.file_field :profile_picture, class: " form-control" %>
     </div>
+
+
     <div class="div-edit">
-      <%= form.label :profile_picture %>
-      <br/>
-      <%= form.file_field :profile_picture, class: "form-control" %>
+      <%= f.label :username %><br />
+      <%= f.text_field :username, autocomplete: "username" , class: "form-control"%>
     </div>
+
+
     <div class="div-edit">
-      <%= form.submit "Create", class: ["btn"] %>
+      <%= f.label :full_name %><br />
+      <%= f.text_field :full_name, autocomplete: "full_name" , class: "form-control"%>
+    </div>
+
+
+    <div class="div-edit">
+      <%= f.label :location %><br />
+      <%= f.text_field :location, autocomplete: "location", class: "form-control" %>
+    </div>
+
+
+    <div class="div-edit">
+      <%= f.label :short_bio %><br />
+      <%= f.text_field :short_bio, autocomplete: "short_bio" , class: "form-control"%>
+    </div>
+
+
+    <div class="div-edit">
+      <%= f.submit "Create User", class: [ "btn", "btn-primary"] %>
     </div>
   <% end %>
 </div>
-
