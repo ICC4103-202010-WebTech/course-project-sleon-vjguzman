@@ -7,6 +7,7 @@
     <h5 class="apph5"><%= link_to "Sign In", user_session_path %></h5>
     <h5 class="apph5"><%= link_to "Sign Up", "/users/sign_up" %></h5>
   <% end %>
+  <%unless user_signed_in? == false %>
   <%unless current_user.admin  == true %>
     <h5 class="apph5">Welcome, <%= current_user.full_name %></h5>
   <h5 class="apph5"><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></h5>
@@ -14,6 +15,7 @@
   <%unless current_user.admin == false %>
     <h5 class="apph5">Welcome Admin</h5>
     <h5 class="apph5"><%= link_to "Log Out", destroy_admin_session_path, :method => :delete %></h5>
+  <%end %>
   <%end %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
