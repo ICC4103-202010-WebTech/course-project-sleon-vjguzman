@@ -172,3 +172,44 @@ h2 {
     margin-right: 1cm;
     margin-top: -3cm;
 }
+
+.reply {
+    background-color: lightgrey;
+    width: auto;
+}
+
+.comment {
+    width: 1000px;
+}
+
+.h2reply{
+    margin-left: -3.2cm;
+    text-align: left;
+}
+
+.form-reply {
+    width: 500px;
+    height: 30px;
+    margin-left: -3.2cm;
+}
+
+.btn-reply {
+    margin-left: 13cm;
+    background-color: white;
+    padding: 10px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    width: 20%;
+}
+
+.btn-reply a{
+    text-decoration: none;
+    color: black;
+}
+
+.replys {
+    width: auto;
+    background-color: #DADADA;
+    margin-left: 0.1cm;
+}
