@@ -20,7 +20,7 @@
       <% unless User.where(id: x.user_id).select(:profile_picture).first.profile_picture.attached?  == false%>
         <span class="imageleft"><%= link_to image_tag(url_for(User.where(id: x.user_id).select(:profile_picture).first.profile_picture), width: '300px') %></span>
       <% end %>
-      <h3 class="Userp"><%= User.where(id: x.user_id).select(:username).first.username %></h3>
+      <h3 class="Userpp"><%= User.where(id: x.user_id).select(:username).first.username %></h3>
       <% unless current_user.id == x.user_id  %>
       <button class="btn1-1 danger2"><%= link_to 'Remove', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
         <% else %>

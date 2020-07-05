@@ -2,7 +2,7 @@
 <br/>
 <h1 class="dates"> >> Dates for the Guest to Vote << </h1>
 <br/>
-<% Event.where(id: EventCreator.where(user_id: current_user.id)).each do |x| %>
+<% Event.where(id: EventCreator.where(user_id: current_user.id).select(:event_id)).each do |x| %>
   <h1 class="dates1">Dates to Vote of the "<%= x.title %>" Event:</h1>
   <div class="datesbotones">
     <button class="btndate1 "><%= link_to 'New Date', new_event_date_path %></button>
@@ -12,6 +12,7 @@
   </div>
   <br/>
   <% EventDate.where(event_id: x.id).each do |x| %>
+    <%if x.date != "1000-01-01 00:00:00" %>
     <div class="divdate">
       <h4 class="h4date">Date: <%= x.date %></h4>
       <br/>
@@ -20,5 +21,6 @@
     </div>
     <br/>
     <br/>
+    <% end %>
   <% end %>
 <% end %>
