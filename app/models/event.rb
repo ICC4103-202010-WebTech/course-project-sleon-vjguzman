@@ -1,6 +1,4 @@
 class Event < ApplicationRecord
-  has_one :choice_of_date_id
-  has_one :privacy_id
   validates :choice_of_date_id, presence:true
   validates :privacy_id, presence:true
   has_one_attached :banner_picture

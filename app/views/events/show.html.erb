@@ -29,7 +29,7 @@
   <h4 class="eventpageh4p">Description: <%= Event.where(id: @get_id).select(:description).first.description %></h4>
   <h4 class="eventpageh4">Date: <%= Event.where(id: @get_id).select(:final_date).first.final_date %></h4>
   <h4 class="eventpageh4">Location: <%=Event.where(id: @get_id).select(:location).first.location %></h4>
-  <h4 class="eventpageh4">Create By: <%= @user.first.full_name %></h4>
+  <h4 class="eventpageh4">Create By: <%=User.where(id: EventCreator.where(event_id: @get_id).select(:user_id)).first.full_name %></h4>
 </div>
 
 <br/>
@@ -51,12 +51,13 @@
     <br/>
     <br/>
     <br/>
-    <h3 class="Userp"><%= User.select(:username).where(id: comment.user_id).first.username%> at <%= comment.created_at %> :</h3>
+    <h3 class="Userp"><%= User.select(:username).where(id: comment.user_id).first.username%> :</h3>
     <h4 class="User"><%= comment.message %></h4>
 
 
-    <% if EventCreator.where(event_id: @get_id).where(user_id: current_user.id).present? == true or  Comment.where(user_id: comment.user_id).select(:user_id).first.user_id == current_user.id or current_user.admin == true%>
+    <% if User.where(id: EventCreator.where(event_id: @get_id).select(:user_id)).first.id == current_user.id or  Comment.where(user_id: comment.user_id).select(:user_id).first.user_id == current_user.id or current_user.admin == true%>
       <aside class="buttondel">
+        <button class=" danger22"><%= link_to 'Edit', edit_comment_path(comment) %></button>
         <button class=" danger22"><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></button>
         <button class=" danger22"><%= link_to 'Report ', new_report_path %></button>
       </aside>
@@ -68,10 +69,11 @@
     <br/>
     <br/>
     <div class="replys">
-      <h3 class="reply-p3"><%= User.select(:username).where(id: x.user_id).first.username%> at <%=x.created_at %> :</h3>
+      <h3 class="reply-p3"><%= User.select(:username).where(id: x.user_id).first.username%>:</h3>
       <h4 class="reply-p4"><%= x.message %></h4>
-      <% if EventCreator.where(event_id: @get_id).where(user_id: current_user.id).present? == true or  ReplyComment.where(user_id: x.user_id).select(:user_id).first.user_id == current_user.id or current_user.admin == true%>
+      <% if User.where(id: EventCreator.where(event_id: @get_id).select(:user_id)).first.id == current_user.id or  ReplyComment.where(user_id: x.user_id).select(:user_id).first.user_id == current_user.id or current_user.admin == true%>
         <aside class="buttondel">
+          <button class=" danger22"><%= link_to 'Edit', edit_reply_comment_path(x) %></button>
           <button class=" danger22"><%= link_to 'Delete', x, method: :delete, data: { confirm: 'Are you sure?' } %></button>
           <button class=" danger22"><%= link_to 'Report ', new_report_path %></button>
         </aside>
@@ -80,7 +82,7 @@
     </div>
     <%end %>
     <div class="reply" id="reply" style.display = "block">
-      <%unless GuestList.where(event_id: @get_id).where(user_id: current_user.id) == nil or EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil  %>
+      <%if GuestList.where(event_id: @get_id).where(user_id: current_user.id).present? or EventCreator.where(event_id: @get_id).where(user_id: current_user.id).present?  %>
         <%= form_for :reply_comment, :url => {:controller => "reply_comments", :action => "create"} do |r|%>
           <h2 class="h2reply"> Reply the comment </h2>
           <%= r.number_field :user_id, value: current_user.id, type:'hidden' %>
@@ -98,7 +100,7 @@
 
 
 <div>
-  <%unless GuestList.where(event_id: @get_id).where(user_id: current_user.id) == nil or EventCreator.where(event_id: @get_id).where(user_id: current_user.id) == nil  %>
+  <%if GuestList.where(event_id: @get_id).where(user_id: current_user.id).present? or EventCreator.where(event_id: @get_id).where(user_id: current_user.id).present? %>
     <%= form_for :comment, :url => {:controller => "comments", :action => "create"} do |c|%>
       <h2 class="h2comment"> New Comment</h2>
       <%= c.number_field :user_id, value: current_user.id, type:'hidden' %>

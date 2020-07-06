@@ -13,20 +13,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
-  has_many :notifications, dependent: :destroy
-  has_one :user_administrations, dependent: :destroy
-  has_many :event_creators, dependent: :destroy
   has_many :events
-  has_many :reports, dependent: :destroy
-  has_many :members_lists, dependent: :destroy
   has_many :organizations, :through => :Members_Lists
-  has_many :mail_boxes, dependent: :destroy
-  has_many :sent_messages, dependent: :destroy
-  has_many :user_invitations, dependent: :destroy
-  has_many :comments, dependent: :destroy
-  has_many :guest_lists, dependent: :destroy
-  has_one :system_admin, dependent: :destroy
-  has_many :messages, dependent: :destroy
   validates :email, uniqueness: true, email: true
   validates :username,uniqueness: true
   has_one_attached :profile_picture

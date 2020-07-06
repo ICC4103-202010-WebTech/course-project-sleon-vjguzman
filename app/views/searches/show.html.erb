@@ -61,7 +61,9 @@
 <% unless @search.events_title == nil%>
   <div class="div-search">
     <% @search.events_title.each do |event| %>
+      <%  if event.privacy_id == 1 %>
       <h4 class="searchh4"><%=link_to event.title, event_path(event)%></h4>
+    <%end%>
     <%end%>
   </div>
 <%end %>

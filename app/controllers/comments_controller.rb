@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
     @event = Comment.where(id: @comment.id).select(:event_id)
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_back(fallback_location: root_path, notice: 'Comment was successfully updated.')}
+        format.html { redirect_to root_path, notice: 'Comment was successfully updated.'}
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }

@@ -2,6 +2,7 @@
 <h2 class="homeh2">Upcoming Events</h2>
 <%= stylesheet_link_tag 'homepage'%>
 <% @upcoming_events.each do |x| %>
+  <%  if x.privacy_id == 1 %>
 <div class="homediv">
   <% unless x.banner_picture.attached? == true%>
     <span class="imageleft"><%= link_to image_tag("xd.jpeg", width: '300px') %></span>
@@ -13,7 +14,12 @@
   <h5 class="homeh5"><%= x.description %></h5>
   <h5 class="homeh5"><%= x.final_date %></h5>
   <h5 class="homeh5"><%= x.location %></h5>
+  <br/>
+  <br/>
+  <%unless user_signed_in? == false %>
   <button class="buttonhome"><%= link_to 'View', event_path(x) %></button>
-</div>
+  <%end %>
 
+</div>
+    <%end %>
 <%end %>

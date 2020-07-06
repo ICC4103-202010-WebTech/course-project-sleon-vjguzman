@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1 class="h2profile2">Admin Manages</h1>
 <h2 class="h2profile2">  Manage Users: </h2>
+
 <% @todos_usuarios.each do |x| %>
   <div class="divprofile">
     <% unless x.profile_picture.attached? == true%>

@@ -17,12 +17,12 @@
           <%= form.submit "Vote", class: ["btn"] %>
         </div>
       <% end  %>
-      <%else %>
+      <%if Vote.where(guest_list_id: x.id).select(:guest_list_id).present? == true %>
         <h3>Event: <%=  Event.where(id: x.event_id).select(:title).first.title %> </h3>
         <h3> You already vote for this event! </h3>
         <h3>Your Vote: <%= EventDate.where(id: Vote.where(guest_list_id: x.id).select(:event_dates_id).first.event_dates_id).select(:date).first.date%></h3>
       <%end %>
   <% end  %>
-
+  <%end %>
 
 </div>

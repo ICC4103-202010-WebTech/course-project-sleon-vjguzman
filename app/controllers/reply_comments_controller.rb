@@ -41,7 +41,7 @@ class ReplyCommentsController < ApplicationController
   def update
     respond_to do |format|
       if @reply_comment.update(reply_comment_params)
-        format.html { redirect_to @reply_comment, notice: 'Reply comment was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Reply comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @reply_comment }
       else
         format.html { render :edit }
