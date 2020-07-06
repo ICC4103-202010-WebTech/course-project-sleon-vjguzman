@@ -7,7 +7,9 @@
   <button class="botonasideprofile"> <%= link_to 'Edit Profile', edit_user_path(User.where(id: @get_id).select(:id).first.id) %></button>
   <%end %>
   <button class="botonasideprofile"> <%= link_to 'See Details', system_admin_url(User.where(id: @get_id).select(:id).first.id) %></button>
+  <% if User.where(id: @get_id).select(:id).first.id != current_user.id %>
   <button class="botonasideprofile"> <%= link_to 'Report', new_report_path %></button>
+  <%end %>
 </aside>
 
 <% unless User.where(id: @get_id).select(:profile_picture).first.profile_picture.attached? == true%>

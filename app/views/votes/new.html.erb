@@ -2,11 +2,12 @@
   <h2 class="edith2">Vote for your preferred date of an event</h2>
 </div>
 
-<div class="div-2">
+
   <% GuestList.where(user_id: current_user.id).each do |x| %>
-    <%if Vote.where(guest_list_id: x.id).select(:guest_list_id).present? == false and EventCreator.where(user_id: current_user.id).where(event_id: x.event_id).present? == false %>
       <%= form_with model: @vote, local: true do |form| %>
-        <h1><%=  Event.where(id: x.event_id).select(:title).first.title %> </h1>
+      <%if Vote.where(guest_list_id: x.id).select(:guest_list_id).present? == false and EventCreator.where(user_id: current_user.id).where(event_id: x.event_id).present? == false %>
+      <div class="div-2">
+      <h1><%=  Event.where(id: x.event_id).select(:title).first.title %> </h1>
         <div class="div-edit">
           <%= form.label :event_dates_id %>
           <br/>
@@ -16,13 +17,15 @@
         <div class="actions">
           <%= form.submit "Vote", class: ["btn"] %>
         </div>
+      </div>
       <% end  %>
       <%if Vote.where(guest_list_id: x.id).select(:guest_list_id).present? == true %>
-        <h3>Event: <%=  Event.where(id: x.event_id).select(:title).first.title %> </h3>
+      <div class="div-2">
+        <h1>Event: <%=  Event.where(id: x.event_id).select(:title).first.title %> </h1>
         <h3> You already vote for this event! </h3>
         <h3>Your Vote: <%= EventDate.where(id: Vote.where(guest_list_id: x.id).select(:event_dates_id).first.event_dates_id).select(:date).first.date%></h3>
+      </div>>
       <%end %>
   <% end  %>
   <%end %>
 
-</div>

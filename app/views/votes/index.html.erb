@@ -54,9 +54,11 @@
     <div class="divprofile">
       <h3>Current Votes:</h3>
       <% EventDate.where(event_id: x.id).each do |z| %>
+        <% if z.date != "1000-01-01 00:00:00" %>
         <h3 class="votes">→ Date: <%=  z.date  %></h3>
         <h3 class="votes">«» Votes: <%=  Vote.where(event_dates_id: z.id).count  %></h3>
       <% end %>
+        <% end %>
     </div>
   <% end %>
 
